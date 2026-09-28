@@ -24,19 +24,19 @@ module.exports = [
         ],
         offerings: [
             {
-                title: "KPI dashboards",
+                title: "KPI Dashboards",
                 text: "Live dashboards for sales, operations, marketing or finance, built around the handful of numbers that matter to you.",
             },
             {
-                title: "Data consolidation",
+                title: "Data Consolidation",
                 text: "Connect and combine data from tools like QuickBooks, Square, Shopify, HubSpot and Google Sheets into one reliable source.",
             },
             {
-                title: "Automated reports",
+                title: "Automated Reports",
                 text: "Weekly or monthly reports that build and send themselves, so nobody spends Friday afternoon in Excel.",
             },
             {
-                title: "One-time deep dives",
+                title: "One-Time Deep Dives",
                 text: "A focused analysis to answer a specific question: pricing, profitability by customer, staffing levels, marketing ROI.",
             },
         ],
@@ -63,19 +63,19 @@ module.exports = [
         ],
         offerings: [
             {
-                title: "Demand & sales forecasting",
+                title: "Sales Forecasting & Inventory Planning",
                 text: "Forecast sales, inventory needs or call volume so you can plan purchasing and staffing ahead of time.",
             },
             {
-                title: "Customer insights",
+                title: "Customer Insights",
                 text: "Segment customers, estimate lifetime value and flag customers likely to churn so you can act early.",
             },
             {
-                title: "Pricing & experiment analysis",
+                title: "Pricing & Experiment Analysis",
                 text: "Measure what actually moved the needle - a promotion, a price change, a new marketing channel.",
             },
             {
-                title: "Custom models",
+                title: "Custom Models",
                 text: "Purpose-built predictive models, delivered with clear documentation and handed off in a way you can keep running.",
             },
         ],
@@ -102,19 +102,19 @@ module.exports = [
         ],
         offerings: [
             {
-                title: "AI assistants & chatbots",
+                title: "AI Assistants & Data Retrieval Tools",
                 text: "Assistants that answer questions using your own policies, product info or knowledge base - on your website or internally.",
             },
             {
-                title: "Document processing",
+                title: "Document Processing",
                 text: "Automatically extract information from invoices, forms, contracts and emails into your systems.",
             },
             {
-                title: "AI strategy & readiness",
+                title: "AI Strategy & Readiness",
                 text: "A practical assessment of where AI will (and won't) pay off for your business, plus guidelines for using it safely.",
             },
             {
-                title: "Team training",
+                title: "Team Training",
                 text: "Hands-on workshops that show your staff how to use AI tools effectively in their day-to-day work.",
             },
         ],
@@ -137,23 +137,23 @@ module.exports = [
             "The same information gets typed into multiple systems",
             "Things fall through the cracks when someone is out",
             "Manual processes cause errors that are hard to track down",
-            "Your business has grown but your processes haven't",
+            "Now that your business has grown, your processes can't keep up",
         ],
         offerings: [
             {
-                title: "App integrations",
+                title: "App Integrations",
                 text: "Connect your CRM, accounting, scheduling, e-commerce and email tools so data moves between them automatically.",
             },
             {
-                title: "Process automation",
+                title: "Process Automation",
                 text: "Automate onboarding, quoting, invoicing, follow-ups and approvals from start to finish.",
             },
             {
-                title: "Data pipelines",
+                title: "Data Pipelines",
                 text: "Scheduled jobs that collect, clean and load data so reports and dashboards are always up to date.",
             },
             {
-                title: "Process review",
+                title: "Process Review",
                 text: "A walkthrough of how work gets done today, with a prioritized list of what's worth automating first.",
             },
         ],
@@ -180,11 +180,11 @@ module.exports = [
         ],
         offerings: [
             {
-                title: "Internal tools",
+                title: "Internal Tools",
                 text: "Replace spreadsheets and paper forms with purpose-built tools for scheduling, tracking, quoting and more.",
             },
             {
-                title: "Web applications & portals",
+                title: "Web Applications & Portals",
                 text: "Customer portals, booking systems and web apps that are secure, fast and easy to use.",
             },
             {
@@ -192,7 +192,7 @@ module.exports = [
                 text: "Custom connections between systems when an off-the-shelf integration doesn't exist or isn't enough.",
             },
             {
-                title: "Model & data apps",
+                title: "Model & Data Applications",
                 text: "Simple interfaces that put forecasts, models and data in the hands of the people who need them.",
             },
         ],

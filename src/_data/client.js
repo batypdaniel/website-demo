@@ -11,24 +11,24 @@ module.exports = {
     tagline: "Data, AI & software for local small businesses",
     // TODO: your name + title, used on the About page and as the default blog author
     founder: {
-        name: "Your Name",
+        name: "Baty Daniel",
         title: "Founder & Principal Consultant",
     },
-    email: "hello@example.com", // TODO
-    phoneForTel: "555-555-0100", // TODO
-    phoneFormatted: "(555) 555-0100", // TODO
+    email: "batypdaniel@gmail.com", // TODO
+    phoneForTel: "901-378-4278", // TODO
+    phoneFormatted: "(901) 378-4278", // TODO
     address: {
         // Leave lineOne/lineTwo empty ("") if you work from home and don't want to publish a street address
         lineOne: "",
         lineTwo: "",
-        city: "Your City", // TODO
-        state: "ST", // TODO
+        city: "Memphis",
+        state: "TN",
         zip: "",
         country: "US",
         mapLink: "",
     },
     // TODO: towns/neighborhoods you serve - shown on the home and contact pages
-    serviceArea: ["Your City", "Nearby Town", "Another Town", "and the surrounding area"],
+    serviceArea: ["Memphis", "Germantown", "Collierville", "Cordova", "Bartlett", "Southaven", "Olive Branch", "Jackson, TN"],
     // Remove any line you don't use and its icon disappears from the footer
     socials: {
         linkedin: "https://www.linkedin.com/",

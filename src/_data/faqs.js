@@ -7,11 +7,11 @@ module.exports = [
     },
     {
         q: "My business is small. Is this worth it for us?",
-        a: "Often, yes - small teams feel the cost of manual work the most. We start with a focused project that has a clear payoff (like hours saved per week or a report you no longer build by hand) rather than a large, open-ended engagement.",
+        a: "Often, yes.  Small teams are often the most stretched thin and the most likely to benefit from automating repetitive tasks.  We focus on value-driven solutions, and we define the scope of work, pricing, and expected value before you commit to working with us.  Even if you're just curious, we would be happy to talk through your options during an introductory consultation call.",
     },
     {
         q: "How do you price projects?",
-        a: "Most work is quoted as a fixed price for a clearly defined scope, so you know the cost up front. Ongoing support and \"fractional data team\" help is available on a monthly basis. The first consultation is always free.",
+        a: "Most work is quoted as a fixed price for a clearly defined scope, so you know the cost up front. The first consultation is always free.",
     },
     {
         q: "Who owns what you build?",
@@ -19,10 +19,10 @@ module.exports = [
     },
     {
         q: "How do you handle our data and privacy?",
-        a: "We only access what a project needs, work inside your own accounts wherever possible, and are happy to sign an NDA. For AI projects we'll explain exactly where your data goes and recommend options that keep sensitive information private.",
+        a: "We only access what a project needs, work within your existing systems wherever possible, and are happy to sign an NDA when appropriate. For AI projects we'll explain exactly where your data goes and recommend options that keep sensitive information private.",
     },
     {
         q: "Do you work on-site?",
-        a: "Yes. As a local business we're happy to meet in person - especially for kickoff meetings, process walkthroughs and training - and handle the rest remotely.",
+        a: "Yes. As a local business we're happy to meet in person, especially for meetings, process walkthroughs and training.  We'll handle the bulk of the technical work remotely.",
     },
 ];
