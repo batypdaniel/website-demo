@@ -1,0 +1,28 @@
+<!-- ============================================ -->
+<!--                Services Grid                 -->
+<!-- ============================================ -->
+
+<!-- Cards are generated from src/_data/services.js -->
+<section id="services-grid">
+    <div class="cs-container">
+        <div class="cs-section-header">
+            <span class="cs-topper">What We Do</span>
+            <h2 class="cs-title">{{ servicesTitle or "Services built for small and mid-sized businesses" }}</h2>
+            <p class="cs-text">
+                From your first dashboard to a fully automated workflow, we help you get more out of the data and tools you already have.
+            </p>
+        </div>
+        <ul class="cs-card-group">
+            {%- for service in services %}
+            <li class="cs-item">
+                <a class="cs-link" href="/services/{{ service.slug }}/">
+                    <span class="cs-icon">{% include "icons/" + service.icon + ".svg" %}</span>
+                    <h3 class="cs-h3">{{ service.name }}</h3>
+                    <p class="cs-item-text">{{ service.summary }}</p>
+                    <span class="cs-arrow-link">Learn more {% include "icons/arrow.svg" %}</span>
+                </a>
+            </li>
+            {%- endfor %}
+        </ul>
+    </div>
+</section>

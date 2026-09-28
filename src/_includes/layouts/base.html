@@ -16,8 +16,8 @@
         <meta property="og:description" content="{{ description }}"/>
         <meta property="og:type" content="website"/>
         <meta property="og:url" content="{{ client.domain }}{{ page.url }}"/>
-        <meta property="og:image" content="{{ image or "/assets/images/logo-small.png" }}"/>
-        <meta property="og:image:secure_url" content="{{ image or "/assets/images/logo-small.png" }}"/>
+        <meta property="og:image" content="{{ client.domain }}{{ image or "/assets/images/og-default.jpg" }}"/>
+        <meta property="og:image:secure_url" content="{{ client.domain }}{{ image or "/assets/images/og-default.jpg" }}"/>
 
         <!--Favicons-->
         <!-- https://realfavicongenerator.net/ -->
@@ -25,11 +25,10 @@
         <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg"/>
         <link rel="shortcut icon" href="/assets/favicons/favicon.ico"/>
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png"/>
-        <meta name="apple-mobile-web-app-title" content="Starter Kit"/>
+        <meta name="apple-mobile-web-app-title" content="{{ client.name }}"/>
         <link rel="manifest" href="/assets/favicons/site.webmanifest"/>
 
         <!-- Preloads -->
-        <link rel="preload" as="image" href="/assets/svgs/logo-black.svg">
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
         <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
 

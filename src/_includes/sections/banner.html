@@ -1,0 +1,24 @@
+<!-- ============================================ -->
+<!--                   Banner                     -->
+<!-- ============================================ -->
+
+<!--
+    Interior page banner. Set these before including:
+    {% raw %}{% set bannerTitle = "Page Title" %}
+    {% set bannerText = "Optional sub-heading" %}
+    {% set crumbs = [{ name: "Services", url: "/services/" }] %}  (Home is added automatically; the current page is added last){% endraw %}
+-->
+<div id="banner-310">
+    <div class="cs-container">
+        <h1 class="cs-int-title">{{ bannerTitle }}</h1>
+        {% if bannerText %}<p class="cs-int-text">{{ bannerText }}</p>{% endif %}
+        <nav class="cs-breadcrumbs" aria-label="breadcrumbs">
+            <a href="/" class="cs-link">Home</a>
+            {%- for crumb in crumbs %}
+            <a href="{{ crumb.url }}" class="cs-link">{{ crumb.name }}</a>
+            {%- endfor %}
+            <a href="{{ page.url }}" class="cs-link cs-active" aria-current="page">{{ bannerCrumb or bannerTitle }}</a>
+        </nav>
+    </div>
+    <div class="cs-background" aria-hidden="true"></div>
+</div>

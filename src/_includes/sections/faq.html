@@ -1,0 +1,21 @@
+<!-- ============================================ -->
+<!--                     FAQ                      -->
+<!-- ============================================ -->
+
+<!-- Questions are generated from src/_data/faqs.js -->
+<section id="faq">
+    <div class="cs-container">
+        <div class="cs-section-header">
+            <span class="cs-topper">FAQ</span>
+            <h2 class="cs-title">Common questions</h2>
+        </div>
+        <div class="cs-faq-group">
+            {%- for faq in faqs %}
+            <details class="cs-faq-item">
+                <summary class="cs-question">{{ faq.q }}</summary>
+                <p class="cs-answer">{{ faq.a }}</p>
+            </details>
+            {%- endfor %}
+        </div>
+    </div>
+</section>

@@ -1,17 +1,14 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// PAGE STYLES
-// Interior pages have their own stylesheet for styles that only exist on
-// that page. Any styles shared between pages, including repeated sections,
-// should go into root.less
+// ABOUT STYLES
 // ─────────────────────────────────────────────────────────────────────────────
 
 /*-- -------------------------- -->
-<---       Side By Side         -->
+<---           Story            -->
 <--- -------------------------- -*/
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #RPsbs-313 {
+    #story {
         padding: var(--sectionPadding);
 
         .cs-container {
@@ -21,180 +18,238 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* 48px - 64px */
             gap: clamp(3rem, 6vw, 4rem);
         }
 
-        .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: left;
+        .cs-photo-wrapper {
+            position: relative;
             width: 100%;
-            max-width: (542/16rem);
+            max-width: (420/16rem);
+        }
+
+        .cs-photo {
+            width: 100%;
+            aspect-ratio: 5 / 6;
+            display: block;
+            object-fit: cover;
+            border-radius: (20/16rem);
+        }
+
+        .cs-photo-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--bodyTextColorWhite);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .cs-name-card {
+            position: absolute;
+            right: (-8/16rem);
+            bottom: (24/16rem);
             display: flex;
             flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
+            padding: (16/16rem) (20/16rem);
+            background-color: #fff;
+            border-radius: (12/16rem);
+            box-shadow: 0 20px 40px -16px rgba(11, 27, 51, 0.35);
+        }
+
+        .cs-name {
+            font-weight: 700;
+            font-size: (18/16rem);
+            color: var(--headerColor);
+        }
+
+        .cs-role {
+            font-size: (14/16rem);
+            color: var(--bodyTextColor);
+        }
+
+        .cs-content {
+            display: flex;
+            flex-direction: column;
             align-items: flex-start;
         }
 
         .cs-text {
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            line-height: 1.7em;
             margin-bottom: (16/16rem);
-            &:last-of-type {
-                margin-bottom: (32/16rem);
-            }
-        }
-
-        .cs-quote {
-            margin: 0 0 (32/16rem) 0;
-            /* 16px - 32px */
-            padding: clamp(1rem, 3vw, 2rem);
-            background-color: #f7f7f7;
-            border-radius: (16/16rem);
-            position: relative;
-        }
-
-        .cs-quote-text {
-            /* 14px - 16px */
-            font-size: clamp(0.875rem, 1.5vw, 1rem);
-            line-height: 1.5em;
-            margin: 0 0 (16/16rem);
-            color: #767676;
-            display: block;
-        }
-
-        .cs-name {
-            font-size: (16/16rem);
-            line-height: 1.2em;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin: 0 0 (4/16rem);
-            color: var(--headerColor);
-            display: block;
-        }
-
-        .cs-job {
-            font-size: (14/16rem);
-            line-height: 1.5em;
-            color: #767676;
-            display: block;
-        }
-
-        .cs-quote-icon {
-            /* 60px - 136px */
-            width: clamp(3.75rem, 10vw, 8.5rem);
-            height: auto;
-            position: absolute;
-            bottom: (0/16rem);
-            /* 16px - 32px */
-            right: clamp(1rem, 4vw, 2rem);
-        }
-
-        .cs-image-group {
-            /* scaling the font size with the view width */
-            font-size: ~"min(2.31vw, .7em)";
-            /* using ems so we can use font size to scale the whole section */
-            width: (631/16em);
-            height: (636/16em);
-            position: relative;
-        }
-
-        .cs-picture {
-            border-radius: (24/16em);
-            /* clips img tag corners */
-            overflow: hidden;
-            position: absolute;
-            display: block;
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* makes image act like a background image */
-                object-fit: cover;
-            }
-        }
-
-        .cs-picture1 {
-            width: (522/16em);
-            height: (581/16em);
-            left: 0;
-            top: 0;
-        }
-
-        .cs-picture2 {
-            width: (414/16em);
-            height: (400/16em);
-            background-color: #fff;
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 40px;
-            /* 6px - 12px */
-            border: clamp(0.375em, 1.5vw, 0.75em) solid #fff;
-            right: 0;
-            bottom: 0;
         }
     }
 }
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
-    #RPsbs-313 {
+    #story {
         .cs-container {
-            flex-flow: row;
+            flex-direction: row;
             justify-content: space-between;
-            gap: (52/16rem);
         }
 
-        .cs-image-group {
-            font-size: ~"min(1.2vw, 1em)";
-            flex: none;
+        .cs-photo-wrapper {
+            width: 38%;
         }
 
         .cs-content {
-            margin: 0;
+            width: 54%;
         }
+    }
+}
+
+/*-- -------------------------- -->
+<---        Background          -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0rem) {
+    #background {
+        padding: var(--sectionPadding);
+        background-color: var(--surface);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        .cs-card-group {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (20/16rem);
+        }
+
+        .cs-item {
+            padding: (28/16rem);
+            border-radius: (12/16rem);
+            background-color: #fff;
+        }
+
+        .cs-stat {
+            display: block;
+            margin-bottom: (8/16rem);
+            font-size: (26/16rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .cs-item-text {
+            line-height: 1.5em;
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+    }
+}
+
+@media only screen and (min-width: 48rem) {
+    #background .cs-card-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 64rem) {
+    #background .cs-card-group {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/*-- -------------------------- -->
+<---          Values            -->
+<--- -------------------------- -*/
+
+@media only screen and (min-width: 0rem) {
+    #values {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1280/16rem);
+            margin: auto;
+        }
+
+        .cs-value-group {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (32/16rem) (40/16rem);
+        }
+
+        .cs-value {
+            padding-top: (20/16rem);
+            border-top: 3px solid var(--primary);
+        }
+
+        .cs-h3 {
+            font-size: (20/16rem);
+            font-weight: 700;
+            margin: 0 0 (8/16rem);
+            color: var(--headerColor);
+        }
+
+        .cs-value-text {
+            line-height: 1.6em;
+            margin: 0;
+            color: var(--bodyTextColor);
+        }
+    }
+}
+
+@media only screen and (min-width: 48rem) {
+    #values .cs-value-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 64rem) {
+    #values .cs-value-group {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 /* Dark Mode */
 @media only screen and (min-width: 0rem) {
     body.dark-mode {
-        #RPsbs-313 {
-            .cs-image-group {
-                &:before,
-                &:after {
-                    background: var(--accent);
-                }
-            }
+        #background {
+            background-color: var(--medium);
 
-            .cs-picture2 {
+            .cs-item {
                 background-color: var(--dark);
-                /* 6px - 12px */
-                border: clamp(0.375em, 1.5vw, 0.75em) solid var(--dark);
             }
 
-            .cs-topper {
+            .cs-stat {
                 color: var(--primaryLight);
             }
+        }
 
+        #values .cs-value {
+            border-color: var(--primaryLight);
+        }
+
+        #story .cs-name-card {
+            background-color: var(--medium);
+        }
+
+        #story,
+        #background,
+        #values {
             .cs-title,
-            .cs-text,
             .cs-h3,
-            .cs-quote-text,
             .cs-name {
                 color: var(--bodyTextColorWhite);
             }
 
-            .cs-quote {
-                background-color: var(--accent);
-            }
-
-            .cs-job {
+            .cs-text,
+            .cs-item-text,
+            .cs-value-text,
+            .cs-role {
                 color: var(--bodyTextColorWhite);
-                opacity: 0.8;
-            }
-
-            .cs-quote-icon {
-                opacity: 0.2;
+                opacity: 0.85;
             }
         }
     }

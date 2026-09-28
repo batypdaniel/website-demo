@@ -1,0 +1,31 @@
+---
+description: "Thanks for getting in touch."
+eleventyComputed:
+  title: "Thank You | {{ client.name }}"
+permalink: "/thank-you/"
+eleventyExcludeFromCollections: true
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="/assets/css/contact.css">
+{% endblock %}
+
+{% block body %}
+
+    {% set bannerTitle = "Thanks - message received!" %}
+    {% set bannerText = "We'll be in touch within one business day. In the meantime, feel free to look around." %}
+    {% set bannerCrumb = "Thank You" %}
+    {% set crumbs = [] %}
+    {% include "sections/banner.html" %}
+
+    <section id="thanks">
+        <div class="cs-container">
+            <a href="/services/" class="cs-button-solid">Explore Our Services</a>
+            <a href="/blog/" class="cs-arrow-link">Read our latest insights {% include "icons/arrow.svg" %}</a>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,9 +1,11 @@
 <script type="application/ld+json">
     {
         "@context": "http://schema.org",
-        "@type": "LocalBusiness",
+        "@type": "ProfessionalService",
+        {% if client.tagline %}"description": "{{ client.tagline }}",{% endif %}
+        {% if client.serviceArea %}"areaServed": "{{ client.address.city }}, {{ client.address.state }}",{% endif %}
         "name": "{{ client.name }}",
-        {% if preloadImg %}"image": "{{ client.domain }}{{ preloadImg }}",{% endif %}
+        "image": "{{ client.domain }}/assets/images/og-default.jpg",
         {% if client.phoneFormatted %}"telephone": "{{ client.phoneFormatted }}",{% endif %}
         {% if client.email %}"email": "{{ client.email }}",{% endif %}
         {% if client.address %}

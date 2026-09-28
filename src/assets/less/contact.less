@@ -1,8 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// PAGE STYLES
-// Interior pages have their own stylesheet for styles that only exist on
-// that page. Any styles shared between pages, including repeated sections,
-// should go into root.less
+// CONTACT STYLES
+// Contact form + info sidebar, and the thank-you page
 // ─────────────────────────────────────────────────────────────────────────────
 
 /*-- -------------------------- -->
@@ -11,316 +9,217 @@
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #cs-contact-265 {
+    #contact {
         padding: var(--sectionPadding);
 
         .cs-container {
             width: 100%;
-            /* changes to 1280px at tablet */
-            max-width: (550/16rem);
+            max-width: (1280/16rem);
             margin: auto;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
+            gap: clamp(2.5rem, 6vw, 4rem);
         }
 
-        .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: left;
-            width: 100%;
-            margin: 0 0 (32/16rem) 0;
+        .cs-title {
+            /* 28px - 39px */
+            font-size: clamp(1.75rem, 3vw, 2.4375rem);
+            margin-bottom: (8/16rem);
+        }
+
+        .cs-text {
+            margin-bottom: (32/16rem);
+        }
+
+        #contact-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (20/16rem);
+        }
+
+        .cs-hidden {
+            display: none;
+        }
+
+        .cs-label {
             display: flex;
             flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: flex-start;
-        }
-
-        #cs-form-265 {
-            label {
-                font-size: (16/16rem);
-                line-height: 1.5em;
-                font-weight: 700;
-                /* 12px - 20px */
-                margin-bottom: clamp(0.75rem, 1.3em, 1.25rem);
-                color: var(--headerColor);
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .cs-label-message {
-                /* 32px - 48px */
-                margin-bottom: clamp(2rem, 6.3vw, 3rem);
-            }
-
-            input,
-            textarea {
-                font-size: (16/16rem);
-                width: 100%;
-                height: (64/16rem);
-                margin-top: (4/16rem);
-                padding-left: (20/16rem);
-                border: 1px solid #b4b2c7;
-                border-radius: (4/16rem);
-                /* prevents border & padding from affecting height */
-                box-sizing: border-box;
-                transition: border 0.3s;
-
-                &:hover {
-                    border: 1px solid var(--primary);
-                }
-            }
-
-            textarea {
-                font-family: inherit;
-                padding-top: (20/16rem);
-                min-height: (120/16rem);
-            }
-
-            .cs-button-solid {
-                width: 100%;
-            }
-        }
-
-        .cs-button-solid {
-            font-size: (16/16rem);
-            /* 46px - 56px */
-            line-height: clamp(2.875rem, 5.5vw, 3.5rem);
-            text-decoration: none;
+            gap: (8/16rem);
+            font-size: (14/16rem);
             font-weight: 700;
-            text-align: center;
-            margin: 0;
-            color: #fff;
-            min-width: (150/16rem);
-            padding: 0 (24/16rem);
-            background-color: var(--primary);
-            border-radius: (4/16rem);
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            /* prevents padding from adding to the width */
-            box-sizing: border-box;
+            color: var(--headerColor);
+        }
 
-            &:before {
-                content: "";
-                position: absolute;
-                height: 100%;
-                width: 0%;
-                background: #000;
-                opacity: 1;
-                top: 0;
-                left: 0;
-                z-index: -1;
-                border-radius: (4/16rem);
-                transition: width 0.3s;
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: (14/16rem) (16/16rem);
+            font-family: inherit;
+            font-size: (16/16rem);
+            font-weight: 400;
+            color: var(--headerColor);
+            background-color: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: (8/16rem);
+            transition: border-color 0.2s, box-shadow 0.2s;
+
+            &:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.2);
             }
 
-            &:hover {
-                &:before {
-                    width: 100%;
-                }
+            &::placeholder {
+                color: #94a3b8;
             }
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: (140/16rem);
         }
 
         .cs-submit {
-            width: 100%;
             border: none;
-            &:hover {
-                cursor: pointer;
-            }
+            cursor: pointer;
+            justify-self: start;
         }
 
-        .cs-right-section {
-            width: 100%;
-            height: (320/16rem);
-            /* 24px - 40px top & bottom */
-            /* 20px - 40px left & right */
-            padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
-            /* prevents padding and border from affecting height and width */
-            box-sizing: border-box;
-            border-radius: (4/16rem);
-            /* cuts off corners on img tag */
-            overflow: hidden;
+        .cs-info {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-            justify-content: flex-end;
-            position: relative;
+            gap: (20/16rem);
         }
 
-        .cs-header {
-            /* 16px - 20px */
-            font-size: clamp(1rem, 3vw, 1.25rem);
-            line-height: 1.2em;
+        .cs-info-block {
+            padding: clamp(1.5rem, 4vw, 2rem);
+            border-radius: (16/16rem);
+            background-color: var(--surface);
+        }
+
+        .cs-h3 {
+            font-size: (20/16rem);
             font-weight: 700;
-            margin-bottom: (8/16rem);
-            color: var(--bodyTextColorWhite);
-            display: block;
+            margin: 0 0 (20/16rem);
+            color: var(--headerColor);
         }
 
-        .cs-link {
-            /* 16px - 20px */
-            font-size: clamp(1rem, 3vw, 1.25rem);
-            line-height: 1.2em;
-            text-decoration: none;
-            margin-bottom: (20/16rem);
-            color: var(--bodyTextColorWhite);
-            display: block;
-            position: relative;
+        .cs-contact-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (16/16rem);
 
-            &:before {
-                /* Animated underline */
-                content: "";
-                width: 0%;
-                height: 2px;
-                /* current color of the parent */
-                background: currentColor;
-                opacity: 1;
-                position: absolute;
-                display: block;
-                bottom: (-2/16rem);
-                left: 0;
-                transition: width 0.3s;
+            li {
+                display: flex;
+                align-items: center;
+                gap: (12/16rem);
+                line-height: 1.5em;
+                color: var(--bodyTextColor);
             }
 
-            &:hover {
-                &:before {
-                    width: 100%;
+            a {
+                color: var(--headerColor);
+                font-weight: 700;
+                text-decoration: none;
+
+                &:hover {
+                    color: var(--primary);
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .cs-contact-icon {
+            width: (36/16rem);
+            height: (36/16rem);
+            flex: none;
+            padding: (8/16rem);
+            border-radius: (8/16rem);
+            color: var(--primary);
+            background-color: rgba(15, 118, 110, 0.1);
+
+            svg {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+
+        .cs-next-steps {
+            margin: 0;
+            padding-left: (20/16rem);
+            display: flex;
+            flex-direction: column;
+            gap: (12/16rem);
+
+            li {
+                line-height: 1.5em;
+                color: var(--bodyTextColor);
+
+                &::marker {
+                    font-weight: 700;
+                    color: var(--primary);
                 }
             }
 
-            &:last-of-type {
-                margin-bottom: 0;
-            }
-        }
-
-        .cs-block {
-            /* sends second address line to the bottom on its own line */
-            display: block;
-        }
-
-        .cs-bg-picture {
-            width: 100%;
-            height: 100%;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            transition: transform 0.6s;
-
-            &:before {
-                /* background color overlay */
-                content: "";
-                position: absolute;
-                display: block;
-                height: 100%;
-                width: 100%;
-                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
-
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                /* Makes img tag act as a background image */
-                object-fit: cover;
+            strong {
+                color: var(--headerColor);
             }
         }
     }
 }
 
-/* Tablet - 700px */
-@media only screen and (min-width: 43.75rem) {
-    #cs-contact-265 {
-        .cs-container {
-            max-width: (1280/16rem);
+/* Tablet - 600px */
+@media only screen and (min-width: 37.5rem) {
+    #contact {
+        #contact-form {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-        #cs-form-265 {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-
-            label {
-                width: 48%;
-            }
-
-            .cs-label-message {
-                width: 100%;
-            }
+        .cs-full,
+        .cs-submit {
+            grid-column: 1 / -1;
         }
     }
 }
 
-/* Small Desktop - 1024px */
+/* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
-    #cs-contact-265 {
+    #contact {
         .cs-container {
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
-            gap: (80/16rem);
         }
 
-        .cs-left-section {
-            max-width: (630/16rem);
+        .cs-form-wrapper {
+            width: 58%;
         }
 
-        #cs-form-265 {
-            label {
-                width: 100%;
-            }
-        }
-
-        .cs-right-section {
-            /* changes to 578px at 1300px wide */
-            height: (686/16rem);
-            width: 40vw;
-            max-width: (542/16rem);
-            /* prevents flexbox from squishing it */
-            flex: none;
-
-            &:hover {
-                .cs-bg-picture {
-                    transform: scale(1.1);
-                }
-            }
-        }
-
-        .cs-block {
-            /* goes back to inline so it stays "in line" with the rest of the text */
-            display: inline-block;
+        .cs-info {
+            width: 36%;
         }
     }
 }
 
-/* Small Desktop - 1300px */
-@media only screen and (min-width: 81.25rem) {
-    #cs-contact-265 {
-        #cs-form-265 {
-            column-gap: (0/16rem);
-            label {
-                width: 48%;
-                max-width: (305/16rem);
-            }
+/*-- -------------------------- -->
+<---         Thank You          -->
+<--- -------------------------- -*/
 
-            .cs-label-message {
-                max-width: 100%;
-            }
-        }
+@media only screen and (min-width: 0rem) {
+    #thanks {
+        padding: var(--sectionPadding);
 
-        .cs-right-section {
-            height: (578/16rem);
+        .cs-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: (24/16rem) (32/16rem);
         }
     }
 }
@@ -328,33 +227,37 @@
 /* Dark Mode */
 @media only screen and (min-width: 0rem) {
     body.dark-mode {
-        #cs-contact-265 {
-            .cs-text,
-            .cs-title {
+        #contact {
+            .cs-title,
+            .cs-h3,
+            .cs-label,
+            .cs-contact-list a,
+            .cs-next-steps strong {
                 color: var(--bodyTextColorWhite);
             }
 
-            #cs-form-265 {
-                label,
-                input,
-                textarea {
-                    background-color: transparent;
-                    color: var(--bodyTextColorWhite);
-
-                    &::placeholder {
-                        /* lighten up the color of the text by 40%*/
-                        filter: brightness(1.4);
-                    }
-                }
+            .cs-text,
+            .cs-contact-list li,
+            .cs-next-steps li {
+                color: var(--bodyTextColorWhite);
+                opacity: 0.9;
             }
 
-            .cs-bg-picture {
-                background-color: #000;
+            input,
+            select,
+            textarea {
+                color: var(--bodyTextColorWhite);
+                background-color: var(--medium);
+                border-color: var(--accent);
+            }
 
-                img {
-                    /* lets parent background-color bleed through and darken it */
-                    opacity: 0.5;
-                }
+            .cs-info-block {
+                background-color: var(--medium);
+            }
+
+            .cs-contact-icon {
+                color: var(--primaryLight);
+                background-color: rgba(45, 212, 191, 0.12);
             }
         }
     }

@@ -1,46 +1,21 @@
 ---
-title: "Blog | Code Stitch Web Designs"
-description: "Meta description for the page"
+description: "Practical articles on data analytics, AI and automation for small and medium-sized business owners."
+eleventyComputed:
+  title: "Insights | {{ client.name }} | {{ client.address.city }}, {{ client.address.state }}"
 permalink: "/blog/"
 ---
 
 {% extends "layouts/base.html" %}
 
 {% block head %}
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" />
     <link rel="stylesheet" href="/assets/css/blog.css">
 {% endblock %}
 
 {% block body %}
-    <!-- ============================================ -->
-    <!--                   Banner                     -->
-    <!-- ============================================ -->
-
-    <div id="banner-310">
-        <div class="cs-container">
-            <span class="cs-int-title">Blog</span>
-            <div class="cs-breadcrumbs">
-                <a href="/" class="cs-link">Home</a>
-                <a href="/blog/" class="cs-link cs-active">Blog</a>
-            </div>
-        </div>
-        <!--Background Image-->
-        <picture class="cs-background">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
-        </picture>
-    </div>
+    {% set bannerTitle = "Insights" %}
+    {% set bannerText = "Practical articles on data, AI and automation for small business owners." %}
+    {% set crumbs = [] %}
+    {% include "sections/banner.html" %}
 
     <!-- ============================================ -->
     <!--                 Blog Listings                -->
@@ -49,9 +24,9 @@ permalink: "/blog/"
     <div id="blog-listing">
         <div class="cs-container">
             {% if collections.post | length == 0 %}
-                <h1 class="cs-title">
+                <h2 class="cs-title">
                     No Recent Posts
-                </h1>
+                </h2>
             {% else %}
                 {%- for post in collections.post | reverse -%}
                     <article class="cs-article">
@@ -68,7 +43,7 @@ permalink: "/blog/"
                             <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | avif %}" type="image/avif">
                             <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | webp %}" type="image/webp">
                             <source media="(min-width: 1024px)" srcset="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | jpeg %}" type="image/jpeg">
-                            <img src="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | jpeg %}" alt="{{ post.data.alt }}" width="824" height="400" decoding="async">
+                            <img src="{% getUrl post.data.image | resize({ width: 1648, height: 800 }) | jpeg %}" alt="{{ post.data.imageAlt }}" width="824" height="400" decoding="async">
                         </picture>
                         <div class="cs-article-group">
                             <div class="cs-author-group">

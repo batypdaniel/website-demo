@@ -1,3 +1,27 @@
+# Business Website - Quick Guide
+
+This site is built on the CodeStitch Intermediate Kit (Eleventy + LESS + Decap CMS). The original kit documentation follows below.
+
+**Where to edit things**
+
+| What | File |
+| --- | --- |
+| Business name, contact info, city, socials, booking link | `src/_data/client.js` |
+| Services (home cards, nav, footer, `/services/` and each `/services/<slug>/` page) | `src/_data/services.js` |
+| FAQ | `src/_data/faqs.js` |
+| Brand colors | `:root` variables at the top of `src/assets/less/root.less` |
+| Logo mark | `src/_includes/icons/logo-mark.svg` |
+| Pages | `src/index.html`, `src/content/pages/*.html` |
+| Blog posts ("Insights") | `src/content/blog/*.md` (or via the CMS at `/admin/`) |
+
+Search the project for `TODO` to find placeholder content that still needs real details.
+
+**Run locally:** `npm install`, then `npm start` and open http://localhost:8080.
+
+The contact form uses [Netlify Forms](https://docs.netlify.com/forms/setup/) and redirects to `/thank-you/`.
+
+---
+
 <br/>
 <p align="center">
   <a href="https://codestitch.app/">

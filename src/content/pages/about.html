@@ -1,108 +1,129 @@
 ---
-title: "About | Code Stitch Web Designs"
-description: "Meta description for the page"
+description: "A locally owned data, AI and software consultancy helping small and mid-sized businesses work smarter."
+eleventyComputed:
+  title: "About | {{ client.name }} | {{ client.address.city }}, {{ client.address.state }}"
 permalink: "/about/"
 ---
 
 {% extends "layouts/base.html" %}
 
 {% block head %}
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}"/>
-    <link rel="preload" as="image" href="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | avif %}"/>
     <link rel="stylesheet" href="/assets/css/about.css">
 {% endblock %}
 
 {% block body %}
 
+    {% set bannerTitle = "About Us" %}
+    {% set bannerText = "A local partner for the data, AI and software side of your business." %}
+    {% set crumbs = [] %}
+    {% include "sections/banner.html" %}
+
     <!-- ============================================ -->
-    <!--                   Banner                     -->
+    <!--                  Our Story                   -->
     <!-- ============================================ -->
 
-    <div id="banner-310">
+    <section id="story">
         <div class="cs-container">
-            <span class="cs-int-title">About Us</span>
-            <div class="cs-breadcrumbs">
-                <a href="/" class="cs-link">Home</a>
-                <a href="/about/" class="cs-link cs-active">About Us</a>
-            </div>
-        </div>
-        <!--Background Image-->
-        <picture class="cs-background">
-            <!--Mobile Image-->
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | avif %}" type="image/avif">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | webp %}" type="image/webp">
-            <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 640, height: 600 }) | jpeg %}" type="image/jpeg">
-            <!--Tablet Image-->
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | avif %}" type="image/avif">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | webp %}" type="image/webp">
-            <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2048, height: 942 }) | jpeg %}" type="image/jpeg">
-            <!--Desktop Image-->
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | avif %}" type="image/avif">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | webp %}" type="image/webp">
-            <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" type="image/jpeg">
-            <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 2500, height: 628 }) | jpeg %}" alt="library" width="1920" height="482" loading="eager" decoding="async">
-        </picture>
-    </div>
-
-    <!-- ============================================ -->
-    <!--                 Side By Side                 -->
-    <!-- ============================================ -->
-
-    <section id="RPsbs-313">
-        <div class="cs-container">
-            <!-- Left Image Section -->
-            <div class="cs-image-group">
-                <picture class="cs-picture cs-picture1">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 482, height: 536 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 802, height: 892 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/cabinets.jpg" | resize({ width: 1044, height: 1162 }) | jpeg %}" alt="lawyers" width="522" height="581" decoding="async">
-                </picture>
-                <picture class="cs-picture cs-picture2">
-                    <!--Mobile Image-->
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 600px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 366, height: 354 }) | jpeg %}" type="image/jpeg">
-                    <!--Tablet Image-->
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | avif %}" type="image/avif">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | webp %}" type="image/webp">
-                    <source media="(max-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 600, height: 578 }) | jpeg %}" type="image/jpeg">
-                    <!--Desktop Image-->
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | avif %}" type="image/avif">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | webp %}" type="image/webp">
-                    <source media="(min-width: 1024px)" srcset="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" type="image/jpeg">
-                    <img src="{% getUrl "/assets/images/construction.jpg" | resize({ width: 780, height: 752 }) | jpeg %}" alt="gavel" width="390" height="376" loading="lazy" decoding="async">
-                </picture>
-            </div>
-            <!-- Right Content Section-->
-            <div class="cs-content">
-                <span class="cs-topper">About Us</span>
-                <h2 class="cs-title">About CodeStitch</h2>
-                <p class="cs-text">
-                    In consequat tincidunt turpis sit amet imperdiet. Praesent Class officelan nonatoureanor mauris laoreet, iaculis libero quis. Curabitur et tempus eri consequat tincidunt turpis sit amet imperdiet. Praesent nonatourean olei aptent taciti sociosqu ad litora torquent per.
-                </p>
-                <div class="cs-quote">
-                    <span class="cs-quote-text">
-                        In consequat tincidunt turpis sit amet imperdiet. Praesent Classei consequat tincidunt turpis sit amet imperdiet for mind.
-                    </span>
-                    <span class="cs-name">Justin Time</span>
-                    <span class="cs-job">CEO-Founder</span>
-                    <img class="cs-quote-icon" loading="lazy" decoding="async" src="/assets/svgs/quote.svg" alt="gavel" width="136" height="77">
+            <!--
+                TODO: replace this placeholder with a professional headshot, e.g.
+                <img class="cs-photo" src="{% raw %}{% getUrl "/assets/images/headshot.jpg" | resize({ width: 800, height: 960 }) | jpeg %}{% endraw %}" alt="{{ client.founder.name }}" width="400" height="480" loading="lazy" decoding="async">
+            -->
+            <div class="cs-photo-wrapper">
+                <div class="cs-photo cs-photo-placeholder" role="img" aria-label="Photo of {{ client.founder.name }}">
+                    <span>Your photo here</span>
                 </div>
-                <a href="/contact/" class="cs-button-solid">Get in Touch</a>
+                <div class="cs-name-card">
+                    <span class="cs-name">{{ client.founder.name }}</span>
+                    <span class="cs-role">{{ client.founder.title }}</span>
+                </div>
+            </div>
+            <div class="cs-content">
+                <span class="cs-topper">Our Story</span>
+                <h2 class="cs-title">Why I started {{ client.name }}</h2>
+                <!-- TODO: make this your story. A personal, specific version of this section is one of the most persuasive parts of a local services site. -->
+                <p class="cs-text">
+                    I've spent my career building data pipelines, machine learning models and software - and I kept seeing the same thing: the tools and techniques that give large companies an edge are completely within reach for smaller businesses, but nobody was offering them in a way that fits a small business's budget, pace and priorities.
+                </p>
+                <p class="cs-text">
+                    {{ client.name }} exists to close that gap. I work directly with owners and teams here in {{ client.address.city }} to find the handful of improvements that will make the biggest difference, then build them properly - with clear pricing, plain-English communication, and no lock-in.
+                </p>
+                <p class="cs-text">
+                    When you work with us, you work with me directly. No account managers, no hand-offs.
+                </p>
             </div>
         </div>
     </section>
 
-    {% include 'sections/cta.html' %}
+    <!-- ============================================ -->
+    <!--                  Background                  -->
+    <!-- ============================================ -->
 
+    <!-- TODO: fill in with your real experience, education and certifications -->
+    <section id="background">
+        <div class="cs-container">
+            <div class="cs-section-header">
+                <span class="cs-topper">Experience</span>
+                <h2 class="cs-title">The background behind the work</h2>
+            </div>
+            <ul class="cs-card-group">
+                <li class="cs-item">
+                    <span class="cs-stat">X+ years</span>
+                    <p class="cs-item-text">Professional experience in data science, machine learning and software development</p>
+                </li>
+                <li class="cs-item">
+                    <span class="cs-stat">Python &amp; ML</span>
+                    <p class="cs-item-text">Deep hands-on expertise training, evaluating and deploying machine learning models</p>
+                </li>
+                <li class="cs-item">
+                    <span class="cs-stat">End-to-end</span>
+                    <p class="cs-item-text">From raw data and pipelines to models, dashboards and the apps people actually use</p>
+                </li>
+                <li class="cs-item">
+                    <span class="cs-stat">Degree / Certs</span>
+                    <p class="cs-item-text">Add your education and any relevant certifications (AWS, Azure, Power BI, etc.)</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                   Values                     -->
+    <!-- ============================================ -->
+
+    <section id="values">
+        <div class="cs-container">
+            <div class="cs-section-header">
+                <span class="cs-topper">How We Work</span>
+                <h2 class="cs-title">What you can expect</h2>
+            </div>
+            <ul class="cs-value-group">
+                <li class="cs-value">
+                    <h3 class="cs-h3">Results over buzzwords</h3>
+                    <p class="cs-value-text">Every project starts with a business outcome - hours saved, revenue gained, errors avoided - not a technology.</p>
+                </li>
+                <li class="cs-value">
+                    <h3 class="cs-h3">Honest advice</h3>
+                    <p class="cs-value-text">If a spreadsheet or an off-the-shelf tool will do the job, we'll tell you. We only build what's worth building.</p>
+                </li>
+                <li class="cs-value">
+                    <h3 class="cs-h3">Built to last</h3>
+                    <p class="cs-value-text">Clean, documented work that your team - or any future developer - can understand and maintain.</p>
+                </li>
+                <li class="cs-value">
+                    <h3 class="cs-h3">Your data stays yours</h3>
+                    <p class="cs-value-text">We respect privacy, minimize access, and make sure you control every account and asset.</p>
+                </li>
+                <li class="cs-value">
+                    <h3 class="cs-h3">Invested locally</h3>
+                    <p class="cs-value-text">We live and work here, and we want {{ client.address.city }}'s businesses to thrive.</p>
+                </li>
+                <li class="cs-value">
+                    <h3 class="cs-h3">Always learning</h3>
+                    <p class="cs-value-text">AI and data tools change fast. We keep up so you don't have to, and pass on what matters.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
 {% endblock %}
