@@ -39,7 +39,7 @@
 		/* 60px - 100px top and bottom */
 		--sectionPadding: clamp(3.75rem, 7.82vw, 6.25rem) 1rem;
 
-		--headerFont: "Roboto", Arial, sans-serif;
+		--headerFont: "Sora", "Roboto", Arial, sans-serif;
 		--bodyFont: "Roboto", Arial, sans-serif;
 	}
 
@@ -323,11 +323,38 @@
 		src: local(""), url("/assets/fonts/roboto-v29-latin-700.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/roboto-v29-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
 
+	/* sora-400 - latin (headings + company name) - SIL Open Font License, see sora-LICENSE.txt */
+	@font-face {
+		font-style: normal;
+		font-family: "Sora";
+		font-weight: 400;
+		font-display: swap;
+		src: url("/assets/fonts/sora-latin-400-normal.woff2") format("woff2");
+	}
+
+	/* sora-600 - latin (headings + company name) - SIL Open Font License, see sora-LICENSE.txt */
+	@font-face {
+		font-style: normal;
+		font-family: "Sora";
+		font-weight: 600;
+		font-display: swap;
+		src: url("/assets/fonts/sora-latin-600-normal.woff2") format("woff2");
+	}
+
+	/* sora-700 - latin (headings + company name) - SIL Open Font License, see sora-LICENSE.txt */
+	@font-face {
+		font-style: normal;
+		font-family: "Sora";
+		font-weight: 700;
+		font-display: swap;
+		src: url("/assets/fonts/sora-latin-700-normal.woff2") format("woff2");
+	}
+
 	/* roboto-900 - latin */
 	@font-face {
 		font-style: normal;
 		font-family: "Roboto";
-		font-weight: 700;
+		font-weight: 900;
 		font-display: swap;
 		src: local(""), url("/assets/fonts/roboto-v29-latin-900.woff2") format("woff2"), /* Chrome 26+, Opera 23+, Firefox 39+ */ url("/assets/fonts/roboto-v29-latin-900.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 	}
@@ -2342,5 +2369,26 @@
 		background-color: #fef3c7;
 		border-top: 1px solid #fcd34d;
 		pointer-events: none;
+	}
+}
+
+/* Heading font (Sora) for heading-style text that isn't an h1-h6 element */
+@media only screen and (min-width: 0px) {
+	.cs-title,
+	.cs-int-title,
+	.cs-logo-name,
+	.cs-river-node,
+	.cs-stat,
+	.cs-name {
+		font-family: var(--headerFont);
+	}
+
+	.cs-title,
+	.cs-int-title {
+		letter-spacing: -0.02em;
+	}
+
+	.cs-logo-name {
+		letter-spacing: -0.01em;
 	}
 }
