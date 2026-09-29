@@ -7,7 +7,8 @@
         <!--Nav Logo: the mark lives in _includes/icons/logo-mark.svg and the name comes from _data/client.js-->
         <a href="/" class="cs-logo" aria-label="{{ client.name }} home page">
             <span class="cs-logo-mark">{% include "icons/logo-mark.svg" %}</span>
-            <span class="cs-logo-name">{{ client.name }}</span>
+            {%- set nameWords = client.name.split(" ") %}
+            <span class="cs-logo-name"><span class="cs-logo-strong">{{ nameWords[0] }}</span> {{ nameWords.slice(1).join(" ") }}</span>
         </a>
         <!--Navigation List-->
         <nav class="cs-nav" aria-label="main navigation">
