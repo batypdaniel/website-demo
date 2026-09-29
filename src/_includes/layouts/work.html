@@ -3,6 +3,7 @@
 {% block head %}
     <link rel="stylesheet" href="/assets/css/work.css">
     <script defer src="/assets/js/demo-embed.js"></script>
+    {% if interactiveDemo == "rag" %}<script defer src="/assets/js/rag-demo.js"></script>{% endif %}
 {% endblock %}
 
 {% block body %}
@@ -28,6 +29,9 @@
             {% if draft %}
             <p class="cs-draft-note">Draft - this page is hidden from the live site until you set <code>draft: false</code> in its front matter.</p>
             {% endif %}
+            {% if interactiveDemo == "rag" %}
+                {% include "components/rag-demo.html" %}
+            {% else %}
             <div class="cs-demo" {% if demoUrl and demoEmbed %}data-embed-src="{{ embedUrl }}" data-embed-title="{{ title }} live demo"{% endif %}>
                 <picture class="cs-demo-poster">
                     <img src="{% getUrl image | resize({ width: 1600, height: 900 }) | jpeg %}" alt="{{ imageAlt }}" width="1600" height="900" decoding="async">
@@ -45,6 +49,7 @@
                     {% endif %}
                 </div>
             </div>
+            {% endif %}
             {% if demoUrl %}
             <p class="cs-demo-links">
                 <a class="cs-arrow-link" href="{{ demoUrl }}" target="_blank" rel="noopener">Open in a new tab {% include "icons/arrow.svg" %}</a>

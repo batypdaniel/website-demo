@@ -14,6 +14,7 @@ This site is built on the CodeStitch Intermediate Kit (Eleventy + LESS + Decap C
 | Pages | `src/index.html`, `src/content/pages/*.html` |
 | Blog posts ("Insights") | `src/content/blog/*.md` (or via the CMS at `/admin/`) |
 | Work & demos (`/work/`, home page, service pages) | `src/content/work/*.md` (or via the CMS). Set `demoUrl`, write the story, then remove `draft: true` to publish |
+| Interactive RAG demo (documents, questions, recorded answers) | `src/_data/ragDemo.json` - re-export from the Python pipeline in the same shape, set `"sample": false`. Cite passages in answers as `[chunk-id]` |
 
 Search the project for `TODO` to find placeholder content that still needs real details.
 

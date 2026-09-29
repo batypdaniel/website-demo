@@ -1,0 +1,138 @@
+{
+    "sample": true,
+    "business": "Midtown Cycle Co.",
+    "businessNote": "A fictional Memphis bike shop",
+    "config": {
+        "embedding_model": "text-embedding model (TBD)",
+        "llm": "LLM (TBD)",
+        "chunk_size": 400,
+        "top_k": 3,
+        "threshold": 0.5
+    },
+    "documents": [
+        {
+            "id": "returns",
+            "title": "Return Policy",
+            "chunks": [
+                {
+                    "id": "returns-1",
+                    "text": "Most items can be returned within 30 days of purchase for a full refund, as long as they are unused and in their original packaging. Please bring your receipt or order number."
+                },
+                {
+                    "id": "returns-2",
+                    "text": "Sale and clearance items may be returned within 14 days for store credit only. Bikes that have been ridden outdoors cannot be returned, but can be exchanged within 7 days."
+                }
+            ]
+        },
+        {
+            "id": "shipping",
+            "title": "Shipping & Delivery",
+            "chunks": [
+                {
+                    "id": "shipping-1",
+                    "text": "We offer free local delivery of assembled bikes within 25 miles of our Midtown store, including Germantown, Bartlett, Cordova and Southaven. Deliveries are scheduled Tuesday through Saturday."
+                },
+                {
+                    "id": "shipping-2",
+                    "text": "Online orders can be returned by mail using the prepaid label included in the box, or dropped off in store. Refunds are issued to the original payment method within 5 business days of receipt."
+                }
+            ]
+        },
+        {
+            "id": "warranty",
+            "title": "Warranty & Repairs",
+            "chunks": [
+                {
+                    "id": "warranty-1",
+                    "text": "All new bikes include a lifetime frame warranty from the manufacturer against defects in materials and workmanship. Components such as brakes, chains and tires are covered for one year."
+                },
+                {
+                    "id": "warranty-2",
+                    "text": "A basic tune-up is $75 and includes brake and gear adjustment, wheel truing and a safety check. Most tune-ups are completed within 2 business days. New bikes get one free tune-up within 90 days."
+                }
+            ]
+        },
+        {
+            "id": "store",
+            "title": "Store Information",
+            "chunks": [
+                {
+                    "id": "store-1",
+                    "text": "Midtown Cycle Co. is open Tuesday to Friday 10am-7pm, Saturday 9am-5pm and Sunday 12pm-4pm. We are closed on Mondays and major holidays."
+                },
+                {
+                    "id": "store-2",
+                    "text": "We sell road, mountain, hybrid and kids' bikes, plus e-bikes from two brands. We also carry helmets, locks, lights and apparel, and offer professional bike fittings by appointment."
+                }
+            ]
+        }
+    ],
+    "questions": [
+        {
+            "id": "q1",
+            "question": "How long do I have to return something?",
+            "retrieved": [
+                { "chunk_id": "returns-1", "score": 0.91 },
+                { "chunk_id": "returns-2", "score": 0.78 },
+                { "chunk_id": "shipping-2", "score": 0.62 }
+            ],
+            "answer": "You can return most items within 30 days of purchase for a full refund, as long as they're unused and in the original packaging - just bring your receipt or order number [returns-1]. Sale and clearance items have a shorter 14-day window and are refunded as store credit [returns-2].",
+            "meta": { "latency_ms": 1180, "input_tokens": 612, "output_tokens": 71, "cost_usd": 0.0012 }
+        },
+        {
+            "id": "q2",
+            "question": "Can I return a sale item I bought online?",
+            "retrieved": [
+                { "chunk_id": "returns-2", "score": 0.88 },
+                { "chunk_id": "shipping-2", "score": 0.84 },
+                { "chunk_id": "returns-1", "score": 0.71 }
+            ],
+            "answer": "Yes. Sale items can be returned within 14 days, but the refund is issued as store credit rather than to your card [returns-2]. Since you ordered online, you can mail it back with the prepaid label from your box or drop it off at the store [shipping-2].",
+            "meta": { "latency_ms": 1320, "input_tokens": 640, "output_tokens": 68, "cost_usd": 0.0013 }
+        },
+        {
+            "id": "q3",
+            "question": "Is my bike's frame covered under warranty?",
+            "retrieved": [
+                { "chunk_id": "warranty-1", "score": 0.93 },
+                { "chunk_id": "warranty-2", "score": 0.66 },
+                { "chunk_id": "returns-2", "score": 0.51 }
+            ],
+            "answer": "Yes - every new bike comes with a lifetime manufacturer warranty on the frame covering defects in materials and workmanship. Parts like brakes, chains and tires are covered for one year [warranty-1].",
+            "meta": { "latency_ms": 1050, "input_tokens": 598, "output_tokens": 52, "cost_usd": 0.0011 }
+        },
+        {
+            "id": "q4",
+            "question": "How much is a tune-up and how long does it take?",
+            "retrieved": [
+                { "chunk_id": "warranty-2", "score": 0.94 },
+                { "chunk_id": "store-1", "score": 0.58 },
+                { "chunk_id": "warranty-1", "score": 0.55 }
+            ],
+            "answer": "A basic tune-up is $75 and covers brake and gear adjustment, wheel truing and a safety check. Most are finished within 2 business days. If you bought your bike new from us, your first tune-up within 90 days is free [warranty-2].",
+            "meta": { "latency_ms": 1110, "input_tokens": 605, "output_tokens": 60, "cost_usd": 0.0011 }
+        },
+        {
+            "id": "q5",
+            "question": "Do you deliver to Germantown?",
+            "retrieved": [
+                { "chunk_id": "shipping-1", "score": 0.89 },
+                { "chunk_id": "store-1", "score": 0.57 },
+                { "chunk_id": "shipping-2", "score": 0.53 }
+            ],
+            "answer": "Yes! Germantown is within our free local delivery area. We deliver assembled bikes within 25 miles of the Midtown store, Tuesday through Saturday [shipping-1].",
+            "meta": { "latency_ms": 980, "input_tokens": 590, "output_tokens": 41, "cost_usd": 0.0009 }
+        },
+        {
+            "id": "q6",
+            "question": "Do you sell electric scooters?",
+            "retrieved": [
+                { "chunk_id": "store-2", "score": 0.46 },
+                { "chunk_id": "warranty-1", "score": 0.31 },
+                { "chunk_id": "shipping-1", "score": 0.28 }
+            ],
+            "answer": "I don't have any information about electric scooters in our store documents, so I don't want to guess. I can connect you with a team member who can help - would you like me to do that?",
+            "meta": { "latency_ms": 890, "input_tokens": 402, "output_tokens": 44, "cost_usd": 0.0008 }
+        }
+    ]
+}

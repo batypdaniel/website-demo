@@ -3,7 +3,7 @@
 title: AI Customer Service Assistant
 url: customer-service-assistant
 description: A retrieval-augmented (RAG) assistant that answers customer questions from a business's own policies and help articles, with sources for every answer.
-kind: Live demo # "Live demo" or "Case study" - shown as a tag on the card
+kind: Interactive demo # "Live demo", "Interactive demo" or "Case study" - shown as a tag on the card
 order: 1 # lower numbers are listed first
 featured: true # show on the home page (up to 3)
 draft: true # TODO: set to false (or delete this line) when the write-up is ready
@@ -18,11 +18,14 @@ stack:
     - RAG
 image: /assets/images/work/customer-service-assistant.jpg # TODO: replace with a screenshot (1600x900 works well)
 imageAlt: Illustration of an AI assistant answering a customer question
-# ── Live demo ────────────────────────────────────────────────────────────────
+# ── Demo ─────────────────────────────────────────────────────────────────────
+# interactiveDemo: rag replays pre-recorded pipeline outputs from src/_data/ragDemo.json
+# (no API calls). Remove it to use demoUrl below instead.
+interactiveDemo: rag
 # demoUrl: link to the running app. Leave "" and the page shows "Demo coming soon".
 # demoEmbed: true shows the app inside the page (Streamlit, Hugging Face Spaces, Gradio...);
 #            false shows a button that opens it in a new tab.
-demoUrl: "" # TODO: add once deployed
+demoUrl: "" # optional: a live version, if you ever deploy one
 demoEmbed: true
 repoUrl: "" # optional: public GitHub link
 ---

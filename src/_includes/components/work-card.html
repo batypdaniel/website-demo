@@ -7,7 +7,7 @@
         <div class="cs-work-body">
             <div class="cs-work-meta">
                 <span class="cs-work-kind">{{ item.data.kind or "Project" }}</span>
-                {%- if not item.data.demoUrl and item.data.kind == "Live demo" %}<span class="cs-work-soon">Coming soon</span>{% endif %}
+                {%- if not item.data.demoUrl and not item.data.interactiveDemo and item.data.kind == "Live demo" %}<span class="cs-work-soon">Coming soon</span>{% endif %}
                 {%- if item.data.draft %}<span class="cs-work-draft">Draft</span>{% endif %}
             </div>
             <h3 class="cs-work-title">{{ item.data.title }}</h3>

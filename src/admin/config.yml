@@ -51,7 +51,7 @@ collections:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "URL Slug", name: "url", widget: "string", hint: 'The page will live at /work/<slug>/' }
           - { label: "Short Description", name: "description", widget: "text" }
-          - { label: "Type", name: "kind", widget: "select", options: ["Live demo", "Case study"], default: "Live demo" }
+          - { label: "Type", name: "kind", widget: "select", options: ["Live demo", "Interactive demo", "Case study"], default: "Live demo" }
           - { label: "Order", name: "order", widget: "number", default: 10, hint: "Lower numbers are listed first" }
           - { label: "Show on Home Page", name: "featured", widget: "boolean", default: false }
           - { label: "Draft (hidden from live site)", name: "draft", widget: "boolean", default: true }

@@ -372,3 +372,564 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---     Interactive RAG Demo    -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #rag-demo {
+        padding: clamp(1.25rem, 3vw, 2rem);
+        border: 1px solid var(--border);
+        border-radius: (16/16rem);
+        background-color: var(--surface);
+
+        .cs-rag-header {
+            display: flex;
+            flex-direction: column;
+            gap: (12/16rem);
+            margin-bottom: (20/16rem);
+        }
+
+        .cs-rag-title {
+            font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+            line-height: 1.2em;
+            margin: 0 0 (6/16rem);
+            color: var(--headerColor);
+        }
+
+        .cs-rag-sub {
+            margin: 0;
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-rag-badge {
+            align-self: flex-start;
+            padding: (6/16rem) (12/16rem);
+            font-size: (12/16rem);
+            font-weight: 700;
+            border-radius: (20/16rem);
+            color: var(--primary);
+            background-color: rgba(15, 118, 110, 0.1);
+        }
+
+        .cs-rag-badge-sample {
+            color: #92400e;
+            background-color: #fef3c7;
+        }
+
+        /* Question chips */
+        .cs-rag-questions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: (10/16rem);
+            margin-bottom: (20/16rem);
+        }
+
+        .cs-rag-q {
+            padding: (10/16rem) (16/16rem);
+            font-family: inherit;
+            font-size: (15/16rem);
+            text-align: left;
+            cursor: pointer;
+            color: var(--headerColor);
+            background-color: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: (24/16rem);
+            transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+            &:hover {
+                border-color: var(--primary);
+            }
+
+            &[aria-pressed="true"] {
+                color: #fff;
+                background-color: var(--primary);
+                border-color: var(--primary);
+            }
+        }
+
+        .cs-rag-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (16/16rem);
+        }
+
+        /* Pipeline panel */
+        .cs-rag-pipeline {
+            padding: (20/16rem);
+            border-radius: (12/16rem);
+            background-color: #fff;
+            min-height: (220/16rem);
+        }
+
+        .cs-rag-empty {
+            height: 100%;
+            min-height: (180/16rem);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: (12/16rem);
+            text-align: center;
+            color: var(--bodyTextColor);
+
+            &[hidden] {
+                display: none;
+            }
+
+            svg {
+                width: (40/16rem);
+                height: (40/16rem);
+                color: var(--primary);
+            }
+
+            p {
+                max-width: (320/16rem);
+                margin: 0;
+                line-height: 1.5em;
+            }
+        }
+
+        .cs-rag-steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+        }
+
+        .cs-rag-step {
+            position: relative;
+            padding-left: (16/16rem);
+            border-left: 3px solid var(--border);
+
+            &.is-done {
+                border-color: var(--primary);
+            }
+
+            &[data-step="question"] {
+                border-color: var(--secondary);
+            }
+        }
+
+        .cs-rag-step-label {
+            display: block;
+            margin-bottom: (8/16rem);
+            font-size: (12/16rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--headerColor);
+        }
+
+        .cs-rag-step-note {
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-rag-question-text {
+            margin: 0;
+            font-size: (18/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-rag-status {
+            margin: 0;
+            font-size: (14/16rem);
+            font-style: italic;
+            color: var(--bodyTextColor);
+
+            &:before {
+                content: "";
+                display: inline-block;
+                width: (10/16rem);
+                height: (10/16rem);
+                margin-right: (8/16rem);
+                border-radius: 50%;
+                background-color: var(--primary);
+                animation: rag-pulse 0.9s ease-in-out infinite;
+            }
+        }
+
+        /* Retrieved passages */
+        .cs-rag-retrieved {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (8/16rem);
+        }
+
+        .cs-rag-hit-btn {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: (4/16rem) (12/16rem);
+            padding: (10/16rem) (12/16rem);
+            font-family: inherit;
+            text-align: left;
+            cursor: pointer;
+            background-color: var(--surface);
+            border: 1px solid transparent;
+            border-radius: (8/16rem);
+
+            &:hover {
+                border-color: var(--primary);
+            }
+        }
+
+        .cs-rag-hit-doc {
+            font-size: (14/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-rag-hit-id {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: (12/16rem);
+            color: var(--bodyTextColor);
+        }
+
+        .cs-rag-bar {
+            height: (6/16rem);
+            border-radius: (3/16rem);
+            background-color: var(--border);
+            overflow: hidden;
+        }
+
+        .cs-rag-bar-fill {
+            display: block;
+            height: 100%;
+            border-radius: inherit;
+            background-color: var(--primary);
+        }
+
+        .cs-rag-hit-score {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: (13/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-rag-hit-flag {
+            grid-column: 1 / -1;
+            font-size: (12/16rem);
+            font-weight: 700;
+            color: #b45309;
+        }
+
+        .is-weak .cs-rag-bar-fill {
+            background-color: #f59e0b;
+        }
+
+        /* Answer */
+        .cs-rag-answer {
+            margin: 0;
+            font-size: (17/16rem);
+            line-height: 1.65em;
+            color: var(--headerColor);
+        }
+
+        .is-handoff .cs-rag-answer {
+            padding: (12/16rem) (14/16rem);
+            border-radius: (8/16rem);
+            background-color: #fffbeb;
+        }
+
+        .cs-rag-cite {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: (20/16rem);
+            height: (20/16rem);
+            margin: 0 (2/16rem);
+            padding: 0 (5/16rem);
+            vertical-align: text-top;
+            font-family: inherit;
+            font-size: (12/16rem);
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+            background-color: var(--primary);
+            border: none;
+            border-radius: (10/16rem);
+
+            &:hover {
+                background-color: var(--headerColor);
+            }
+        }
+
+        .cs-rag-meta {
+            list-style: none;
+            margin: (12/16rem) 0 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: (8/16rem);
+
+            li {
+                padding: (4/16rem) (10/16rem);
+                font-size: (12/16rem);
+                font-weight: 700;
+                border-radius: (12/16rem);
+                color: var(--bodyTextColor);
+                background-color: var(--surface);
+            }
+        }
+
+        /* Knowledge base */
+        .cs-rag-docs {
+            padding: (20/16rem);
+            border-radius: (12/16rem);
+            background-color: #fff;
+        }
+
+        .cs-rag-docs-label {
+            display: block;
+            margin-bottom: (12/16rem);
+            font-size: (12/16rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-rag-doc {
+            margin-bottom: (16/16rem);
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .cs-rag-doc-title {
+            margin: 0 0 (8/16rem);
+            font-size: (15/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-rag-chunk {
+            position: relative;
+            margin: 0 0 (8/16rem);
+            padding: (10/16rem) (12/16rem);
+            font-size: (14/16rem);
+            line-height: 1.55em;
+            color: var(--bodyTextColor);
+            border: 1px solid var(--border);
+            border-left-width: 4px;
+            border-radius: (6/16rem);
+            transition: background-color 0.3s, border-color 0.3s, opacity 0.3s;
+
+            &.is-retrieved {
+                border-color: var(--primary);
+                background-color: rgba(15, 118, 110, 0.06);
+            }
+
+            &.is-cited {
+                background-color: rgba(15, 118, 110, 0.14);
+            }
+
+            &.is-weak {
+                border-color: #f59e0b;
+                background-color: #fffbeb;
+            }
+
+            &.is-flash {
+                animation: rag-flash 1.2s ease-out;
+            }
+        }
+
+        .cs-rag-chunk-id {
+            display: block;
+            margin-bottom: (2/16rem);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: (11/16rem);
+            color: var(--bodyTextColor);
+            opacity: 0.8;
+        }
+
+        .cs-rag-chunk-score {
+            position: absolute;
+            top: (8/16rem);
+            right: (10/16rem);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: (11/16rem);
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .is-weak .cs-rag-chunk-score {
+            color: #b45309;
+        }
+
+        /* Technical details */
+        .cs-rag-config {
+            margin-top: (16/16rem);
+            font-size: (14/16rem);
+            color: var(--bodyTextColor);
+
+            summary {
+                cursor: pointer;
+                font-weight: 700;
+                color: var(--headerColor);
+            }
+
+            ul {
+                margin: (12/16rem) 0 0;
+                padding-left: (20/16rem);
+                line-height: 1.6em;
+            }
+        }
+    }
+
+    @keyframes rag-pulse {
+        0%,
+        100% {
+            opacity: 0.3;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes rag-flash {
+        0% {
+            box-shadow: 0 0 0 4px rgba(45, 212, 191, 0.7);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(45, 212, 191, 0);
+        }
+    }
+}
+
+/* Desktop - 1024px: side by side, documents scroll inside their own panel */
+@media only screen and (min-width: 64rem) {
+    #rag-demo {
+        .cs-rag-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cs-rag-grid {
+            grid-template-columns: 1.15fr 1fr;
+            align-items: stretch;
+        }
+
+        .cs-rag-docs {
+            position: relative;
+            max-height: (560/16rem);
+            overflow-y: auto;
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #rag-demo {
+        .cs-rag-status:before,
+        .cs-rag-chunk.is-flash {
+            animation: none;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode #rag-demo {
+        background-color: var(--medium);
+        border-color: var(--accent);
+
+        .cs-rag-pipeline,
+        .cs-rag-docs {
+            background-color: var(--dark);
+        }
+
+        .cs-rag-title,
+        .cs-rag-step-label,
+        .cs-rag-question-text,
+        .cs-rag-hit-doc,
+        .cs-rag-hit-score,
+        .cs-rag-answer,
+        .cs-rag-doc-title,
+        .cs-rag-config summary {
+            color: var(--bodyTextColorWhite);
+        }
+
+        .cs-rag-sub,
+        .cs-rag-step-note,
+        .cs-rag-status,
+        .cs-rag-hit-id,
+        .cs-rag-docs-label,
+        .cs-rag-chunk,
+        .cs-rag-chunk-id,
+        .cs-rag-config,
+        .cs-rag-empty {
+            color: #cbd5e1;
+        }
+
+        .cs-rag-q {
+            color: var(--bodyTextColorWhite);
+            background-color: var(--dark);
+            border-color: var(--accent);
+
+            &[aria-pressed="true"] {
+                background-color: var(--primary);
+                border-color: var(--primary);
+            }
+        }
+
+        .cs-rag-hit-btn,
+        .cs-rag-meta li {
+            background-color: var(--medium);
+        }
+
+        .cs-rag-meta li {
+            color: #cbd5e1;
+        }
+
+        .cs-rag-bar {
+            background-color: var(--accent);
+        }
+
+        .cs-rag-chunk {
+            border-color: var(--accent);
+
+            &.is-retrieved {
+                border-color: var(--primaryLight);
+                background-color: rgba(45, 212, 191, 0.08);
+            }
+
+            &.is-cited {
+                background-color: rgba(45, 212, 191, 0.16);
+            }
+
+            &.is-weak {
+                border-color: #f59e0b;
+                background-color: rgba(245, 158, 11, 0.1);
+            }
+        }
+
+        .cs-rag-chunk-score,
+        .cs-rag-badge {
+            color: var(--primaryLight);
+        }
+
+        .cs-rag-badge-sample {
+            color: #92400e;
+        }
+
+        .is-handoff .cs-rag-answer {
+            background-color: rgba(245, 158, 11, 0.12);
+        }
+    }
+}

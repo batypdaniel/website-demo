@@ -1,0 +1,88 @@
+<!-- ============================================ -->
+<!--        Interactive RAG Demo (replay)         -->
+<!-- ============================================ -->
+
+<!--
+    Replays pre-recorded outputs from the RAG pipeline - no API calls, no token spend.
+    All content comes from src/_data/ragDemo.json. To update it, re-export that file
+    from the Python pipeline (same structure) and set "sample": false.
+    Interaction lives in src/assets/js/rag-demo.js; styles in work.less.
+-->
+{%- set rag = ragDemo %}
+<section id="rag-demo" aria-labelledby="rag-demo-title">
+    <div class="cs-rag-header">
+        <div>
+            <span class="cs-topper">Interactive Demo</span>
+            <h2 class="cs-rag-title" id="rag-demo-title">Try the {{ rag.business }} assistant</h2>
+            <p class="cs-rag-sub">{{ rag.businessNote }}. Pick a question to watch the assistant find the right passages and write a cited answer.</p>
+        </div>
+        {% if rag.sample %}
+            <span class="cs-rag-badge cs-rag-badge-sample">Sample data - placeholder answers</span>
+        {% else %}
+            <span class="cs-rag-badge">Recorded outputs from the real pipeline - no live API calls</span>
+        {% endif %}
+    </div>
+
+    <div class="cs-rag-questions" role="group" aria-label="Choose a question">
+        {%- for q in rag.questions %}
+        <button type="button" class="cs-rag-q" data-q="{{ q.id }}" aria-pressed="false">{{ q.question }}</button>
+        {%- endfor %}
+    </div>
+
+    <div class="cs-rag-grid">
+        <!-- Pipeline output -->
+        <div class="cs-rag-pipeline">
+            <div class="cs-rag-empty">
+                {% include "icons/ai.svg" %}
+                <p>Choose a question above to see how the assistant retrieves sources and builds its answer.</p>
+            </div>
+            <ol class="cs-rag-steps" hidden>
+                <li class="cs-rag-step" data-step="question">
+                    <span class="cs-rag-step-label">1 · Question</span>
+                    <p class="cs-rag-question-text"></p>
+                </li>
+                <li class="cs-rag-step" data-step="retrieve">
+                    <span class="cs-rag-step-label">2 · Retrieve <span class="cs-rag-step-note">top {{ rag.config.top_k }} of <span class="cs-rag-count"></span> passages · relevance threshold {{ rag.config.threshold }}</span></span>
+                    <p class="cs-rag-status"></p>
+                    <ul class="cs-rag-retrieved"></ul>
+                </li>
+                <li class="cs-rag-step" data-step="answer">
+                    <span class="cs-rag-step-label">3 · Answer</span>
+                    <p class="cs-rag-status"></p>
+                    <p class="cs-rag-answer" aria-live="polite"></p>
+                    <ul class="cs-rag-meta"></ul>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Knowledge base -->
+        <div class="cs-rag-docs" tabindex="0" aria-label="Knowledge base documents">
+            <span class="cs-rag-docs-label">Knowledge base · {{ rag.documents.length }} documents</span>
+            {%- for doc in rag.documents %}
+            <article class="cs-rag-doc">
+                <h3 class="cs-rag-doc-title">{{ doc.title }}</h3>
+                {%- for chunk in doc.chunks %}
+                <p class="cs-rag-chunk" data-chunk="{{ chunk.id }}">
+                    <span class="cs-rag-chunk-id">{{ chunk.id }}</span>
+                    {{ chunk.text }}
+                    <span class="cs-rag-chunk-score" hidden></span>
+                </p>
+                {%- endfor %}
+            </article>
+            {%- endfor %}
+        </div>
+    </div>
+
+    <details class="cs-rag-config">
+        <summary>Technical details</summary>
+        <ul>
+            <li><strong>Embedding model:</strong> {{ rag.config.embedding_model }}</li>
+            <li><strong>Language model:</strong> {{ rag.config.llm }}</li>
+            <li><strong>Chunk size:</strong> ~{{ rag.config.chunk_size }} characters</li>
+            <li><strong>Passages retrieved per question:</strong> {{ rag.config.top_k }}</li>
+            <li><strong>Relevance threshold:</strong> {{ rag.config.threshold }} - passages below it are not used, and if none qualify the assistant hands off to a person instead of guessing</li>
+        </ul>
+    </details>
+
+    <script type="application/json" id="rag-data">{{ rag | dump | safe }}</script>
+</section>
