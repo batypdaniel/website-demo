@@ -28,36 +28,6 @@
 }
 
 /*-- -------------------------- -->
-<---        Draft Notice        -->
-<--- -------------------------- -*/
-
-@media only screen and (min-width: 0rem) {
-    #work-draft {
-        width: 100%;
-        max-width: (1280/16rem);
-        margin: 0 auto;
-        padding: clamp(2rem, 4vw, 3rem) 1rem 0;
-
-        & + #work-demo {
-            padding-top: (20/16rem);
-        }
-
-        & + #work-detail {
-            padding-top: clamp(2rem, 4vw, 3rem);
-        }
-    }
-
-    .cs-draft-note {
-        margin: 0;
-        padding: (12/16rem) (16/16rem);
-        font-size: (14/16rem);
-        color: #92400e;
-        background-color: #fef3c7;
-        border-radius: (8/16rem);
-    }
-}
-
-/*-- -------------------------- -->
 <---         Live Demo          -->
 <--- -------------------------- -*/
 
@@ -72,6 +42,14 @@
             margin: auto;
         }
 
+        .cs-draft-note {
+            margin: 0 0 (20/16rem);
+            padding: (12/16rem) (16/16rem);
+            font-size: (14/16rem);
+            color: #92400e;
+            background-color: #fef3c7;
+            border-radius: (8/16rem);
+        }
 
         .cs-demo {
             position: relative;
@@ -953,31 +931,5 @@
         .is-handoff .cs-rag-answer {
             background-color: rgba(245, 158, 11, 0.12);
         }
-    }
-}
-
-/*-- -------------------------- -->
-<---  Demo After The Write-up   -->
-<--- -------------------------- -*/
-
-/* demoPosition: "after" - the demo sits between the write-up and "More Work" */
-@media only screen and (min-width: 0rem) {
-    #work-demo.cs-demo-after {
-        padding: 0 1rem clamp(3.75rem, 7.82vw, 6.25rem);
-
-        .cs-demo-heading {
-            margin-bottom: (24/16rem);
-            /* keeps the heading visible below the fixed header when jumped to */
-            scroll-margin-top: (120/16rem);
-        }
-
-        .cs-title {
-            font-size: clamp(1.75rem, 3vw, 2.25rem);
-            margin: 0;
-        }
-    }
-
-    body.dark-mode #work-demo.cs-demo-after .cs-title {
-        color: var(--bodyTextColorWhite);
     }
 }

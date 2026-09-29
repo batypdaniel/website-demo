@@ -70,6 +70,5 @@ collections:
           - { label: "Image Description", name: "imageAlt", widget: "string" }
           - { label: "Live Demo URL", name: "demoUrl", widget: "string", required: false, hint: "Leave empty to show 'Demo coming soon'" }
           - { label: "Embed Demo in Page", name: "demoEmbed", widget: "boolean", default: true, hint: "Works for Streamlit, Hugging Face Spaces and Gradio. Turn off to open in a new tab instead." }
-          - { label: "Demo Position", name: "demoPosition", widget: "select", options: [{ label: "Above the write-up", value: "before" }, { label: "Below the write-up", value: "after" }], default: "after", required: false }
           - { label: "Code Repository URL", name: "repoUrl", widget: "string", required: false }
           - { label: "Write-up", name: "body", widget: "markdown" }

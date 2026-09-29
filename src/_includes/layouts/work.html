@@ -14,15 +14,6 @@
     {% set bannerCrumb = title %}
     {% include "sections/banner.html" %}
 
-    {#- demoPosition: "after" in a demo's front matter puts the demo below the write-up (default: above it) #}
-    {%- set demoAfter = demoPosition == "after" %}
-
-    {% if draft %}
-    <div id="work-draft">
-        <p class="cs-draft-note">Draft - this page is hidden from the live site until you set <code>draft: false</code> in its front matter.</p>
-    </div>
-    {% endif %}
-
     <!-- ============================================ -->
     <!--                  Live Demo                   -->
     <!-- ============================================ -->
@@ -33,14 +24,10 @@
         {%- set embedUrl = demoUrl + ("&" if "?" in demoUrl else "?") + "embed=true" %}
     {%- endif %}
 
-    {%- set demoSection %}
-    <section id="work-demo" class="{{ 'cs-demo-after' if demoAfter else 'cs-demo-before' }}">
+    <section id="work-demo">
         <div class="cs-container">
-            {% if demoAfter %}
-            <div class="cs-demo-heading" id="live-demo">
-                <span class="cs-topper">Live Demo</span>
-                <h2 class="cs-title">Try It Yourself</h2>
-            </div>
+            {% if draft %}
+            <p class="cs-draft-note">Draft - this page is hidden from the live site until you set <code>draft: false</code> in its front matter.</p>
             {% endif %}
             {% if interactiveDemo == "rag" %}
                 {% include "components/rag-demo.html" %}
@@ -70,9 +57,6 @@
             {% endif %}
         </div>
     </section>
-    {%- endset %}
-
-    {% if not demoAfter %}{{ demoSection | safe }}{% endif %}
 
     <!-- ============================================ -->
     <!--                  Write-up                    -->
@@ -84,11 +68,6 @@
                 {{ content | safe }}
             </article>
             <aside class="cs-sidebar">
-                {% if demoAfter %}
-                <div class="cs-side-block cs-side-jump">
-                    <a class="cs-arrow-link" href="#live-demo">Jump to the live demo {% include "icons/arrow.svg" %}</a>
-                </div>
-                {% endif %}
                 {% if relatedServices and relatedServices.length %}
                 <div class="cs-side-block">
                     <h2 class="cs-side-title">Related Services</h2>
@@ -122,8 +101,6 @@
             </aside>
         </div>
     </section>
-
-    {% if demoAfter %}{{ demoSection | safe }}{% endif %}
 
     <!-- ============================================ -->
     <!--                 More Work                    -->
