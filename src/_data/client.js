@@ -13,6 +13,9 @@ module.exports = {
     founder: {
         name: "Baty Daniel",
         title: "Founder & Principal Consultant",
+        // TODO: add a headshot (e.g. save it as src/assets/images/headshot.jpg and put "/assets/images/headshot.jpg" here).
+        // A portrait around 800x960 works best. Used on the home and About pages; leave "" for the placeholder.
+        photo: "",
     },
     email: "batypdaniel@gmail.com", // TODO
     phoneForTel: "901-378-4278", // TODO

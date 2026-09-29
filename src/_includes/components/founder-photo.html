@@ -1,0 +1,8 @@
+<!-- Founder headshot from client.founder.photo, or a placeholder until one is added. Expects `photoClass`. -->
+{%- if client.founder.photo %}
+<img class="{{ photoClass }}" src="{% getUrl client.founder.photo | resize({ width: 800, height: 960 }) | jpeg %}" alt="{{ client.founder.name }}" width="400" height="480" loading="lazy" decoding="async">
+{%- else %}
+<div class="{{ photoClass }} cs-photo-placeholder" role="img" aria-label="Photo of {{ client.founder.name }} coming soon">
+    <span>Your photo here</span>
+</div>
+{%- endif %}

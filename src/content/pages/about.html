@@ -24,14 +24,10 @@ permalink: "/about/"
 
     <section id="story">
         <div class="cs-container">
-            <!--
-                TODO: replace this placeholder with a professional headshot, e.g.
-                <img class="cs-photo" src="{% raw %}{% getUrl "/assets/images/headshot.jpg" | resize({ width: 800, height: 960 }) | jpeg %}{% endraw %}" alt="{{ client.founder.name }}" width="400" height="480" loading="lazy" decoding="async">
-            -->
+            <!-- Headshot: set client.founder.photo in src/_data/client.js -->
             <div class="cs-photo-wrapper">
-                <div class="cs-photo cs-photo-placeholder" role="img" aria-label="Photo of {{ client.founder.name }}">
-                    <span>Your photo here</span>
-                </div>
+                {% set photoClass = "cs-photo" %}
+                {% include "components/founder-photo.html" %}
                 <div class="cs-name-card">
                     <span class="cs-name">{{ client.founder.name }}</span>
                     <span class="cs-role">{{ client.founder.title }}</span>

@@ -2,6 +2,12 @@
 <!--                   Process                    -->
 <!-- ============================================ -->
 
+<!--
+    The steps sit along a winding "river" drawn with SVG. Each step is an equal-height row, so the
+    river's bends (at 1/8, 3/8, 5/8 and 7/8 of the height) always line up with the numbered markers.
+    Desktop: the river meanders down the middle and cards alternate sides.
+    Mobile: the river runs down the left edge and cards sit to its right.
+-->
 <section id="process">
     <div class="cs-container">
         <div class="cs-section-header">
@@ -11,23 +17,52 @@
                 No big-bang IT projects. We start small, prove the value, and build from there.
             </p>
         </div>
-        <ol class="cs-steps">
-            <li class="cs-step">
-                <h3 class="cs-h3">Free Consultation</h3>
-                <p class="cs-step-text">A 30-minute conversation about your business, your tools and what's slowing you down.</p>
-            </li>
-            <li class="cs-step">
-                <h3 class="cs-h3">Discovery & Proposal</h3>
-                <p class="cs-step-text">We review your data and processes, then send a clear, fixed-price proposal with the expected timeline and payoff.</p>
-            </li>
-            <li class="cs-step">
-                <h3 class="cs-h3">Build & Iterate</h3>
-                <p class="cs-step-text">We build in short cycles with regular check-ins, so you see progress and give feedback early.</p>
-            </li>
-            <li class="cs-step">
-                <h3 class="cs-h3">Hand-Off & Support</h3>
-                <p class="cs-step-text">Training, documentation and ongoing support so your team is confident using what we built.</p>
-            </li>
-        </ol>
+        <div class="cs-river">
+            <svg class="cs-river-line cs-river-desktop" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path class="cs-river-bank" d="M50 0 C50 25 40 25 40 50 C40 100 60 100 60 150 C60 200 40 200 40 250 C40 300 60 300 60 350 C60 375 50 375 50 400"/>
+                <path class="cs-river-water" d="M50 0 C50 25 40 25 40 50 C40 100 60 100 60 150 C60 200 40 200 40 250 C40 300 60 300 60 350 C60 375 50 375 50 400"/>
+                <path class="cs-river-flow" d="M50 0 C50 25 40 25 40 50 C40 100 60 100 60 150 C60 200 40 200 40 250 C40 300 60 300 60 350 C60 375 50 375 50 400"/>
+            </svg>
+            <svg class="cs-river-line cs-river-mobile" viewBox="0 0 100 400" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <path class="cs-river-bank" d="M9 0 L9 50 C9 75 17 75 17 100 C17 125 9 125 9 150 C9 175 17 175 17 200 C17 225 9 225 9 250 C9 275 17 275 17 300 C17 325 9 325 9 350 L9 400"/>
+                <path class="cs-river-water" d="M9 0 L9 50 C9 75 17 75 17 100 C17 125 9 125 9 150 C9 175 17 175 17 200 C17 225 9 225 9 250 C9 275 17 275 17 300 C17 325 9 325 9 350 L9 400"/>
+                <path class="cs-river-flow" d="M9 0 L9 50 C9 75 17 75 17 100 C17 125 9 125 9 150 C9 175 17 175 17 200 C17 225 9 225 9 250 C9 275 17 275 17 300 C17 325 9 325 9 350 L9 400"/>
+            </svg>
+            <ol class="cs-river-steps">
+                <li class="cs-river-step">
+                    <span class="cs-river-node" aria-hidden="true">1</span>
+                    <div class="cs-river-card">
+                        <h3 class="cs-h3">Free Consultation</h3>
+                        <p class="cs-step-text">A 30-minute conversation about your business, your tools and what's slowing you down.</p>
+                    </div>
+                </li>
+                <li class="cs-river-step">
+                    <span class="cs-river-node" aria-hidden="true">2</span>
+                    <div class="cs-river-card">
+                        <h3 class="cs-h3">Discovery & Proposal</h3>
+                        <p class="cs-step-text">We review your data and processes, then send a clear, fixed-price proposal with the expected timeline and payoff.</p>
+                    </div>
+                </li>
+                <li class="cs-river-step">
+                    <span class="cs-river-node" aria-hidden="true">3</span>
+                    <div class="cs-river-card">
+                        <h3 class="cs-h3">Build & Iterate</h3>
+                        <p class="cs-step-text">We build in short cycles with regular check-ins, so you see progress and give feedback early.</p>
+                    </div>
+                </li>
+                <li class="cs-river-step">
+                    <span class="cs-river-node" aria-hidden="true">4</span>
+                    <div class="cs-river-card">
+                        <h3 class="cs-h3">Hand-Off & Support</h3>
+                        <p class="cs-step-text">Training, documentation and ongoing support so your team is confident using what we built.</p>
+                    </div>
+                </li>
+            </ol>
+        </div>
+        <!-- Where the river ends: the red "insight" point from the logo -->
+        <div class="cs-river-end">
+            <span class="cs-river-dot" aria-hidden="true"></span>
+            <span class="cs-river-end-text">Results you can measure</span>
+        </div>
     </div>
 </section>

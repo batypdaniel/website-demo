@@ -229,3 +229,139 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---         About Me           -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #about-me {
+        padding: var(--sectionPadding);
+
+        .cs-container {
+            width: 100%;
+            max-width: (1100/16rem);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: clamp(2rem, 5vw, 4rem);
+        }
+
+        .cs-photo-wrapper {
+            width: 100%;
+            /* smaller on phones, full size from tablet up */
+            max-width: min(17.5rem, 75%);
+            position: relative;
+
+            /* offset accent frame behind the photo */
+            &:before {
+                content: "";
+                position: absolute;
+                inset: (16/16rem) (-16/16rem) (-16/16rem) (16/16rem);
+                border: 3px solid var(--secondary);
+                border-radius: (20/16rem);
+                opacity: 0.35;
+                z-index: -1;
+            }
+        }
+
+        .cs-photo {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 5 / 6;
+            display: block;
+            object-fit: cover;
+            border-radius: (20/16rem);
+        }
+
+        .cs-photo-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--bodyTextColorWhite);
+            background: linear-gradient(135deg, var(--primary), var(--navy));
+        }
+
+        .cs-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .cs-text {
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            line-height: 1.7em;
+            margin-bottom: (16/16rem);
+        }
+
+        .cs-creds {
+            list-style: none;
+            margin: (8/16rem) 0 (28/16rem);
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: (10/16rem);
+
+            li {
+                padding: (8/16rem) (14/16rem);
+                font-size: (14/16rem);
+                font-weight: 700;
+                color: var(--headerColor);
+                background-color: var(--surface);
+                border-radius: (20/16rem);
+            }
+        }
+
+        .cs-button-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: (16/16rem) (28/16rem);
+        }
+    }
+}
+
+/* Desktop - 1024px */
+@media only screen and (min-width: 64rem) {
+    #about-me {
+        .cs-container {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .cs-photo-wrapper {
+            width: 34%;
+            max-width: (340/16rem);
+        }
+
+        .cs-content {
+            width: 58%;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode #about-me {
+        .cs-title {
+            color: var(--bodyTextColorWhite);
+        }
+
+        .cs-text {
+            color: var(--bodyTextColorWhite);
+            opacity: 0.85;
+        }
+
+        .cs-creds li {
+            color: var(--bodyTextColorWhite);
+            background-color: var(--medium);
+        }
+
+        .cs-photo-wrapper:before {
+            border-color: var(--secondaryLight);
+        }
+    }
+}

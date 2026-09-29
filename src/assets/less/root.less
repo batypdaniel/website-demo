@@ -1798,55 +1798,118 @@
 }
 
 /*-- -------------------------- -->
-<---          Process           -->
+<---      Process (River)       -->
 <--- -------------------------- -*/
 
-/* Mobile - 360px */
+/* Mobile - 360px: river down the left edge, cards to its right */
 @media only screen and (min-width: 0px) {
 	#process {
 		padding: var(--sectionPadding);
 		background-color: var(--surface);
+		overflow: hidden;
 
 		.cs-container {
 			width: 100%;
-			max-width: (1280/16rem);
+			max-width: (1100/16rem);
 			margin: auto;
 		}
 
-		.cs-steps {
+		.cs-river {
+			position: relative;
+		}
+
+		.cs-river-line {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+			pointer-events: none;
+			/* the river fades in at the top instead of starting with a hard cap */
+			-webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 7%);
+			mask-image: linear-gradient(to bottom, transparent 0, #000 7%);
+
+			path {
+				fill: none;
+				/* keeps stroke widths in px even though the SVG is stretched to fit */
+				vector-effect: non-scaling-stroke;
+				stroke-linecap: round;
+			}
+		}
+
+		.cs-river-desktop {
+			display: none;
+		}
+
+		.cs-river-bank {
+			stroke: rgba(29, 78, 216, 0.1);
+			stroke-width: 34px;
+		}
+
+		.cs-river-water {
+			stroke: rgba(29, 78, 216, 0.28);
+			stroke-width: 14px;
+		}
+
+		.cs-river-flow {
+			stroke: #fff;
+			stroke-width: 2px;
+			stroke-dasharray: 3px 14px;
+			opacity: 0.9;
+			animation: river-flow 1.6s linear infinite;
+		}
+
+		.cs-river-steps {
 			list-style: none;
 			margin: 0;
 			padding: 0;
+			position: relative;
 			display: grid;
-			grid-template-columns: 1fr;
-			gap: (20/16rem);
-			counter-reset: step;
+			/* equal-height rows keep each marker on a bend of the river */
+			grid-auto-rows: 1fr;
 		}
 
-		.cs-step {
+		.cs-river-step {
 			position: relative;
-			padding: (28/16rem) (24/16rem);
+			display: flex;
+			align-items: center;
+			/* room for the river on the left */
+			padding: (20/16rem) 0 (20/16rem) calc(9% + 2.5rem);
+		}
+
+		.cs-river-node {
+			position: absolute;
+			top: 50%;
+			left: 9%;
+			transform: translate(-50%, -50%);
+			width: (48/16rem);
+			height: (48/16rem);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: (20/16rem);
+			font-weight: 700;
+			color: #fff;
+			background-color: var(--primary);
+			border: 4px solid var(--surface);
+			border-radius: 50%;
+			box-shadow: 0 6px 16px -4px rgba(29, 78, 216, 0.5);
+			z-index: 1;
+		}
+
+		.cs-river-card {
+			width: 100%;
+			padding: (22/16rem) (24/16rem);
 			background-color: #fff;
 			border-radius: (12/16rem);
-			counter-increment: step;
-
-			&:before {
-				content: "0" counter(step);
-				display: block;
-				margin-bottom: (16/16rem);
-				font-size: (40/16rem);
-				font-weight: 700;
-				line-height: 1em;
-				color: var(--primary);
-				opacity: 0.35;
-			}
+			box-shadow: 0 12px 30px -18px rgba(11, 27, 51, 0.35);
 		}
 
 		.cs-h3 {
 			font-size: (20/16rem);
 			line-height: 1.3em;
 			font-weight: 700;
-			margin: 0 0 (10/16rem);
+			margin: 0 0 (8/16rem);
 			color: var(--headerColor);
 		}
 
@@ -1856,20 +1919,89 @@
 			margin: 0;
 			color: var(--bodyTextColor);
 		}
+
+		.cs-river-end {
+			display: flex;
+			align-items: center;
+			gap: (14/16rem);
+			/* line the dot up with the river on mobile */
+			padding-left: calc(9% - 0.875rem);
+			margin-top: (4/16rem);
+		}
+
+		.cs-river-dot {
+			width: (28/16rem);
+			height: (28/16rem);
+			flex: none;
+			border-radius: 50%;
+			background-color: #ef4444;
+			border: 4px solid #fff;
+			box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.18);
+		}
+
+		.cs-river-end-text {
+			font-weight: 700;
+			color: var(--headerColor);
+		}
+	}
+
+	@keyframes river-flow {
+		to {
+			stroke-dashoffset: -17px;
+		}
 	}
 }
 
-/* Tablet - 768px */
-@media only screen and (min-width: 48rem) {
-	#process .cs-steps {
-		grid-template-columns: repeat(2, 1fr);
-	}
-}
-
-/* Desktop - 1024px */
+/* Desktop - 1024px: river meanders down the middle, cards alternate sides */
 @media only screen and (min-width: 64rem) {
-	#process .cs-steps {
-		grid-template-columns: repeat(4, 1fr);
+	#process {
+		.cs-river-desktop {
+			display: block;
+		}
+
+		.cs-river-mobile {
+			display: none;
+		}
+
+		.cs-river-step {
+			min-height: (190/16rem);
+			padding: (16/16rem) 0;
+			justify-content: flex-start;
+
+			/* odd steps: marker on the river's left bend (40%), card to its left */
+			.cs-river-node {
+				left: 40%;
+				width: (56/16rem);
+				height: (56/16rem);
+				font-size: (22/16rem);
+			}
+
+			.cs-river-card {
+				width: calc(40% - 4rem);
+			}
+
+			/* even steps: marker on the right bend (60%), card to its right */
+			&:nth-child(even) {
+				justify-content: flex-end;
+
+				.cs-river-node {
+					left: 60%;
+				}
+			}
+		}
+
+		.cs-river-end {
+			flex-direction: column;
+			padding-left: 0;
+			margin-top: 0;
+			gap: (10/16rem);
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	#process .cs-river-flow {
+		animation: none;
 	}
 }
 
@@ -1879,21 +2011,38 @@
 		#process {
 			background-color: var(--medium);
 
-			.cs-step {
-				background-color: var(--dark);
-
-				&:before {
-					color: var(--primaryLight);
-				}
+			.cs-river-bank {
+				stroke: rgba(96, 165, 250, 0.08);
 			}
 
-			.cs-h3 {
+			.cs-river-water {
+				stroke: rgba(96, 165, 250, 0.3);
+			}
+
+			.cs-river-flow {
+				stroke: var(--primaryLight);
+			}
+
+			.cs-river-node {
+				border-color: var(--medium);
+			}
+
+			.cs-river-card {
+				background-color: var(--dark);
+			}
+
+			.cs-h3,
+			.cs-river-end-text {
 				color: var(--bodyTextColorWhite);
 			}
 
 			.cs-step-text {
 				color: var(--bodyTextColorWhite);
 				opacity: 0.8;
+			}
+
+			.cs-river-dot {
+				border-color: var(--medium);
 			}
 		}
 	}

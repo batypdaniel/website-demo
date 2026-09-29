@@ -117,6 +117,39 @@ eleventyComputed:
     {% include "sections/services-grid.html" %}
 
     <!-- ============================================ -->
+    <!--                  About Me                    -->
+    <!-- ============================================ -->
+
+    <!-- Short intro that links to the full About page. Headshot comes from client.founder.photo -->
+    <section id="about-me">
+        <div class="cs-container">
+            <div class="cs-photo-wrapper">
+                {% set photoClass = "cs-photo" %}
+                {% include "components/founder-photo.html" %}
+            </div>
+            <div class="cs-content">
+                <span class="cs-topper">About Me</span>
+                <h2 class="cs-title">Hi, I'm {{ client.founder.name.split(" ")[0] }}.</h2>
+                <p class="cs-text">
+                    I'm a {{ client.address.city }} native, now living in Cooper-Young, and I've spent my career building data pipelines, machine learning models and software for companies of every size - from small businesses stretched thin by their own growth to large corporations running data at massive scale.
+                </p>
+                <p class="cs-text">
+                    I started {{ client.name }} to bring those same tools to local businesses: clearly scoped, explained in plain English, and built to last. When you work with us, you work with me directly.
+                </p>
+                <ul class="cs-creds">
+                    <li>M.S. Artificial Intelligence, Johns Hopkins</li>
+                    <li>B.S. Applied Mathematics, UNC-Chapel Hill</li>
+                    <li>7+ years in data science &amp; ML</li>
+                </ul>
+                <div class="cs-button-row">
+                    <a href="/about/" class="cs-button-solid">More About Me</a>
+                    <a href="{{ client.bookingLink or '/contact/' }}" class="cs-arrow-link" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Let's talk {% include "icons/arrow.svg" %}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
     <!--                Featured Work                 -->
     <!-- ============================================ -->
 
