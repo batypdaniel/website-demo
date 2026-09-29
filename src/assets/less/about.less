@@ -41,7 +41,7 @@
             justify-content: center;
             font-weight: 700;
             color: var(--bodyTextColorWhite);
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--navy));
         }
 
         .cs-name-card {
@@ -78,6 +78,17 @@
             line-height: 1.7em;
             margin-bottom: (16/16rem);
         }
+
+        /* second heading inside the story ("Who I Am") */
+        .cs-subtitle {
+            font-size: clamp(1.5rem, 2.6vw, 2rem);
+            line-height: 1.2em;
+            margin: (40/16rem) 0 (16/16rem);
+            padding-top: (32/16rem);
+            border-top: 1px solid var(--border);
+            width: 100%;
+            color: var(--headerColor);
+        }
     }
 }
 
@@ -87,10 +98,15 @@
         .cs-container {
             flex-direction: row;
             justify-content: space-between;
+            /* top-align so the photo doesn't float in the middle of a long story */
+            align-items: flex-start;
         }
 
         .cs-photo-wrapper {
             width: 38%;
+            /* stays in view while the story scrolls */
+            position: sticky;
+            top: (120/16rem);
         }
 
         .cs-content {
@@ -141,6 +157,11 @@
             line-height: 1.5em;
             margin: 0;
             color: var(--bodyTextColor);
+
+            /* e.g. two degrees in the Education card */
+            & + .cs-item-text {
+                margin-top: (8/16rem);
+            }
         }
     }
 }
@@ -238,6 +259,7 @@
         #story,
         #background,
         #values {
+            .cs-subtitle,
             .cs-title,
             .cs-h3,
             .cs-name {
@@ -252,5 +274,11 @@
                 opacity: 0.85;
             }
         }
+    }
+}
+
+@media only screen and (min-width: 0rem) {
+    body.dark-mode #story .cs-subtitle {
+        border-color: var(--accent);
     }
 }

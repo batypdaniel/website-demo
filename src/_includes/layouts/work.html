@@ -70,7 +70,7 @@
             <aside class="cs-sidebar">
                 {% if relatedServices and relatedServices.length %}
                 <div class="cs-side-block">
-                    <h2 class="cs-side-title">Related services</h2>
+                    <h2 class="cs-side-title">Related Services</h2>
                     <ul class="cs-side-list">
                         {%- for s in services %}{% if s.slug in relatedServices %}
                             <li><a href="/services/{{ s.slug }}/">{% include "icons/" + s.icon + ".svg" %} {{ s.name }}</a></li>
@@ -80,7 +80,7 @@
                 {% endif %}
                 {% if stack and stack.length %}
                 <div class="cs-side-block">
-                    <h2 class="cs-side-title">Built with</h2>
+                    <h2 class="cs-side-title">Built With</h2>
                     <ul class="cs-tag-group">
                         {%- for tool in stack %}
                         <li class="cs-tag">{{ tool }}</li>
@@ -110,7 +110,7 @@
     {% if others.length %}
     <section id="work-more">
         <div class="cs-container">
-            <h2 class="cs-title">More work</h2>
+            <h2 class="cs-title">More Work</h2>
             <ul class="cs-work-grid">
                 {%- for item in others.slice(0, 3) %}
                     {% include "components/work-card.html" %}

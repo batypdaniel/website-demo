@@ -14,7 +14,7 @@ module.exports = [
         navName: "Data Analytics",
         icon: "analytics",
         summary: "Turn scattered spreadsheets and app exports into clear dashboards that show how your business is really doing.",
-        headline: "See your whole business on one screen",
+        headline: "See Your Whole Business on One Screen",
         intro: "Most small businesses already have the data they need - it's just spread across a POS system, QuickBooks, a CRM, and a dozen spreadsheets. We pull it together, clean it up, and build dashboards and reports your team will actually use.",
         painPoints: [
             "Monthly reporting means hours of copy-pasting between spreadsheets",
@@ -53,7 +53,7 @@ module.exports = [
         navName: "Data Science",
         icon: "science",
         summary: "Use your historical data to forecast demand, understand customers and make decisions with more confidence.",
-        headline: "Stop guessing. Start predicting.",
+        headline: "Stop Guessing. Start Predicting.",
         intro: "Once you know what happened, the next question is what will happen - and what to do about it. We build practical statistical and machine learning models sized for a small or mid-sized business: no data science team required.",
         painPoints: [
             "Ordering and staffing decisions are based on gut feel",
@@ -92,7 +92,7 @@ module.exports = [
         navName: "AI Solutions",
         icon: "ai",
         summary: "Put modern AI to work on real problems - answering questions, processing documents and saving your team time.",
-        headline: "Practical AI, without the hype",
+        headline: "Practical AI, Without the Hype",
         intro: "AI tools have become genuinely useful for small businesses, but it's hard to know where to start or what's safe. We help you find the right use cases, build solutions around your own documents and data, and roll them out responsibly.",
         painPoints: [
             "Your team answers the same customer questions over and over",
@@ -131,7 +131,7 @@ module.exports = [
         navName: "Automation",
         icon: "automation",
         summary: "Connect the apps you already use and eliminate the repetitive data entry that eats up your team's week.",
-        headline: "Give your team their time back",
+        headline: "Give Your Team Their Time Back",
         intro: "If someone on your team spends hours each week copying information from one system to another, that's a job for automation. We map how work flows through your business, then connect your tools so the busywork happens on its own - reliably.",
         painPoints: [
             "The same information gets typed into multiple systems",
@@ -170,7 +170,7 @@ module.exports = [
         navName: "Software Development",
         icon: "software",
         summary: "Internal tools, web apps and integrations built around the way your business works - not the other way around.",
-        headline: "Software that fits your business",
+        headline: "Software That Fits Your Business",
         intro: "Off-the-shelf software gets you most of the way, but sometimes you need something that fits exactly. We design and build web applications, internal tools and integrations - and we keep them simple, maintainable and fully owned by you.",
         painPoints: [
             "A critical process runs on a fragile, overgrown spreadsheet",

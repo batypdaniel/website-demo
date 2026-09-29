@@ -55,7 +55,7 @@ eleventyComputed:
         <div class="cs-container">
             <div class="cs-section-header">
                 <span class="cs-topper">How We Help</span>
-                <h2 class="cs-title">What's included</h2>
+                <h2 class="cs-title">What's Included</h2>
             </div>
             <ul class="cs-card-group">
                 {%- for offering in service.offerings %}
@@ -76,7 +76,7 @@ eleventyComputed:
         <div class="cs-container">
             <div class="cs-examples">
                 <span class="cs-topper">In Practice</span>
-                <h2 class="cs-title">Example projects</h2>
+                <h2 class="cs-title">Example Projects</h2>
                 <ul class="cs-check-list">
                     {%- for example in service.examples %}
                     <li>{% include "icons/check.svg" %} {{ example }}</li>
@@ -84,7 +84,7 @@ eleventyComputed:
                 </ul>
             </div>
             <div class="cs-tools">
-                <h3 class="cs-h3">Tools &amp; technologies</h3>
+                <h3 class="cs-h3">Tools &amp; Technologies</h3>
                 <p class="cs-tools-text">We work with the tools you already use wherever we can. Common choices include:</p>
                 <ul class="cs-tag-group">
                     {%- for tool in service.tools %}
@@ -123,7 +123,7 @@ eleventyComputed:
 
     <section id="other-services">
         <div class="cs-container">
-            <h2 class="cs-h3">Explore other services</h2>
+            <h2 class="cs-h3">Explore Other Services</h2>
             <ul class="cs-other-group">
                 {%- for other in services %}
                 {%- if other.slug != service.slug %}
