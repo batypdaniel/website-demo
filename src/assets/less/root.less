@@ -2175,3 +2175,23 @@
 		font-weight: 700;
 	}
 }
+
+/* Preview bar - only rendered on Netlify preview builds (client.isPreview) */
+@media only screen and (min-width: 0px) {
+	.cs-preview-bar {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 10000;
+		padding: (6/16rem) (12/16rem);
+		font-size: (12/16rem);
+		font-weight: 700;
+		text-align: center;
+		letter-spacing: 0.04em;
+		color: #92400e;
+		background-color: #fef3c7;
+		border-top: 1px solid #fcd34d;
+		pointer-events: none;
+	}
+}

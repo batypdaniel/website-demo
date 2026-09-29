@@ -22,6 +22,7 @@ const filterPostDate = require("./src/config/filters/postDate");
 const filterIsoDate = require("./src/config/filters/isoDate");
 const filterTitleCase = require("./src/config/filters/titleCase");
 const isProduction = process.env.ELEVENTY_ENV === "PROD";
+const isPreview = ["branch-deploy", "deploy-preview"].includes(process.env.CONTEXT); // Netlify preview builds
 
 module.exports = function (eleventyConfig) {
 	// ═════════════════════════════════════════════════════════════════════════
@@ -112,10 +113,10 @@ module.exports = function (eleventyConfig) {
 	/*
 	 * 📝 Drafts
 	 * Any Markdown file with "draft: true" is skipped in production builds (npm run build),
-	 * but still shows up locally with npm start so you can preview it.
+	 * but still shows up locally with npm start and on Netlify branch deploys / deploy previews.
 	 */
 	eleventyConfig.addPreprocessor("drafts", "md", (data) => {
-		if (data.draft && isProduction) return false;
+		if (data.draft && isProduction && !isPreview) return false;
 	});
 
 	/*

@@ -40,4 +40,7 @@ module.exports = {
     domain: "https://www.example.com", // TODO
     // Passing the isProduction variable for use in HTML templates
     isProduction: process.env.ELEVENTY_ENV === "PROD",
+    // True on Netlify branch deploys and deploy previews (Netlify sets CONTEXT automatically).
+    // Preview builds show drafts, display a "Preview" bar and ask search engines not to index them.
+    isPreview: ["branch-deploy", "deploy-preview"].includes(process.env.CONTEXT),
 };
