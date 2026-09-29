@@ -44,8 +44,8 @@ eleventyComputed:
                     We help small and mid-sized businesses turn their data into clear answers, put AI to work where it actually helps, and automate the repetitive tasks that eat up your team's week.
                 </p>
                 <div class="cs-button-group">
-                    <a href="{{ client.bookingLink or '/contact/' }}" class="cs-button-solid" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Book a Free Consultation</a>
-                    <a href="/services/" class="cs-button-ghost">See Our Services</a>
+                    <a href="{{ client.bookingLink or '/contact/' }}" class="cs-button-solid" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Book a free consultation</a>
+                    <a href="/services/" class="cs-button-ghost">See our services</a>
                 </div>
                 <ul class="cs-trust">
                     <li>{% include "icons/check.svg" %} Locally owned</li>
@@ -142,7 +142,7 @@ eleventyComputed:
                     <li>7+ years in data science &amp; ML</li>
                 </ul>
                 <div class="cs-button-row">
-                    <a href="/about/" class="cs-button-solid">More About Me</a>
+                    <a href="/about/" class="cs-button-solid">More about me</a>
                     <a href="{{ client.bookingLink or '/contact/' }}" class="cs-arrow-link" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Let's talk {% include "icons/arrow.svg" %}</a>
                 </div>
             </div>
@@ -167,7 +167,7 @@ eleventyComputed:
                     {% include "components/work-card.html" %}
                 {%- endfor %}
             </ul>
-            <a href="/work/" class="cs-button-solid">View All Work</a>
+            <a href="/work/" class="cs-button-solid">View all work</a>
         </div>
     </section>
     {% endif %}
@@ -187,7 +187,7 @@ eleventyComputed:
                 <p class="cs-text">
                     We're based right here in {{ client.address.city }}, so you get someone who picks up the phone, can sit down with your team in person, and cares about the local business community.
                 </p>
-                <a href="/about/" class="cs-button-solid">About Us</a>
+                <a href="/about/" class="cs-button-solid">About us</a>
             </div>
             <ul class="cs-value-group">
                 <li class="cs-value">
