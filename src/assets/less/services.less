@@ -73,10 +73,12 @@
     }
 }
 
-/* Desktop - 1024px */
-@media only screen and (min-width: 64rem) {
+/* Tablet - 768px: two options side by side, centered */
+@media only screen and (min-width: 48rem) {
     #engagements .cs-card-group {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        max-width: (880/16rem);
+        margin: 0 auto;
     }
 }
 
