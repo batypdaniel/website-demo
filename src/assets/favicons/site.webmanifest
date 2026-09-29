@@ -1,6 +1,6 @@
 {
-  "name": "Starter Kit",
-  "short_name": "Starter Kit",
+  "name": "Downstream Data Co.",
+  "short_name": "Downstream",
   "icons": [
     {
       "src": "/assets/favicons/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#1d4ed8",
   "background_color": "#ffffff",
   "display": "standalone"
 }
