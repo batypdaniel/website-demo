@@ -19,6 +19,7 @@ imageAlt: Illustration of a forecasting chart
 # Tip: Streamlit Community Cloud apps can be embedded - paste the normal app URL, "?embed=true" is added automatically
 demoUrl: "" # TODO: e.g. https://your-app.streamlit.app
 demoEmbed: true
+demoPosition: after # "after" = demo below the write-up; remove this line to put it at the top
 repoUrl: ""
 ---
 

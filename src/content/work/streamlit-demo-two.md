@@ -18,6 +18,7 @@ image: /assets/images/work/streamlit-demo-two.jpg # TODO: replace with a screens
 imageAlt: Illustration of a KPI dashboard
 demoUrl: "" # TODO: e.g. https://your-app.streamlit.app
 demoEmbed: true
+demoPosition: after # "after" = demo below the write-up; remove this line to put it at the top
 repoUrl: ""
 ---
 
