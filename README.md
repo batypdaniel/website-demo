@@ -13,6 +13,7 @@ This site is built on the CodeStitch Intermediate Kit (Eleventy + LESS + Decap C
 | Logo mark | `src/_includes/icons/logo-mark.svg` |
 | Pages | `src/index.html`, `src/content/pages/*.html` |
 | Blog posts ("Insights") | `src/content/blog/*.md` (or via the CMS at `/admin/`) |
+| Work & demos (`/work/`, home page, service pages) | `src/content/work/*.md` (or via the CMS). Set `demoUrl`, write the story, then remove `draft: true` to publish |
 
 Search the project for `TODO` to find placeholder content that still needs real details.
 

@@ -44,6 +44,13 @@
                             {%- endfor %}
                         </ul>
                     </li>
+                    {%- if collections.workItems.length %}
+                    <li class="cs-li">
+                        <a href="/work/" class="cs-li-link {% if page.url.startsWith("/work/") %} cs-active {% endif %}" {% if page.url == "/work/" %} aria-current="page" {% endif %}>
+                            Work
+                        </a>
+                    </li>
+                    {%- endif %}
                     <li class="cs-li">
                         <a href="/about/" class="cs-li-link {% if page.url == "/about/" %} cs-active {% endif %}" {% if page.url == "/about/" %} aria-current="page" {% endif %}>
                             About

@@ -1,0 +1,18 @@
+<!-- Card for one demo / case study. Expects `item` (a collections.workItems entry). Styles live in root.less -->
+<li class="cs-work-card">
+    <a class="cs-work-link" href="{{ item.url }}">
+        <picture class="cs-work-picture">
+            <img src="{% getUrl item.data.image | resize({ width: 800, height: 450 }) | jpeg %}" alt="{{ item.data.imageAlt }}" width="400" height="225" loading="lazy" decoding="async">
+        </picture>
+        <div class="cs-work-body">
+            <div class="cs-work-meta">
+                <span class="cs-work-kind">{{ item.data.kind or "Project" }}</span>
+                {%- if not item.data.demoUrl and item.data.kind == "Live demo" %}<span class="cs-work-soon">Coming soon</span>{% endif %}
+                {%- if item.data.draft %}<span class="cs-work-draft">Draft</span>{% endif %}
+            </div>
+            <h3 class="cs-work-title">{{ item.data.title }}</h3>
+            <p class="cs-work-desc">{{ item.data.description }}</p>
+            <span class="cs-arrow-link">View project {% include "icons/arrow.svg" %}</span>
+        </div>
+    </a>
+</li>

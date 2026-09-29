@@ -39,3 +39,36 @@ collections:
           - { label: "Featured Image", name: "image", widget: "image" }
           - { label: "Image Caption", name: "imageAlt", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+
+    - name: "work"
+      label: "Work & Demos"
+      folder: "src/content/work"
+      media_folder: "/src/assets/images/work"
+      public_folder: "/assets/images/work"
+      create: true
+      slug: "{{url}}"
+      fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "URL Slug", name: "url", widget: "string", hint: 'The page will live at /work/<slug>/' }
+          - { label: "Short Description", name: "description", widget: "text" }
+          - { label: "Type", name: "kind", widget: "select", options: ["Live demo", "Case study"], default: "Live demo" }
+          - { label: "Order", name: "order", widget: "number", default: 10, hint: "Lower numbers are listed first" }
+          - { label: "Show on Home Page", name: "featured", widget: "boolean", default: false }
+          - { label: "Draft (hidden from live site)", name: "draft", widget: "boolean", default: true }
+          - label: "Related Services"
+            name: "relatedServices"
+            widget: "select"
+            multiple: true
+            options:
+                - { label: "Data Analytics & Reporting", value: "data-analytics" }
+                - { label: "Data Science & Forecasting", value: "data-science" }
+                - { label: "AI Solutions", value: "ai-solutions" }
+                - { label: "Workflow Automation", value: "automation" }
+                - { label: "Custom Software Development", value: "software-development" }
+          - { label: "Built With", name: "stack", widget: "list", required: false }
+          - { label: "Cover Image / Screenshot", name: "image", widget: "image" }
+          - { label: "Image Description", name: "imageAlt", widget: "string" }
+          - { label: "Live Demo URL", name: "demoUrl", widget: "string", required: false, hint: "Leave empty to show 'Demo coming soon'" }
+          - { label: "Embed Demo in Page", name: "demoEmbed", widget: "boolean", default: true, hint: "Works for Streamlit, Hugging Face Spaces and Gradio. Turn off to open in a new tab instead." }
+          - { label: "Code Repository URL", name: "repoUrl", widget: "string", required: false }
+          - { label: "Write-up", name: "body", widget: "markdown" }

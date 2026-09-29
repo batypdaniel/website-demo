@@ -117,6 +117,29 @@ eleventyComputed:
     {% include "sections/services-grid.html" %}
 
     <!-- ============================================ -->
+    <!--                Featured Work                 -->
+    <!-- ============================================ -->
+
+    <!-- Shows up to 3 items from src/content/work/ with "featured: true". Hidden when there are none. -->
+    {% if collections.featuredWork.length %}
+    <section id="work-featured">
+        <div class="cs-container">
+            <div class="cs-section-header">
+                <span class="cs-topper">See It In Action</span>
+                <h2 class="cs-title">Try a Live Demo</h2>
+                <p class="cs-text">Real, working examples of the tools we build - click through and try them yourself.</p>
+            </div>
+            <ul class="cs-work-grid">
+                {%- for item in collections.featuredWork %}
+                    {% include "components/work-card.html" %}
+                {%- endfor %}
+            </ul>
+            <a href="/work/" class="cs-button-solid">View All Work</a>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ============================================ -->
     <!--                   Why Us                     -->
     <!-- ============================================ -->
 

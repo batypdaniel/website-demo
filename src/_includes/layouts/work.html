@@ -1,0 +1,118 @@
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/work.css">
+    <script defer src="/assets/js/demo-embed.js"></script>
+{% endblock %}
+
+{% block body %}
+
+    {% set bannerTitle = title %}
+    {% set bannerText = description %}
+    {% set crumbs = [{ name: "Work", url: "/work/" }] %}
+    {% set bannerCrumb = title %}
+    {% include "sections/banner.html" %}
+
+    <!-- ============================================ -->
+    <!--                  Live Demo                   -->
+    <!-- ============================================ -->
+
+    {#- Streamlit Community Cloud apps need ?embed=true to render cleanly inside an iframe #}
+    {%- set embedUrl = demoUrl %}
+    {%- if demoUrl and "streamlit.app" in demoUrl and not ("embed=true" in demoUrl) %}
+        {%- set embedUrl = demoUrl + ("&" if "?" in demoUrl else "?") + "embed=true" %}
+    {%- endif %}
+
+    <section id="work-demo">
+        <div class="cs-container">
+            {% if draft %}
+            <p class="cs-draft-note">Draft - this page is hidden from the live site until you set <code>draft: false</code> in its front matter.</p>
+            {% endif %}
+            <div class="cs-demo" {% if demoUrl and demoEmbed %}data-embed-src="{{ embedUrl }}" data-embed-title="{{ title }} live demo"{% endif %}>
+                <picture class="cs-demo-poster">
+                    <img src="{% getUrl image | resize({ width: 1600, height: 900 }) | jpeg %}" alt="{{ imageAlt }}" width="1600" height="900" decoding="async">
+                </picture>
+                <div class="cs-demo-overlay">
+                    {% if demoUrl and demoEmbed %}
+                        <button class="cs-button-solid cs-demo-launch" type="button">Launch Live Demo</button>
+                        <span class="cs-demo-hint">Hosted apps can take up to 30 seconds to wake up.</span>
+                    {% elif demoUrl %}
+                        <a class="cs-button-solid" href="{{ demoUrl }}" target="_blank" rel="noopener">Open Live Demo</a>
+                        <span class="cs-demo-hint">Opens in a new tab.</span>
+                    {% else %}
+                        <span class="cs-demo-soon">Live demo coming soon</span>
+                        <a class="cs-button-ghost" href="/contact/">Request a Walkthrough</a>
+                    {% endif %}
+                </div>
+            </div>
+            {% if demoUrl %}
+            <p class="cs-demo-links">
+                <a class="cs-arrow-link" href="{{ demoUrl }}" target="_blank" rel="noopener">Open in a new tab {% include "icons/arrow.svg" %}</a>
+            </p>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                  Write-up                    -->
+    <!-- ============================================ -->
+
+    <section id="work-detail">
+        <div class="cs-container">
+            <article class="cs-writeup">
+                {{ content | safe }}
+            </article>
+            <aside class="cs-sidebar">
+                {% if relatedServices and relatedServices.length %}
+                <div class="cs-side-block">
+                    <h2 class="cs-side-title">Related services</h2>
+                    <ul class="cs-side-list">
+                        {%- for s in services %}{% if s.slug in relatedServices %}
+                            <li><a href="/services/{{ s.slug }}/">{% include "icons/" + s.icon + ".svg" %} {{ s.name }}</a></li>
+                        {%- endif %}{% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% if stack and stack.length %}
+                <div class="cs-side-block">
+                    <h2 class="cs-side-title">Built with</h2>
+                    <ul class="cs-tag-group">
+                        {%- for tool in stack %}
+                        <li class="cs-tag">{{ tool }}</li>
+                        {%- endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+                {% if repoUrl %}
+                <div class="cs-side-block">
+                    <a class="cs-arrow-link" href="{{ repoUrl }}" target="_blank" rel="noopener">View the code on GitHub {% include "icons/arrow.svg" %}</a>
+                </div>
+                {% endif %}
+                <div class="cs-side-block cs-side-cta">
+                    <h2 class="cs-side-title">Want something like this?</h2>
+                    <p class="cs-side-text">Every business is different. Let's talk about what this would look like with your data and tools.</p>
+                    <a class="cs-button-solid" href="{{ client.bookingLink or '/contact/' }}" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Let's Talk</a>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                 More Work                    -->
+    <!-- ============================================ -->
+
+    {%- set others = collections.workItems | withoutUrl(page.url) %}
+    {% if others.length %}
+    <section id="work-more">
+        <div class="cs-container">
+            <h2 class="cs-title">More work</h2>
+            <ul class="cs-work-grid">
+                {%- for item in others.slice(0, 3) %}
+                    {% include "components/work-card.html" %}
+                {%- endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
+
+{% endblock %}

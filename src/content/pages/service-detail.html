@@ -96,6 +96,28 @@ eleventyComputed:
     </section>
 
     <!-- ============================================ -->
+    <!--               Related Work                   -->
+    <!-- ============================================ -->
+
+    <!-- Items from src/content/work/ whose "relatedServices" include this service. Hidden when there are none. -->
+    {%- set related = collections.workItems | relatedTo(service.slug) %}
+    {% if related.length %}
+    <section id="work-featured">
+        <div class="cs-container">
+            <div class="cs-section-header">
+                <span class="cs-topper">See It In Action</span>
+                <h2 class="cs-title">Related Demos</h2>
+            </div>
+            <ul class="cs-work-grid">
+                {%- for item in related %}
+                    {% include "components/work-card.html" %}
+                {%- endfor %}
+            </ul>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- ============================================ -->
     <!--               Other Services                 -->
     <!-- ============================================ -->
 

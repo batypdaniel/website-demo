@@ -1,0 +1,46 @@
+---
+description: "Live demos and project write-ups showing data analytics, forecasting, AI and automation in action for small businesses."
+eleventyComputed:
+  title: "Work & Demos | {{ client.name }} | {{ client.address.city }}, {{ client.address.state }}"
+permalink: "/work/"
+---
+
+{% extends "layouts/base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/assets/css/work.css">
+{% endblock %}
+
+{% block body %}
+
+    {% set bannerTitle = "Work & Demos" %}
+    {% set bannerText = "Try live demos and see how we approach real business problems with data, AI and software." %}
+    {% set crumbs = [] %}
+    {% set bannerCrumb = "Work" %}
+    {% include "sections/banner.html" %}
+
+    <!-- ============================================ -->
+    <!--                  Work Grid                   -->
+    <!-- ============================================ -->
+
+    <!-- Cards are generated from the Markdown files in src/content/work/ -->
+    <section id="work-listing">
+        <div class="cs-container">
+            {% if collections.workItems.length %}
+                <ul class="cs-work-grid">
+                    {%- for item in collections.workItems %}
+                        {% include "components/work-card.html" %}
+                    {%- endfor %}
+                </ul>
+            {% else %}
+                <div class="cs-empty">
+                    <h2 class="cs-title">Demos coming soon</h2>
+                    <p class="cs-text">We're putting the finishing touches on a few live demos. In the meantime, we're happy to walk you through examples on a call.</p>
+                    <a href="/contact/" class="cs-button-solid">Request a Walkthrough</a>
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+    {% include 'sections/cta.html' %}
+{% endblock %}

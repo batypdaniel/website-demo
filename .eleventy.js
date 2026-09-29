@@ -105,6 +105,36 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addFilter("isoDate", filterIsoDate);
 
 	// ═════════════════════════════════════════════════════════════════════════
+	// COLLECTIONS
+	// Learn more: https://www.11ty.dev/docs/collections/
+	// ═════════════════════════════════════════════════════════════════════════
+
+	/*
+	 * 📝 Drafts
+	 * Any Markdown file with "draft: true" is skipped in production builds (npm run build),
+	 * but still shows up locally with npm start so you can preview it.
+	 */
+	eleventyConfig.addPreprocessor("drafts", "md", (data) => {
+		if (data.draft && isProduction) return false;
+	});
+
+	/*
+	 * 🧪 Work / Demos (src/content/work/)
+	 * workItems: every published demo, sorted by the "order" front matter field
+	 * featuredWork: the first 3 with "featured: true", shown on the home page
+	 */
+	const byOrder = (a, b) => (a.data.order ?? 99) - (b.data.order ?? 99);
+	eleventyConfig.addCollection("workItems", (api) => api.getFilteredByTag("work").sort(byOrder));
+	eleventyConfig.addCollection("featuredWork", (api) =>
+		api.getFilteredByTag("work").filter((item) => item.data.featured).sort(byOrder).slice(0, 3)
+	);
+
+	// Removes the current page from a collection (e.g. "More work" on a demo page)
+	eleventyConfig.addFilter("withoutUrl", (items, url) => items.filter((item) => item.url !== url));
+	// Work items that list a given service slug in their "relatedServices" front matter
+	eleventyConfig.addFilter("relatedTo", (items, slug) => items.filter((item) => (item.data.relatedServices || []).includes(slug)));
+
+	// ═════════════════════════════════════════════════════════════════════════
 	// SHORTCODES
 	// Generate dynamic content with JavaScript
 	// Learn more: https://www.11ty.dev/docs/shortcodes/
