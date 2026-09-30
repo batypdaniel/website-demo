@@ -20,6 +20,7 @@ image: /assets/images/work/inventory-planning-app.jpg
 imageAlt: The inventory app's Forecasting page, showing a weekly demand forecast with its likely range and forecast accuracy by method
 demoUrl: /assets/demos/inventory-demo.html # static export from the inventory-management-demo repo (demo/inventory-demo.html)
 demoEmbed: true
+demoAutoload: true # show the app as soon as the page loads, instead of a "Launch live demo" button
 repoUrl: ""
 ---
 

@@ -31,6 +31,17 @@
             {% endif %}
             {% if interactiveDemo == "rag" %}
                 {% include "components/rag-demo.html" %}
+            {% elif demoUrl and demoEmbed and demoAutoload %}
+            {#- demoAutoload: true - the app is live as soon as the page loads, with no launch button #}
+            <div class="cs-demo cs-demo-loaded">
+                <div class="cs-demo-window">
+                    <div class="cs-demo-bar" aria-hidden="true">
+                        <span class="cs-demo-dots"><i></i><i></i><i></i></span>
+                        <span class="cs-demo-bar-title">{{ title }} live demo</span>
+                    </div>
+                    <iframe class="cs-demo-frame" src="{{ embedUrl }}" title="{{ title }} live demo" allow="clipboard-read; clipboard-write" loading="eager"></iframe>
+                </div>
+            </div>
             {% else %}
             <div class="cs-demo" {% if demoUrl and demoEmbed %}data-embed-src="{{ embedUrl }}" data-embed-title="{{ title }} live demo"{% endif %}>
                 <picture class="cs-demo-poster">
