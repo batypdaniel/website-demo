@@ -80,6 +80,9 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("./src/admin"); // CMS admin files
 	eleventyConfig.addPassthroughCopy("./src/_redirects"); // Redirect rules
 
+	// Self-contained demo apps (e.g. the inventory app export) are copied as-is, not rendered as templates
+	eleventyConfig.ignores.add("./src/assets/demos/**");
+
 	// ═════════════════════════════════════════════════════════════════════════
 	// FILTERS
 	// Transform data in templates at build time

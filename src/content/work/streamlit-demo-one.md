@@ -17,7 +17,7 @@ stack:
 image: /assets/images/work/streamlit-demo-one.jpg # TODO: replace with a screenshot
 imageAlt: Illustration of a forecasting chart
 # Tip: Streamlit Community Cloud apps can be embedded - paste the normal app URL, "?embed=true" is added automatically
-demoUrl: "" # TODO: e.g. https://your-app.streamlit.app
+demoUrl: /assets/demos/inventory-demo.html # static export from the inventory-management-demo repo (demo/inventory-demo.html)
 demoEmbed: true
 repoUrl: ""
 ---
