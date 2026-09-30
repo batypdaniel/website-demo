@@ -39,7 +39,8 @@
                 <div class="cs-demo-overlay">
                     {% if demoUrl and demoEmbed %}
                         <button class="cs-button-solid cs-demo-launch" type="button">Launch live demo</button>
-                        <span class="cs-demo-hint">Hosted apps can take up to 30 seconds to wake up.</span>
+                        {#- Self-hosted demos (a path on this site) load instantly; only externally hosted apps need the wake-up note #}
+                        {% if "://" in demoUrl %}<span class="cs-demo-hint">Hosted apps can take up to 30 seconds to wake up.</span>{% endif %}
                     {% elif demoUrl %}
                         <a class="cs-button-solid" href="{{ demoUrl }}" target="_blank" rel="noopener">Open live demo</a>
                         <span class="cs-demo-hint">Opens in a new tab.</span>

@@ -1,11 +1,11 @@
 ---
-title: Sales Forecasting App # TODO: your app's name
-url: sales-forecasting-app # TODO: the page will live at /work/<url>/
+title: Inventory Planning & Demand Forecasting
+url: inventory-planning-demand-forecasting
 description: An inventory planning app that forecasts demand from sales history and turns it into reorder points, so owners know what to order and when.
 kind: Live demo
 order: 2
 featured: true
-draft: true # TODO: set to false (or delete this line) when the write-up is ready
+draft: false
 relatedServices:
     - data-science
     - data-analytics
@@ -16,8 +16,8 @@ stack:
     - scikit-learn
     - React
     - TypeScript
-image: /assets/images/work/streamlit-demo-one.jpg # TODO: replace with a screenshot
-imageAlt: Illustration of a forecasting chart
+image: /assets/images/work/inventory-planning-app.jpg
+imageAlt: The inventory app's Forecasting page, showing a weekly demand forecast with its likely range and forecast accuracy by method
 demoUrl: /assets/demos/inventory-demo.html # static export from the inventory-management-demo repo (demo/inventory-demo.html)
 demoEmbed: true
 repoUrl: ""

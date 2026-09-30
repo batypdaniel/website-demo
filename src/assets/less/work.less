@@ -61,16 +61,13 @@
         }
 
         /* Once launched, give the app a fixed, usable height instead of 16:9.
-           The poster stays as a backdrop and the app sits in a window on top of it. */
+           The poster is hidden and the app sits in a window on the navy panel. */
         .cs-demo-loaded {
             aspect-ratio: auto;
             height: clamp(40rem, 85vh, 56rem);
 
-            .cs-demo-poster::after {
-                content: "";
-                position: absolute;
-                inset: 0;
-                background: rgba(11, 27, 51, 0.7);
+            .cs-demo-poster {
+                display: none;
             }
         }
 
