@@ -1,7 +1,7 @@
 ---
 title: Sales Forecasting App # TODO: your app's name
 url: sales-forecasting-app # TODO: the page will live at /work/<url>/
-description: An interactive Streamlit app that forecasts sales from historical data so owners can plan inventory and staffing. # TODO
+description: An inventory planning app that forecasts demand from sales history and turns it into reorder points, so owners know what to order and when.
 kind: Live demo
 order: 2
 featured: true
@@ -11,12 +11,13 @@ relatedServices:
     - data-analytics
 stack:
     - Python
-    - Streamlit
+    - FastAPI
     - pandas
     - scikit-learn
+    - React
+    - TypeScript
 image: /assets/images/work/streamlit-demo-one.jpg # TODO: replace with a screenshot
 imageAlt: Illustration of a forecasting chart
-# Tip: Streamlit Community Cloud apps can be embedded - paste the normal app URL, "?embed=true" is added automatically
 demoUrl: /assets/demos/inventory-demo.html # static export from the inventory-management-demo repo (demo/inventory-demo.html)
 demoEmbed: true
 repoUrl: ""
