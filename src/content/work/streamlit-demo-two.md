@@ -5,7 +5,7 @@ description: An interactive Streamlit dashboard that turns raw business data int
 kind: Live demo
 order: 3
 featured: true
-draft: true # TODO: set to false (or delete this line) when the write-up is ready
+draft: false # TODO: set to false (or delete this line) when the write-up is ready
 relatedServices:
     - data-analytics
     - automation
@@ -16,8 +16,9 @@ stack:
     - Plotly
 image: /assets/images/work/streamlit-demo-two.jpg # TODO: replace with a screenshot
 imageAlt: Illustration of a KPI dashboard
-demoUrl: "" # TODO: e.g. https://your-app.streamlit.app
+demoUrl: "https://dashboard-demo-batypdaniel.streamlit.app/" 
 demoEmbed: true
+demoAutoload: true
 repoUrl: ""
 ---
 
