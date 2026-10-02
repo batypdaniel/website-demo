@@ -6,7 +6,7 @@ description: A retrieval-augmented (RAG) assistant that answers customer questio
 kind: Interactive demo # "Live demo", "Interactive demo" or "Case study" - shown as a tag on the card
 order: 1 # lower numbers are listed first
 featured: true # show on the home page (up to 3)
-draft: true # TODO: set to false (or delete this line) when the write-up is ready
+draft: false
 # Slugs from src/_data/services.js - the demo appears on these service pages
 relatedServices:
     - ai-solutions
