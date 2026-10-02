@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // WORK / DEMOS - shared settings for every file in src/content/work/
-// Each Markdown file becomes a page at /work/<url>/ and a card on /work/,
+// Each Markdown file becomes a page at /demos/<url>/ and a card on /demos/,
 // the home page and every related /services/<slug>/ page.
 //
 // Set `draft: true` in a file's front matter to hide it from production builds
@@ -13,6 +13,6 @@ module.exports = {
     layout: "layouts/work.html",
     tags: "work",
     eleventyComputed: {
-        permalink: (data) => `/work/${data.url}/index.html`,
+        permalink: (data) => `/demos/${data.url}/index.html`,
     },
 };

@@ -1,1 +1,3 @@
-
+# The Work section was renamed to Demos - keep old links working
+/work            /demos/           301
+/work/*          /demos/:splat     301

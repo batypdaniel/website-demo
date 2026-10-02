@@ -64,12 +64,13 @@
 		},
 
 		toggle(element) {
-			element.classList.toggle(CONFIG.CLASSES.active);
+			// Set the state outright rather than flipping it - on desktop, hovering has already made the menu usable
+			const isOpen = element.classList.toggle(CONFIG.CLASSES.active);
 			const button = element.querySelector(CONFIG.SELECTORS.dropdownToggle);
 			const menu = element.querySelector(CONFIG.SELECTORS.dropdownMenu);
 
-			button && toggleAttribute(button, "aria-expanded");
-			menu && toggleInert(menu);
+			button && button.setAttribute("aria-expanded", String(isOpen));
+			if (menu) menu.inert = !isOpen;
 		},
 
 		closeAll() {
@@ -125,9 +126,9 @@
 
 	// Event Management
 	const eventManager = {
+		// The arrow button toggles the menu at every screen size, so touch screens without hover can open it.
+		// Buttons fire "click" for Enter and Space too, so this also covers the keyboard.
 		handleDropdownClick(event) {
-			if (!isMobile()) return;
-
 			const button = event.target.closest(CONFIG.SELECTORS.dropdownToggle);
 			if (!button) return;
 
@@ -138,17 +139,12 @@
 			}
 		},
 
-		handleDropdownKeydown(event) {
-			if (event.key !== "Enter" && event.key !== " ") return;
-
-			const button = event.target.closest(CONFIG.SELECTORS.dropdownToggle);
-			if (!button) return;
-
-			event.preventDefault();
-			const dropdown = button.closest(CONFIG.SELECTORS.dropdown);
-			if (dropdown) {
-				dropdownManager.toggle(dropdown);
-			}
+		// Close an open dropdown when someone clicks or taps anywhere outside it
+		handleOutsideClick(event) {
+			if (!elements.navigation) return;
+			elements.navigation.querySelectorAll(`${CONFIG.SELECTORS.dropdown}.${CONFIG.CLASSES.active}`).forEach((dropdown) => {
+				if (!dropdown.contains(event.target)) dropdownManager.close(dropdown);
+			});
 		},
 
 		handleFocusOut(event) {
@@ -185,7 +181,8 @@
 				// Use setTimeout to allow mouseleave/mouseenter events to complete
 				setTimeout(() => {
 					// Check if mouse is still over the dropdown or its menu
-					if (!dropdown.matches(":hover")) {
+					// Keep it usable if it was opened with the arrow button
+					if (!dropdown.matches(":hover") && !dropdown.classList.contains(CONFIG.CLASSES.active)) {
 						menu.inert = true;
 					}
 				}, 1);
@@ -224,7 +221,6 @@
 
 			// Dropdown delegation
 			elements.navigation.addEventListener("click", eventManager.handleDropdownClick);
-			elements.navigation.addEventListener("keydown", eventManager.handleDropdownKeydown);
 			elements.navigation.addEventListener("focusout", eventManager.handleFocusOut);
 
 			// Desktop hover listeners for inert management
@@ -234,6 +230,7 @@
 			// Global events
 			document.addEventListener("keydown", (e) => e.key === "Escape" && keyboardManager.handleEscape());
 			document.addEventListener("focusin", eventManager.handleMobileFocus);
+			document.addEventListener("click", eventManager.handleOutsideClick);
 
 			// Resize handling
 			window.addEventListener("resize", () => {

@@ -41,7 +41,7 @@ collections:
           - { label: "Body", name: "body", widget: "markdown" }
 
     - name: "work"
-      label: "Work & Demos"
+      label: "Demos"
       folder: "src/content/work"
       media_folder: "/src/assets/images/work"
       public_folder: "/assets/images/work"
@@ -49,7 +49,7 @@ collections:
       slug: "{{url}}"
       fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "URL Slug", name: "url", widget: "string", hint: 'The page will live at /work/<slug>/' }
+          - { label: "URL Slug", name: "url", widget: "string", hint: 'The page will live at /demos/<slug>/' }
           - { label: "Short Description", name: "description", widget: "text" }
           - { label: "Type", name: "kind", widget: "select", options: ["Live demo", "Interactive demo", "Case study"], default: "Live demo" }
           - { label: "Order", name: "order", widget: "number", default: 10, hint: "Lower numbers are listed first" }

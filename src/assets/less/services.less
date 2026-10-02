@@ -4,85 +4,6 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 /*-- -------------------------- -->
-<---        Engagements         -->
-<--- -------------------------- -*/
-
-/* Mobile - 360px */
-@media only screen and (min-width: 0rem) {
-    #engagements {
-        padding: var(--sectionPadding);
-        padding-top: 0;
-
-        .cs-container {
-            width: 100%;
-            max-width: (1280/16rem);
-            margin: auto;
-        }
-
-        .cs-card-group {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: (20/16rem);
-        }
-
-        .cs-item {
-            position: relative;
-            padding: (32/16rem) (28/16rem);
-            border: 1px solid var(--border);
-            border-radius: (12/16rem);
-            background-color: #fff;
-        }
-
-        .cs-featured {
-            border: 2px solid var(--primary);
-            box-shadow: 0 20px 40px -20px rgba(2, 119, 182, 0.4);
-        }
-
-        .cs-badge {
-            position: absolute;
-            top: 0;
-            right: (24/16rem);
-            transform: translateY(-50%);
-            padding: (4/16rem) (12/16rem);
-            font-size: (12/16rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: #fff;
-            background-color: var(--primary);
-            border-radius: (20/16rem);
-        }
-
-        .cs-h3 {
-            font-size: (22/16rem);
-            line-height: 1.3em;
-            font-weight: 700;
-            margin: 0 0 (8/16rem);
-            color: var(--headerColor);
-        }
-
-        .cs-item-desc {
-            font-size: var(--bodyFontSize);
-            line-height: 1.5em;
-            margin: 0 0 (24/16rem);
-            color: var(--bodyTextColor);
-        }
-    }
-}
-
-/* Tablet - 768px: two options side by side, centered */
-@media only screen and (min-width: 48rem) {
-    #engagements .cs-card-group {
-        grid-template-columns: repeat(2, 1fr);
-        max-width: (880/16rem);
-        margin: 0 auto;
-    }
-}
-
-/*-- -------------------------- -->
 <---       Service Intro        -->
 <--- -------------------------- -*/
 
@@ -414,14 +335,8 @@
 
 @media only screen and (min-width: 0rem) {
     body.dark-mode {
-        #engagements .cs-item,
         #offerings .cs-item {
             background-color: var(--medium);
-            border-color: var(--accent);
-        }
-
-        #engagements .cs-featured,
-        #offerings .cs-item {
             border-color: var(--primaryLight);
         }
 
@@ -446,7 +361,6 @@
             background-color: rgba(56, 189, 248, 0.12);
         }
 
-        #engagements,
         #service-intro,
         #offerings,
         #examples,

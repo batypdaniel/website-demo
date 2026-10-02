@@ -1,5 +1,5 @@
 //
-//    Click-to-load live demos (used on /work/<demo>/ pages)
+//    Click-to-load live demos (used on /demos/<demo>/ pages)
 //    The app is only loaded when someone asks for it, which keeps the page fast
 //    and avoids waking a sleeping Streamlit/Hugging Face app on every page view.
 //

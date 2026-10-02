@@ -1,8 +1,8 @@
 ---
 description: "Live demos and project write-ups showing data analytics, forecasting, AI and automation in action for small businesses."
 eleventyComputed:
-  title: "Work & Demos | {{ client.name }} | {{ client.address.city }}, {{ client.address.state }}"
-permalink: "/work/"
+  title: "Demos | {{ client.name }} | {{ client.address.city }}, {{ client.address.state }}"
+permalink: "/demos/"
 ---
 
 {% extends "layouts/base.html" %}
@@ -13,14 +13,14 @@ permalink: "/work/"
 
 {% block body %}
 
-    {% set bannerTitle = "Work & Demos" %}
+    {% set bannerTitle = "Demos" %}
     {% set bannerText = "Try live demos and see how we approach real business problems with data, AI and software." %}
     {% set crumbs = [] %}
-    {% set bannerCrumb = "Work" %}
+    {% set bannerCrumb = "Demos" %}
     {% include "sections/banner.html" %}
 
     <!-- ============================================ -->
-    <!--                  Work Grid                   -->
+    <!--                  Demo Grid                   -->
     <!-- ============================================ -->
 
     <!-- Cards are generated from the Markdown files in src/content/work/ -->
@@ -28,7 +28,7 @@ permalink: "/work/"
         <div class="cs-container">
             {% if collections.workItems.length %}
                 <div class="cs-section-header cs-intro">
-                    <span class="cs-topper">Our Work</span>
+                    <span class="cs-topper">Our Demos</span>
                     <h2 class="cs-title">Proven Solutions, Built to Adapt</h2>
                     <p class="cs-text">The demos below are a selection of working products built around common business problems, and each one can be adapted to many different businesses and industries. They're only a sample of what we can build. If you have a project in mind that you don't see here, we'd be happy to talk it through. <a href="/contact/">Get in touch</a> to start the conversation.</p>
                 </div>

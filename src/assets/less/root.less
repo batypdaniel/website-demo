@@ -762,18 +762,44 @@
 			color: var(--bodyTextColorWhite);
 			position: relative;
 
+			/* "Services" link + arrow button. The negative margin lets the arrow hang into the menu's
+			   right padding so the link text lines up with the other links. */
+			.cs-dropdown-row {
+				margin-right: (-36/16rem);
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
+
 			.cs-dropdown-toggle {
-				/* Reset default button styles */
+				/* a thumb-sized tap target */
+				width: (36/16rem);
+				height: (44/16rem);
+				margin: 0;
+				/* sit the arrow just after the text, away from the screen edge */
+				padding: 0 0 0 (6/16rem);
 				background: none;
 				border: none;
+				border-radius: (6/16rem);
 				font-family: inherit;
-				text-align: inherit;
 				cursor: pointer;
-				/* Remove any default focus styles */
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
 				-webkit-appearance: none;
 				-moz-appearance: none;
 				appearance: none;
+
+				&:focus-visible {
+					outline: 2px solid var(--primary);
+					outline-offset: -2px;
+				}
 			}
+
+			&.cs-active .cs-drop-icon {
+				transform: rotate(180deg);
+			}
+
 
 			&.cs-active {
 				.cs-drop-ul {
@@ -799,10 +825,7 @@
 		.cs-drop-icon {
 			width: (15/16rem);
 			height: auto;
-			position: absolute;
-			top: 50%;
-			right: (-20/16rem);
-			transform: translateY(-50%);
+			transition: transform 0.3s;
 		}
 
 		.cs-drop-ul {
@@ -846,18 +869,41 @@
 		.cs-dropdown {
 			position: relative;
 
+			/* "Services" link + arrow button */
+			.cs-dropdown-row {
+				display: flex;
+				align-items: center;
+				gap: (2/16rem);
+			}
+
 			.cs-dropdown-toggle {
-				/* Reset default button styles */
+				width: (28/16rem);
+				height: (28/16rem);
+				margin: 0;
+				padding: 0;
 				background: none;
 				border: none;
+				border-radius: (6/16rem);
 				font-family: inherit;
-				text-align: inherit;
 				cursor: pointer;
-				/* Remove any default focus styles */
+				display: flex;
+				justify-content: center;
+				align-items: center;
 				-webkit-appearance: none;
 				-moz-appearance: none;
 				appearance: none;
+				transition: background-color 0.3s;
+
+				&:hover {
+					background-color: var(--surface);
+				}
+
+				&:focus-visible {
+					outline: 2px solid var(--primary);
+					outline-offset: 2px;
+				}
 			}
+
 
 			&:hover,
 			&.cs-active {
@@ -879,7 +925,12 @@
 		.cs-drop-icon {
 			width: (15/16rem);
 			height: auto;
-			display: inline-block;
+			display: block;
+			transition: transform 0.3s;
+		}
+
+		.cs-dropdown.cs-active .cs-drop-icon {
+			transform: rotate(180deg);
 		}
 
 		.cs-drop-ul {
@@ -1004,6 +1055,10 @@
 						background-color: var(--light);
 					}
 				}
+			}
+
+			.cs-dropdown-toggle:hover {
+				background-color: var(--accent);
 			}
 
 			.cs-drop-icon {
@@ -2185,7 +2240,7 @@
 <---        Work Cards          -->
 <--- -------------------------- -*/
 
-/* Used on /work/, the home page, service pages and demo pages - see components/work-card.html */
+/* Used on /demos/, the home page, service pages and demo pages - see components/work-card.html */
 @media only screen and (min-width: 0px) {
 	.cs-work-grid {
 		list-style: none;

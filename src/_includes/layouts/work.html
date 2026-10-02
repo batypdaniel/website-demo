@@ -10,7 +10,7 @@
 
     {% set bannerTitle = title %}
     {% set bannerText = description %}
-    {% set crumbs = [{ name: "Work", url: "/work/" }] %}
+    {% set crumbs = [{ name: "Demos", url: "/demos/" }] %}
     {% set bannerCrumb = title %}
     {% include "sections/banner.html" %}
 
@@ -115,14 +115,14 @@
     </section>
 
     <!-- ============================================ -->
-    <!--                 More Work                    -->
+    <!--                 More Demos                   -->
     <!-- ============================================ -->
 
     {%- set others = collections.workItems | withoutUrl(page.url) %}
     {% if others.length %}
     <section id="work-more">
         <div class="cs-container">
-            <h2 class="cs-title">More Work</h2>
+            <h2 class="cs-title">More Demos</h2>
             <ul class="cs-work-grid">
                 {%- for item in others.slice(0, 3) %}
                     {% include "components/work-card.html" %}

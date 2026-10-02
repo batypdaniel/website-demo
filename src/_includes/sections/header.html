@@ -29,15 +29,18 @@
                         </a>
                     </li>
                     {% set onServices = page.url.startsWith("/services/") %}
+                    <!-- Split control: the "Services" link goes to the overview page, and the arrow button
+                         opens the list of service pages (on hover too, on desktop) -->
                     <li class="cs-li cs-dropdown">
-                        <button class="cs-li-link cs-dropdown-toggle {% if onServices %} cs-active {% endif %}" aria-haspopup="menu" aria-expanded="false" id="services-dropdown-toggle">
-                            Services
-                            <img class="cs-drop-icon" src="/assets/svgs/dropdown.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true">
-                        </button>
-                        <ul class="cs-drop-ul" aria-labelledby="services-dropdown-toggle">
-                            <li class="cs-drop-li">
-                                <a href="/services/" class="cs-li-link cs-drop-link" {% if page.url == "/services/" %} aria-current="page" {% endif %}>All Services</a>
-                            </li>
+                        <div class="cs-dropdown-row">
+                            <a href="/services/" class="cs-li-link {% if onServices %} cs-active {% endif %}" {% if page.url == "/services/" %} aria-current="page" {% endif %}>
+                                Services
+                            </a>
+                            <button type="button" class="cs-dropdown-toggle" aria-expanded="false" aria-controls="services-menu" aria-label="Show service pages">
+                                <img class="cs-drop-icon" src="/assets/svgs/dropdown.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true">
+                            </button>
+                        </div>
+                        <ul class="cs-drop-ul" id="services-menu" aria-label="Services">
                             {%- for service in services %}
                             <li class="cs-drop-li">
                                 <a href="/services/{{ service.slug }}/" class="cs-li-link cs-drop-link" {% if page.url == "/services/" + service.slug + "/" %} aria-current="page" {% endif %}>{{ service.navName }}</a>
@@ -46,10 +49,25 @@
                         </ul>
                     </li>
                     {%- if collections.workItems.length %}
-                    <li class="cs-li">
-                        <a href="/work/" class="cs-li-link {% if page.url.startsWith("/work/") %} cs-active {% endif %}" {% if page.url == "/work/" %} aria-current="page" {% endif %}>
-                            Work
-                        </a>
+                    <!-- Same split control as Services: "Demos" goes to the overview page, the arrow lists each demo -->
+                    <li class="cs-li cs-dropdown">
+                        <div class="cs-dropdown-row">
+                            <a href="/demos/" class="cs-li-link {% if page.url.startsWith("/demos/") %} cs-active {% endif %}" {% if page.url == "/demos/" %} aria-current="page" {% endif %}>
+                                Demos
+                            </a>
+                            <button type="button" class="cs-dropdown-toggle" aria-expanded="false" aria-controls="demos-menu" aria-label="Show demo pages">
+                                <img class="cs-drop-icon" src="/assets/svgs/dropdown.svg" alt="" width="15" height="15" decoding="async" aria-hidden="true">
+                            </button>
+                        </div>
+                        <ul class="cs-drop-ul" id="demos-menu" aria-label="Demos">
+                            {%- for item in collections.workItems %}
+                            {%- if item.url %}
+                            <li class="cs-drop-li">
+                                <a href="{{ item.url }}" class="cs-li-link cs-drop-link" {% if page.url == item.url %} aria-current="page" {% endif %}>{{ item.data.title }}</a>
+                            </li>
+                            {%- endif %}
+                            {%- endfor %}
+                        </ul>
                     </li>
                     {%- endif %}
                     <li class="cs-li">

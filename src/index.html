@@ -41,7 +41,7 @@ eleventyComputed:
                     Smarter decisions and less busywork for {{ client.address.city }} businesses
                 </h1>
                 <p class="cs-text">
-                    We help small and mid-sized businesses turn their data into clear answers, put AI to work where it actually helps, and automate the repetitive tasks that eat up your team's week.
+                    We help businesses turn their data into clear answers, put AI to work where it actually helps, and automate the repetitive tasks that eat up your team's week.
                 </p>
                 <div class="cs-button-group">
                     <a href="{{ client.bookingLink or '/contact/' }}" class="cs-button-solid" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Book a free consultation</a>
@@ -169,7 +169,7 @@ eleventyComputed:
                     {% include "components/work-card.html" %}
                 {%- endfor %}
             </ul>
-            <a href="/work/" class="cs-button-solid">View all work</a>
+            <a href="/demos/" class="cs-button-solid">View all demos</a>
         </div>
     </section>
     {% endif %}
@@ -184,12 +184,12 @@ eleventyComputed:
                 <span class="cs-topper">Why Work With Us</span>
                 <h2 class="cs-title">Big-Company Capabilities, Sized for Your Business</h2>
                 <p class="cs-text">
-                    Large companies have data teams, automation engineers and AI specialists. Most small and mid-sized businesses don't - and they shouldn't need to. We bring that expertise to you, focused on practical results instead of buzzwords.
+                    Large corporations have data teams, automation engineers and AI specialists. Most small and mid-sized businesses don't - and they shouldn't need to. We bring that expertise to you, focused on practical results instead of buzzwords.
                 </p>
                 <p class="cs-text">
                     We're based right here in {{ client.address.city }}, so you get someone who picks up the phone, can sit down with your team in person, and cares about the local business community.
                 </p>
-                <a href="/about/" class="cs-button-solid">About us</a>
+                <a href="/about/" class="cs-button-solid">About Us</a>
             </div>
             <ul class="cs-value-group">
                 <li class="cs-value">
@@ -224,7 +224,7 @@ eleventyComputed:
         <div class="cs-container">
             <div class="cs-section-header">
                 <span class="cs-topper">Who We Help</span>
-                <h2 class="cs-title">What This Looks Like for Businesses Like Yours</h2>
+                <h2 class="cs-title">What This Looks Like for Your Business</h2>
                 <p class="cs-text">
                     A few examples of the kinds of problems we solve. Don't see your industry? The same ideas can apply in many different contexts.
                 </p>
