@@ -15,7 +15,7 @@ relatedServices:
 stack:
     - Python
     - LLM
-    - Vector search
+    - Vector Search
     - RAG
 image: /assets/images/work/customer-service-assistant.jpg
 imageAlt: The assistant answering "Can I return a bike after I've ridden it?", showing the passages it retrieved with relevance scores, a cited answer, and the matching passage highlighted in the bike shop's returns policy

@@ -8,7 +8,6 @@ featured: true
 draft: false # TODO: set to false (or delete this line) when the write-up is ready
 relatedServices:
     - data-analytics
-    - automation
 stack:
     - Python
     - Streamlit
@@ -24,7 +23,7 @@ repoUrl: ""
 
 ## The Problem
 
-Local Grind Coffee Co. is a fictional coffee shop chain with eight locations across the Memphis and Nashville metro areas and Mississippi. Every sale is recorded by the point-of-sale system, but that data sits in exports and spreadsheets that nobody has time to dig through. Owners and managers end up running the business on gut feel, without a clear picture of how each location is performing, which menu items are pulling their weight, or who their customers actually are. Ultimately, this business needs quick answers to the following questions:
+Local Grind Coffee Co. is a fictional coffee shop chain with eight locations across the Memphis and Nashville metro areas and Mississippi. Every sale is recorded by a point-of-sale system, but that data sits in exports and spreadsheets on different systems that nobody has time to dig through. Owners and managers end up running the business on gut feel, without a clear picture of how each location is performing, which menu items are pulling their weight, or who their customers actually are. Ultimately, this business needs quick answers to the following questions:
 
 - How is revenue trending at each location, and which stores are over- or under-performing?
 - Which items sell best, and how much do seasonal menu items contribute while they're available?
@@ -32,7 +31,7 @@ Local Grind Coffee Co. is a fictional coffee shop chain with eight locations acr
 
 ## The Approach
 
-The demo above is an interactive dashboard that turns a year of raw sales transactions into clear KPIs and charts. Filters for date range, region, store, and product category at the top of the page update every number and chart at once, so the same dashboard answers questions for the whole company or for a single location. Headline figures such as revenue, gross profit, margin, transaction count, average ticket, and items sold are always visible at the top.
+This demo is an interactive dashboard that turns a year of raw sales transactions into clear KPIs and charts. Filters for date range, region, store, and product category at the top of the page update every number and chart at once, so the same dashboard answers questions for the whole company or for a single location. Headline figures such as revenue, gross profit, margin, transaction count, average ticket, and items sold are always visible at the top.
 
 Each tab of the dashboard displays the following:
 
@@ -50,7 +49,7 @@ Each tab of the dashboard displays the following:
 
 ## The Results
 
-In the end, this dashboard gives owners and store managers a single place to see how the business is doing, without waiting on someone to build a report. It makes it easy to spot a location that's falling behind, see whether a seasonal item is worth bringing back next year, schedule staff around the busiest hours, and judge whether the rewards program is bringing in customers who spend more per visit.
+This dashboard gives owners and store managers a single place to see how the business is doing, without waiting on someone to build a report or needing to pull data together from different systems for different stores. It makes it easy to spot a location that's falling behind, see whether a seasonal item is worth bringing back next year, schedule staff around the busiest hours, and judge whether the rewards program is bringing in customers who spend more per visit.
 
 In an actual client use case, this dashboard could be connected directly to a business's point-of-sale system so it refreshes automatically, and its charts and filters would be tailored to the questions that matter most to that business.
 
