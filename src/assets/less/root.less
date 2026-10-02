@@ -14,22 +14,22 @@
 	/* All elements in the library derive their variables and base styles from this central sheet, simplifying site-wide edits. For instance, if you want to modify how your h2's appear across the site, you just update it once in the global styles, and the changes apply everywhere. */
 	:root {
 		/* Brand colors - change these to re-theme the whole site */
-		--primary: #1d4ed8; /* blue - buttons, links, icons */
-		--primaryLight: #60a5fa; /* light blue - the same role on dark backgrounds */
-		--secondary: #c62828; /* red accent - section toppers, underlines, highlights */
-		--secondaryLight: #f87171; /* light red - the same role on dark backgrounds */
-		--headerColor: #0b1b33; /* deep navy - headings */
+		--primary: #0277b6; /* sky blue - buttons, links, icons */
+		--primaryLight: #38bdf8; /* light sky blue - the same role on dark backgrounds */
+		--secondary: #0369a1; /* deep sky blue - section toppers, underlines, highlights */
+		--secondaryLight: #7dd3fc; /* pale sky blue - the same role on dark backgrounds */
+		--headerColor: #082f49; /* deep sky navy - headings */
 		--bodyTextColor: #475569;
 		--bodyTextColorWhite: #f8fafc;
-		--surface: #f1f5f9; /* light section backgrounds */
-		--border: #e2e8f0;
-		--navy: #0b1b33;
-		--navyLight: #13294b;
+		--surface: #f0f9ff; /* light sky section backgrounds */
+		--border: #dbeefa;
+		--navy: #082f49;
+		--navyLight: #0c4a6e;
 
 		/* Dark Mode Styles */
-		--dark: #0a1628;
-		--medium: #13233d;
-		--accent: #1e3354;
+		--dark: #061826;
+		--medium: #0b2537;
+		--accent: #123a56;
 
 		/* 13px - 16px */
 		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
@@ -1595,8 +1595,8 @@
 	background-color: var(--navy);
 	background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
 		linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-		radial-gradient(ellipse at 85% 10%, rgba(96, 165, 250, 0.28), transparent 55%),
-		radial-gradient(ellipse at 10% 90%, rgba(198, 40, 40, 0.22), transparent 55%);
+		radial-gradient(ellipse at 85% 10%, rgba(56, 189, 248, 0.28), transparent 55%),
+		radial-gradient(ellipse at 10% 90%, rgba(125, 211, 252, 0.16), transparent 55%);
 	background-size: 48px 48px, 48px 48px, 100% 100%, 100% 100%;
 }
 
@@ -1748,7 +1748,7 @@
 			padding: (12/16rem);
 			border-radius: (12/16rem);
 			color: var(--primary);
-			background-color: rgba(29, 78, 216, 0.1);
+			background-color: rgba(2, 119, 182, 0.1);
 
 			svg {
 				width: 100%;
@@ -1816,7 +1816,7 @@
 
 			.cs-icon {
 				color: var(--primaryLight);
-				background-color: rgba(96, 165, 250, 0.12);
+				background-color: rgba(56, 189, 248, 0.12);
 			}
 
 			.cs-h3 {
@@ -1876,12 +1876,12 @@
 		}
 
 		.cs-river-bank {
-			stroke: rgba(29, 78, 216, 0.1);
+			stroke: rgba(2, 119, 182, 0.1);
 			stroke-width: 34px;
 		}
 
 		.cs-river-water {
-			stroke: rgba(29, 78, 216, 0.28);
+			stroke: rgba(2, 119, 182, 0.28);
 			stroke-width: 14px;
 		}
 
@@ -1927,7 +1927,7 @@
 			background-color: var(--primary);
 			border: 4px solid var(--surface);
 			border-radius: 50%;
-			box-shadow: 0 6px 16px -4px rgba(29, 78, 216, 0.5);
+			box-shadow: 0 6px 16px -4px rgba(2, 119, 182, 0.5);
 			z-index: 1;
 		}
 
@@ -1968,9 +1968,9 @@
 			height: (28/16rem);
 			flex: none;
 			border-radius: 50%;
-			background-color: #ef4444;
+			background-color: #38bdf8;
 			border: 4px solid #fff;
-			box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.18);
+			box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.2);
 		}
 
 		.cs-river-end-text {
@@ -2046,11 +2046,11 @@
 			background-color: var(--medium);
 
 			.cs-river-bank {
-				stroke: rgba(96, 165, 250, 0.08);
+				stroke: rgba(56, 189, 248, 0.08);
 			}
 
 			.cs-river-water {
-				stroke: rgba(96, 165, 250, 0.3);
+				stroke: rgba(56, 189, 248, 0.3);
 			}
 
 			.cs-river-flow {
@@ -2253,12 +2253,12 @@
 
 	.cs-work-kind {
 		color: var(--primary);
-		background-color: rgba(29, 78, 216, 0.1);
+		background-color: rgba(2, 119, 182, 0.1);
 	}
 
 	.cs-work-soon {
 		color: var(--secondary);
-		background-color: rgba(198, 40, 40, 0.1);
+		background-color: rgba(3, 105, 161, 0.1);
 	}
 
 	.cs-work-draft {
@@ -2302,12 +2302,12 @@
 
 		.cs-work-kind {
 			color: var(--primaryLight);
-			background-color: rgba(96, 165, 250, 0.12);
+			background-color: rgba(56, 189, 248, 0.12);
 		}
 
 		.cs-work-soon {
 			color: var(--secondaryLight);
-			background-color: rgba(248, 113, 113, 0.15);
+			background-color: rgba(125, 211, 252, 0.15);
 		}
 	}
 }

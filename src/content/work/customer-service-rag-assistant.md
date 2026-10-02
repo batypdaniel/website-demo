@@ -10,6 +10,7 @@ draft: false
 # Slugs from src/_data/services.js - the demo appears on these service pages
 relatedServices:
     - ai-solutions
+    - automation
     - software-development
 stack:
     - Python
@@ -32,16 +33,22 @@ repoUrl: "" # optional: public GitHub link
 
 <!-- TODO: replace the placeholder text below with your write-up. Keep the three headings - they make the page easy to scan. -->
 
-## The problem
+## The Problem
 
-Small teams answer the same customer questions every day - return policies, shipping times, hours, how-to steps. Answers live in PDFs, help pages and people's heads, so responses are slow and inconsistent.
+For the small team at the fictional Midtown Cycle Co., it can be difficult to respond to every customer's question over email in a timely fashion, leading to customers being confused about company policies and service agreements and potentially losing interest in purchasing from the store.  Midtown Cycle Co. has a set of documents that outline their company policy, but the documents are too large to ask customers to scour over them each time they have a question.  They need a way for customers to be directed to the correct information on their questions, without having to spend hours responding to emails.
 
-## The approach
+## The Approach
+
+This kind of problem is perfect for a retrieval-augmented generation (RAG) pipeline, an AI workflow which answers questions using the following steps:
 
 - Ingests the business's own documents (policies, FAQs, product info) and splits them into searchable chunks
 - Retrieves the most relevant passages for each question and has a language model answer **only** from those sources
 - Cites the source for every answer and hands off to a person when it isn't confident
 
-## Results & takeaways
+All together, the pipeline can successfully answer questions whose answers are written in the documentation, without inventing answers when the question is off-topic or information isn't present.  This AI customer service assistant takes all the easy-to-answer questions off the business owner's plate, gives customers immediate, correct answers, but still lets the business owner handle more complex questions with customers directly.
 
-Describe what the demo shows: example questions, accuracy you measured, response time, and how a business would roll it out (website chat widget, internal help desk tool, email drafting).
+## The Results
+
+A tool like this AI customer service assistant could save business owners and managers hours each week, leaving them time to run the rest of their business effectively, while still getting customers the information they need.  This model can be used over email, website chatbot, or a dedicated web application.
+
+In general, RAG pipelines like this one can be used for any task that requires quick location of specific information out of a large set of documentation.  Other than customer service, a similar setup could be used for an internal employee search engine over HR policies, a legal assistant that can answer questions about specific clauses in leases or contracts, and many other applications.

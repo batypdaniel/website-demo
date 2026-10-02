@@ -9,7 +9,7 @@
             <a aria-label="go back to home" class="cs-logo" href="/">
                 <span class="cs-logo-mark">{% include "icons/logo-mark.svg" %}</span>
                 {%- set nameWords = client.name.split(" ") %}
-            <span class="cs-logo-name"><span class="cs-logo-strong">{{ nameWords[0] }}</span> {{ nameWords.slice(1).join(" ") }}</span>
+            <span class="cs-logo-name"><span class="cs-logo-strong">{{ nameWords.slice(0, -2).join(" ") }}</span> {{ nameWords.slice(-2).join(" ") }}</span>
             </a>
             <p class="cs-text">
                 {{ client.tagline }}. Locally owned and based in {{ client.address.city }}, {{ client.address.state }}.

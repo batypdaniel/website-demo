@@ -339,7 +339,7 @@
             font-weight: 700;
             border-radius: (20/16rem);
             color: var(--primary);
-            background-color: rgba(29, 78, 216, 0.1);
+            background-color: rgba(2, 119, 182, 0.1);
         }
 
         .cs-side-cta {
@@ -422,7 +422,7 @@
             }
 
             .cs-tag {
-                background-color: rgba(96, 165, 250, 0.12);
+                background-color: rgba(56, 189, 248, 0.12);
             }
 
             .cs-side-block {
@@ -493,12 +493,7 @@
             font-weight: 700;
             border-radius: (20/16rem);
             color: var(--primary);
-            background-color: rgba(29, 78, 216, 0.1);
-        }
-
-        .cs-rag-badge-sample {
-            color: #92400e;
-            background-color: #fef3c7;
+            background-color: rgba(2, 119, 182, 0.1);
         }
 
         /* Question chips */
@@ -702,13 +697,6 @@
             color: var(--headerColor);
         }
 
-        .cs-rag-hit-flag {
-            grid-column: 1 / -1;
-            font-size: (12/16rem);
-            font-weight: 700;
-            color: #b45309;
-        }
-
         .is-weak .cs-rag-bar-fill {
             background-color: #f59e0b;
         }
@@ -747,24 +735,6 @@
 
             &:hover {
                 background-color: var(--headerColor);
-            }
-        }
-
-        .cs-rag-meta {
-            list-style: none;
-            margin: (12/16rem) 0 0;
-            padding: 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: (8/16rem);
-
-            li {
-                padding: (4/16rem) (10/16rem);
-                font-size: (12/16rem);
-                font-weight: 700;
-                border-radius: (12/16rem);
-                color: var(--bodyTextColor);
-                background-color: var(--surface);
             }
         }
 
@@ -925,13 +895,13 @@
             padding: (1/16rem) 0;
             color: inherit;
             border-radius: (3/16rem);
-            background-color: rgba(29, 78, 216, 0.1);
+            background-color: rgba(2, 119, 182, 0.1);
             -webkit-box-decoration-break: clone;
             box-decoration-break: clone;
             transition: background-color 0.3s;
 
             &.is-cited {
-                background-color: rgba(29, 78, 216, 0.18);
+                background-color: rgba(2, 119, 182, 0.18);
             }
 
             // Below the relevance threshold: retrieved but not used for the answer
@@ -1007,10 +977,10 @@
 
     @keyframes rag-flash {
         0% {
-            box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.7);
+            box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.7);
         }
         100% {
-            box-shadow: 0 0 0 0 rgba(96, 165, 250, 0);
+            box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
         }
     }
 }
@@ -1101,13 +1071,8 @@
             }
         }
 
-        .cs-rag-hit-btn,
-        .cs-rag-meta li {
+        .cs-rag-hit-btn {
             background-color: var(--medium);
-        }
-
-        .cs-rag-meta li {
-            color: #cbd5e1;
         }
 
         .cs-rag-bar {
@@ -1131,10 +1096,10 @@
 
         .cs-rag-mark {
             color: var(--bodyTextColorWhite);
-            background-color: rgba(96, 165, 250, 0.16);
+            background-color: rgba(56, 189, 248, 0.16);
 
             &.is-cited {
-                background-color: rgba(96, 165, 250, 0.28);
+                background-color: rgba(56, 189, 248, 0.28);
             }
 
             &.is-weak {
@@ -1150,10 +1115,6 @@
 
         .cs-rag-badge {
             color: var(--primaryLight);
-        }
-
-        .cs-rag-badge-sample {
-            color: #92400e;
         }
 
         .is-handoff .cs-rag-answer {

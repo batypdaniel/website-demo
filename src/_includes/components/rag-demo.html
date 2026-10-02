@@ -16,10 +16,8 @@
             <h2 class="cs-rag-title" id="rag-demo-title">Try the {{ rag.business }} Assistant</h2>
             <p class="cs-rag-sub">{{ rag.businessNote }}. Pick a question to watch the assistant find the right passages and write a cited answer, then click a passage or citation to see it highlighted in the original document.</p>
         </div>
-        {% if rag.sample %}
-            <span class="cs-rag-badge cs-rag-badge-sample">Sample data - placeholder answers</span>
-        {% else %}
-            <span class="cs-rag-badge">Recorded outputs from the real pipeline - no live API calls</span>
+        {% if not rag.sample %}
+            <span class="cs-rag-badge">Recorded Outputs</span>
         {% endif %}
     </div>
 
@@ -42,7 +40,7 @@
                     <p class="cs-rag-question-text"></p>
                 </li>
                 <li class="cs-rag-step" data-step="retrieve">
-                    <span class="cs-rag-step-label">2 · Retrieve <span class="cs-rag-step-note">top {{ rag.config.top_k }} of <span class="cs-rag-count"></span> passages · relevance threshold {{ rag.config.threshold }}</span></span>
+                    <span class="cs-rag-step-label">2 · Retrieve <span class="cs-rag-step-note">top {{ rag.config.top_k }} of <span class="cs-rag-count"></span> passages</span></span>
                     <p class="cs-rag-status"></p>
                     <ul class="cs-rag-retrieved"></ul>
                 </li>
@@ -50,7 +48,6 @@
                     <span class="cs-rag-step-label">3 · Answer</span>
                     <p class="cs-rag-status"></p>
                     <p class="cs-rag-answer" aria-live="polite"></p>
-                    <ul class="cs-rag-meta"></ul>
                 </li>
             </ol>
         </div>
@@ -75,7 +72,11 @@
                     {{ ragDocuments[doc.id] | safe }}
                     {%- else %}
                     <h3>{{ doc.title }}</h3>
-                    {%- for chunk in doc.chunks %}<p>{{ chunk.text }}</p>{% endfor %}
+                    {%- for chunk in doc.chunks %}
+                    {%- set lines = chunk.text.split("\n") %}
+                    {%- if lines.length > 1 %}<h4>{{ lines[0] }}</h4>{% endif %}
+                    {%- for line in lines %}{% if not loop.first or lines.length == 1 %}<p>{{ line }}</p>{% endif %}{% endfor %}
+                    {%- endfor %}
                     {%- endif %}
                 </article>
                 {%- endfor %}

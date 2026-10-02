@@ -1,5 +1,5 @@
 {
-    "sample": true,
+    "sample": false,
     "business": "Midtown Cycle Co.",
     "businessNote": "A fictional Memphis bike shop",
     "config": {
@@ -250,18 +250,18 @@
             "retrieved": [
                 {
                     "chunk_id": "returns-2",
-                    "score": 0.92
+                    "score": 0.98
                 },
                 {
-                    "chunk_id": "returns-1",
-                    "score": 0.74
+                    "chunk_id": "shipping-6",
+                    "score": 0.45
                 },
                 {
-                    "chunk_id": "warranty-8",
-                    "score": 0.58
+                    "chunk_id": "returns-3",
+                    "score": 0.16
                 }
             ],
-            "answer": "Yes, within limits. Assembled bikes fall under our Test Ride Guarantee: you have 14 days from delivery or pickup to return a bike ridden no more than 5 miles, for a full refund minus a $40 assembly and inspection fee. Bikes ridden further or returned after 14 days can't be refunded, but the store manager may offer a trade-in value instead [returns-2].",
+            "answer": "Yes, you can return a bike after you've ridden it, but there are specific conditions. If the bicycle has been assembled and ridden, you have 14 days from the delivery or pickup date to return it, provided it has been ridden no more than 5 miles. You will receive a full refund minus a $40 assembly and inspection fee. If the bike has been ridden more than 5 miles or returned after 14 days, it is not eligible for a refund and may be evaluated for trade-in value at the store manager's discretion [returns-2].",
             "meta": {
                 "latency_ms": 1240,
                 "input_tokens": 688,
@@ -275,18 +275,18 @@
             "retrieved": [
                 {
                     "chunk_id": "shipping-6",
-                    "score": 0.93
+                    "score": 0.90
                 },
                 {
                     "chunk_id": "returns-8",
-                    "score": 0.81
+                    "score": 0.01
                 },
                 {
-                    "chunk_id": "returns-5",
-                    "score": 0.55
+                    "chunk_id": "repair-6",
+                    "score": 0.00
                 }
             ],
-            "answer": "Please don't assemble or ride it. Report the damage within 48 hours of delivery through the order status page on our website, with photos of the packaging and the bike [shipping-6]. Verified shipping damage is handled as a free replacement or repair, separately from a normal return [returns-8].",
+            "answer": "If your new bike arrived visibly damaged, do not assemble or ride it. You should report the damage within 48 hours of delivery through our website's order status page, including photos of the damaged packaging and the item itself. Verified transit damage is handled as a free replacement or repair at no cost to you, which is a separate process from the standard return process [shipping-6].",
             "meta": {
                 "latency_ms": 1310,
                 "input_tokens": 702,
@@ -300,18 +300,18 @@
             "retrieved": [
                 {
                     "chunk_id": "repair-2",
-                    "score": 0.9
+                    "score": 0.94
                 },
                 {
-                    "chunk_id": "rewards-5",
-                    "score": 0.83
+                    "chunk_id": "repair-9",
+                    "score": 0.74
                 },
                 {
                     "chunk_id": "rewards-4",
-                    "score": 0.79
+                    "score": 0.73
                 }
             ],
-            "answer": "A standard tune-up is $89 and usually takes 3 to 5 business days [repair-2]. Spoke Rewards members who reach VIP tier, by spending $2,000 or more in a calendar year, get one standard tune-up free each year [rewards-4]. It doesn't cover overhauls, e-bike service or parts, and it doesn't carry over if unused [rewards-5].",
+            "answer": "A standard tune-up costs $89 and typically takes 3 to 5 business days. Spoke Rewards VIP members receive one complimentary standard tune-up per year, as described in the Rewards and Membership Policy; this benefit does not apply to overhauls or e-bike service [repair-2].",
             "meta": {
                 "latency_ms": 1420,
                 "input_tokens": 731,
@@ -325,18 +325,18 @@
             "retrieved": [
                 {
                     "chunk_id": "warranty-4",
-                    "score": 0.94
+                    "score": 0.99
                 },
                 {
                     "chunk_id": "warranty-7",
-                    "score": 0.71
+                    "score": 0.99
                 },
                 {
                     "chunk_id": "repair-3",
-                    "score": 0.66
+                    "score": 0.98
                 }
             ],
-            "answer": "Yes. E-bike batteries are covered for 2 years or 300 full charge cycles, whichever comes first, if they hold significantly less charge than when new. You'll need the battery's serial number, which we can look up from your order number [warranty-4]. You can bring it to any location or arrange a mail-in evaluation with our service department [warranty-7].",
+            "answer": "Yes, your e-bike battery is covered under warranty for 2 years or 300 full charge cycles, whichever comes first, against defects that cause the battery to hold significantly less charge than when new. To file a warranty claim, you will need the battery's serial number and your original proof of purchase [warranty-4].",
             "meta": {
                 "latency_ms": 1180,
                 "input_tokens": 694,
@@ -350,18 +350,18 @@
             "retrieved": [
                 {
                     "chunk_id": "financing-5",
-                    "score": 0.95
+                    "score": 0.99
                 },
                 {
                     "chunk_id": "financing-4",
-                    "score": 0.77
+                    "score": 0.35
                 },
                 {
                     "chunk_id": "financing-3",
-                    "score": 0.6
+                    "score": 0.07
                 }
             ],
-            "answer": "If a payment is more than 10 days late, we'll reach out by phone and email. If it still isn't paid within 20 days of the due date, the layaway is canceled, the item goes back into inventory, and the 20% deposit is forfeited [financing-5] [financing-4].",
+            "answer": "If you miss a layaway payment by more than 10 days, we will attempt to contact you by phone and email. If payment is not received within 20 days of the missed due date, the layaway agreement is canceled, the item is returned to available inventory, and the deposit is forfeited [financing-5].",
             "meta": {
                 "latency_ms": 1090,
                 "input_tokens": 655,
@@ -375,18 +375,18 @@
             "retrieved": [
                 {
                     "chunk_id": "warranty-4",
-                    "score": 0.44
+                    "score": 0.04
+                },
+                {
+                    "chunk_id": "warranty-7",
+                    "score": 0.00
                 },
                 {
                     "chunk_id": "repair-3",
-                    "score": 0.38
-                },
-                {
-                    "chunk_id": "shipping-4",
-                    "score": 0.29
+                    "score": 0.00
                 }
             ],
-            "answer": "I don't have any information about electric scooters in our store documents, so I don't want to guess. I can connect you with a team member who can help - would you like me to do that?",
+            "answer": "I'm not able to find that in our policies. I suggest contacting the shop directly for information about electric scooters.",
             "meta": {
                 "latency_ms": 890,
                 "input_tokens": 402,

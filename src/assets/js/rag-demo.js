@@ -26,7 +26,6 @@
 	const answerStep = root.querySelector('[data-step="answer"]');
 	const retrievedList = root.querySelector(".cs-rag-retrieved");
 	const answerEl = root.querySelector(".cs-rag-answer");
-	const metaEl = root.querySelector(".cs-rag-meta");
 	const docsPanel = root.querySelector(".cs-rag-docs");
 	const docScroll = root.querySelector(".cs-rag-doc-scroll");
 	const docNote = root.querySelector(".cs-rag-docs-note");
@@ -240,7 +239,6 @@
 		questionText.textContent = q.question;
 		retrievedList.replaceChildren();
 		answerEl.replaceChildren();
-		metaEl.replaceChildren();
 		answerStep.classList.remove("is-done", "is-handoff");
 		retrieveStep.classList.remove("is-done");
 
@@ -268,7 +266,6 @@
 			fill.style.width = `${Math.round(r.score * 100)}%`;
 			bar.appendChild(fill);
 			btn.append(bar, el("span", "cs-rag-hit-score", r.score.toFixed(2)));
-			if (weak) btn.append(el("span", "cs-rag-hit-flag", "below threshold"));
 			btn.addEventListener("click", () => showChunk(r.chunk_id));
 			item.appendChild(btn);
 			retrievedList.appendChild(item);
@@ -299,13 +296,6 @@
 
 		citeNumbers.forEach((_, cid) => marksFor(cid).forEach((m) => m.classList.add("is-cited")));
 
-		const m = q.meta || {};
-		const metaItems = [];
-		if (m.latency_ms != null) metaItems.push(`${(m.latency_ms / 1000).toFixed(1)}s response`);
-		if (m.input_tokens != null && m.output_tokens != null) metaItems.push(`${m.input_tokens + m.output_tokens} tokens`);
-		if (m.cost_usd != null) metaItems.push(`$${m.cost_usd.toFixed(4)} per answer`);
-		metaItems.push(citeNumbers.size ? `${citeNumbers.size} source${citeNumbers.size > 1 ? "s" : ""} cited` : "handed off to a person");
-		metaItems.forEach((t) => metaEl.appendChild(el("li", "", t)));
 		answerStep.classList.add("is-done");
 	}
 

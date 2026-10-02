@@ -6,7 +6,7 @@
 
 module.exports = {
     // Business name - shown in the logo, page titles, footer and SEO data
-    name: "Downstream Data Co.",
+    name: "Sky Blue Data Co.",
     // Short line used under the logo in the footer and in the home page meta description
     tagline: "Data, AI & software for local small businesses",
     // TODO: your name + title, used on the About page and as the default blog author
