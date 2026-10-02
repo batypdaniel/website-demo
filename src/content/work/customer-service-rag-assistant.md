@@ -17,8 +17,8 @@ stack:
     - LLM
     - Vector search
     - RAG
-image: /assets/images/work/customer-service-assistant.jpg # TODO: replace with a screenshot (1600x900 works well)
-imageAlt: Illustration of an AI assistant answering a customer question
+image: /assets/images/work/customer-service-assistant.jpg
+imageAlt: The assistant answering "Can I return a bike after I've ridden it?", showing the passages it retrieved with relevance scores, a cited answer, and the matching passage highlighted in the bike shop's returns policy
 # ── Demo ─────────────────────────────────────────────────────────────────────
 # interactiveDemo: rag replays pre-recorded pipeline outputs from src/_data/ragDemo.json
 # (no API calls). Remove it to use demoUrl below instead.
