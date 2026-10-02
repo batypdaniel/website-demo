@@ -768,8 +768,11 @@
             }
         }
 
-        /* Knowledge base */
+        /* Knowledge base: document viewer */
         .cs-rag-docs {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
             padding: (20/16rem);
             border-radius: (12/16rem);
             background-color: #fff;
@@ -785,45 +788,163 @@
             color: var(--bodyTextColor);
         }
 
-        .cs-rag-doc {
-            margin-bottom: (16/16rem);
-
-            &:last-child {
-                margin-bottom: 0;
-            }
+        // One swipeable row on small screens; wraps on desktop
+        .cs-rag-tabs {
+            display: flex;
+            gap: (6/16rem);
+            overflow-x: auto;
+            padding-bottom: (14/16rem);
+            border-bottom: 1px solid var(--border);
+            scrollbar-width: thin;
         }
 
-        .cs-rag-doc-title {
-            margin: 0 0 (8/16rem);
-            font-size: (15/16rem);
+        .cs-rag-tab {
+            flex: none;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: (6/16rem);
+            padding: (6/16rem) (12/16rem);
+            font-family: inherit;
+            font-size: (13/16rem);
             font-weight: 700;
+            cursor: pointer;
             color: var(--headerColor);
+            background-color: var(--surface);
+            border: 1px solid transparent;
+            border-radius: (16/16rem);
+            transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+            &:hover {
+                border-color: var(--primary);
+            }
+
+            &[aria-selected="true"] {
+                color: #fff;
+                background-color: var(--primary);
+            }
         }
 
-        .cs-rag-chunk {
-            position: relative;
-            margin: 0 0 (8/16rem);
-            padding: (10/16rem) (12/16rem);
-            font-size: (14/16rem);
-            line-height: 1.55em;
-            color: var(--bodyTextColor);
-            border: 1px solid var(--border);
-            border-left-width: 4px;
-            border-radius: (6/16rem);
-            transition: background-color 0.3s, border-color 0.3s, opacity 0.3s;
+        // Number of retrieved passages in this document
+        .cs-rag-tab-count {
+            min-width: (18/16rem);
+            height: (18/16rem);
+            padding: 0 (5/16rem);
+            font-size: (11/16rem);
+            line-height: (18/16rem);
+            text-align: center;
+            border-radius: (9/16rem);
+            color: #fff;
+            background-color: var(--primary);
+        }
 
-            &.is-retrieved {
-                border-color: var(--primary);
-                background-color: rgba(29, 78, 216, 0.06);
+        .cs-rag-tab[aria-selected="true"] .cs-rag-tab-count {
+            color: var(--primary);
+            background-color: #fff;
+        }
+
+        .cs-rag-docs-note {
+            margin: (12/16rem) 0 0;
+            padding: (10/16rem) (12/16rem);
+            font-size: (13/16rem);
+            line-height: 1.5em;
+            border-radius: (8/16rem);
+            color: #92400e;
+            background-color: #fef3c7;
+        }
+
+        .cs-rag-doc-scroll {
+            position: relative;
+            flex: 1;
+            min-height: 0;
+            max-height: clamp(20rem, 65vh, 32rem);
+            overflow-y: auto;
+            margin-top: (4/16rem);
+            padding-right: (4/16rem);
+        }
+
+        // The converted Word document
+        .cs-rag-doc {
+            padding: (12/16rem) (4/16rem) (8/16rem);
+            font-size: (15/16rem);
+            line-height: 1.65em;
+            color: var(--bodyTextColor);
+
+            &:focus-visible {
+                outline: 2px solid var(--primary);
+                outline-offset: 2px;
             }
+
+            h3 {
+                margin: 0 0 (12/16rem);
+                font-size: (21/16rem);
+                line-height: 1.25em;
+                color: var(--headerColor);
+            }
+
+            h4,
+            h5,
+            h6 {
+                margin: (20/16rem) 0 (6/16rem);
+                font-family: inherit;
+                font-size: (15/16rem);
+                font-weight: 700;
+                line-height: 1.4em;
+                color: var(--headerColor);
+            }
+
+            p,
+            ul,
+            ol,
+            table {
+                margin: 0 0 (10/16rem);
+            }
+
+            ul,
+            ol {
+                padding-left: (22/16rem);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                font-size: (14/16rem);
+            }
+
+            td,
+            th {
+                padding: (6/16rem) (8/16rem);
+                text-align: left;
+                vertical-align: top;
+                border: 1px solid var(--border);
+            }
+        }
+
+        // Retrieved passages highlighted in place
+        .cs-rag-mark {
+            padding: (1/16rem) 0;
+            color: inherit;
+            border-radius: (3/16rem);
+            background-color: rgba(29, 78, 216, 0.1);
+            -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+            transition: background-color 0.3s;
 
             &.is-cited {
-                background-color: rgba(29, 78, 216, 0.14);
+                background-color: rgba(29, 78, 216, 0.18);
             }
 
+            // Below the relevance threshold: retrieved but not used for the answer
             &.is-weak {
-                border-color: #f59e0b;
-                background-color: #fffbeb;
+                background-color: rgba(100, 116, 139, 0.12);
+                text-decoration: underline dashed rgba(180, 83, 9, 0.6);
+                text-underline-offset: (3/16rem);
+            }
+
+            // The passage the visitor selected
+            &.is-active {
+                background-color: rgba(250, 204, 21, 0.5);
+                text-decoration: none;
             }
 
             &.is-flash {
@@ -831,27 +952,27 @@
             }
         }
 
-        .cs-rag-chunk-id {
-            display: block;
-            margin-bottom: (2/16rem);
-            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-            font-size: (11/16rem);
-            color: var(--bodyTextColor);
-            opacity: 0.8;
-        }
-
-        .cs-rag-chunk-score {
-            position: absolute;
-            top: (8/16rem);
-            right: (10/16rem);
+        .cs-rag-mark-tag {
+            display: inline-block;
+            margin-right: (6/16rem);
+            padding: 0 (6/16rem);
             font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
             font-size: (11/16rem);
             font-weight: 700;
-            color: var(--primary);
+            line-height: (18/16rem);
+            vertical-align: (2/16rem);
+            border-radius: (4/16rem);
+            color: #fff;
+            background-color: var(--primary);
         }
 
-        .is-weak .cs-rag-chunk-score {
-            color: #b45309;
+        .is-weak > .cs-rag-mark-tag {
+            background-color: #b45309;
+        }
+
+        // Selected passage in the retrieval list
+        .cs-rag-hit-btn[aria-current="true"] {
+            border-color: var(--primary);
         }
 
         /* Technical details */
@@ -908,10 +1029,18 @@
             align-items: stretch;
         }
 
+        /* Documents keep a fixed height beside the pipeline and scroll inside */
         .cs-rag-docs {
-            position: relative;
-            max-height: (560/16rem);
-            overflow-y: auto;
+            max-height: (640/16rem);
+        }
+
+        .cs-rag-tabs {
+            flex-wrap: wrap;
+            overflow-x: visible;
+        }
+
+        .cs-rag-doc-scroll {
+            max-height: none;
         }
     }
 }
@@ -919,7 +1048,7 @@
 @media (prefers-reduced-motion: reduce) {
     #rag-demo {
         .cs-rag-status:before,
-        .cs-rag-chunk.is-flash {
+        .cs-rag-mark.is-flash {
             animation: none;
         }
     }
@@ -942,7 +1071,10 @@
         .cs-rag-hit-doc,
         .cs-rag-hit-score,
         .cs-rag-answer,
-        .cs-rag-doc-title,
+        .cs-rag-doc h3,
+        .cs-rag-doc h4,
+        .cs-rag-doc h5,
+        .cs-rag-doc h6,
         .cs-rag-config summary {
             color: var(--bodyTextColorWhite);
         }
@@ -952,8 +1084,7 @@
         .cs-rag-status,
         .cs-rag-hit-id,
         .cs-rag-docs-label,
-        .cs-rag-chunk,
-        .cs-rag-chunk-id,
+        .cs-rag-doc,
         .cs-rag-config,
         .cs-rag-empty {
             color: #cbd5e1;
@@ -983,25 +1114,40 @@
             background-color: var(--accent);
         }
 
-        .cs-rag-chunk {
+        .cs-rag-tabs,
+        .cs-rag-doc td,
+        .cs-rag-doc th {
             border-color: var(--accent);
+        }
 
-            &.is-retrieved {
-                border-color: var(--primaryLight);
-                background-color: rgba(96, 165, 250, 0.08);
-            }
+        .cs-rag-tab {
+            color: var(--bodyTextColorWhite);
+            background-color: var(--medium);
 
-            &.is-cited {
-                background-color: rgba(96, 165, 250, 0.16);
-            }
-
-            &.is-weak {
-                border-color: #f59e0b;
-                background-color: rgba(245, 158, 11, 0.1);
+            &[aria-selected="true"] {
+                background-color: var(--primary);
             }
         }
 
-        .cs-rag-chunk-score,
+        .cs-rag-mark {
+            color: var(--bodyTextColorWhite);
+            background-color: rgba(96, 165, 250, 0.16);
+
+            &.is-cited {
+                background-color: rgba(96, 165, 250, 0.28);
+            }
+
+            &.is-weak {
+                background-color: rgba(148, 163, 184, 0.14);
+                text-decoration-color: rgba(245, 158, 11, 0.7);
+            }
+
+            &.is-active {
+                color: #0b1b33;
+                background-color: rgba(250, 204, 21, 0.85);
+            }
+        }
+
         .cs-rag-badge {
             color: var(--primaryLight);
         }

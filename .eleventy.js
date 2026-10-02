@@ -83,6 +83,9 @@ module.exports = function (eleventyConfig) {
 	// Self-contained demo apps (e.g. the inventory app export) are copied as-is, not rendered as templates
 	eleventyConfig.ignores.add("./src/assets/demos/**");
 
+	// Word documents for the RAG demo are converted by src/_data/ragDocuments.js; rebuild when they change
+	eleventyConfig.addWatchTarget("./src/_data/rag-docs/");
+
 	// ═════════════════════════════════════════════════════════════════════════
 	// FILTERS
 	// Transform data in templates at build time

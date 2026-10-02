@@ -14,7 +14,7 @@
         <div>
             <span class="cs-topper">Interactive Demo</span>
             <h2 class="cs-rag-title" id="rag-demo-title">Try the {{ rag.business }} Assistant</h2>
-            <p class="cs-rag-sub">{{ rag.businessNote }}. Pick a question to watch the assistant find the right passages and write a cited answer.</p>
+            <p class="cs-rag-sub">{{ rag.businessNote }}. Pick a question to watch the assistant find the right passages and write a cited answer, then click a passage or citation to see it highlighted in the original document.</p>
         </div>
         {% if rag.sample %}
             <span class="cs-rag-badge cs-rag-badge-sample">Sample data - placeholder answers</span>
@@ -55,21 +55,31 @@
             </ol>
         </div>
 
-        <!-- Knowledge base -->
-        <div class="cs-rag-docs" tabindex="0" aria-label="Knowledge base documents">
+        <!-- Knowledge base: the original documents, with retrieved passages highlighted in place.
+             Documents come from the Word files in src/_data/rag-docs/ (see src/_data/ragDocuments.js);
+             a document without a matching file falls back to its chunk text. -->
+        <div class="cs-rag-docs">
             <span class="cs-rag-docs-label">Knowledge base · {{ rag.documents.length }} documents</span>
-            {%- for doc in rag.documents %}
-            <article class="cs-rag-doc">
-                <h3 class="cs-rag-doc-title">{{ doc.title }}</h3>
-                {%- for chunk in doc.chunks %}
-                <p class="cs-rag-chunk" data-chunk="{{ chunk.id }}">
-                    <span class="cs-rag-chunk-id">{{ chunk.id }}</span>
-                    {{ chunk.text }}
-                    <span class="cs-rag-chunk-score" hidden></span>
-                </p>
+            <div class="cs-rag-tabs" role="tablist" aria-label="Knowledge base documents">
+                {%- for doc in rag.documents %}
+                <button type="button" class="cs-rag-tab" role="tab" id="rag-tab-{{ doc.id }}" aria-controls="rag-doc-{{ doc.id }}" aria-selected="{{ 'true' if loop.first else 'false' }}" tabindex="{{ '0' if loop.first else '-1' }}" data-doc="{{ doc.id }}">
+                    {{ doc.title }}<span class="cs-rag-tab-count" hidden></span>
+                </button>
                 {%- endfor %}
-            </article>
-            {%- endfor %}
+            </div>
+            <p class="cs-rag-docs-note" role="status" hidden></p>
+            <div class="cs-rag-doc-scroll">
+                {%- for doc in rag.documents %}
+                <article class="cs-rag-doc" role="tabpanel" id="rag-doc-{{ doc.id }}" aria-labelledby="rag-tab-{{ doc.id }}" data-doc="{{ doc.id }}" tabindex="0" {% if not loop.first %}hidden{% endif %}>
+                    {%- if ragDocuments[doc.id] %}
+                    {{ ragDocuments[doc.id] | safe }}
+                    {%- else %}
+                    <h3>{{ doc.title }}</h3>
+                    {%- for chunk in doc.chunks %}<p>{{ chunk.text }}</p>{% endfor %}
+                    {%- endif %}
+                </article>
+                {%- endfor %}
+            </div>
         </div>
     </div>
 

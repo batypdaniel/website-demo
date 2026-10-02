@@ -41,5 +41,8 @@
 		"netlify-plugin-cache": "^1.0.3",
 		"npm-run-all2": "^5.0.2",
 		"postcss": "^8.5.26"
+	},
+	"devDependencies": {
+		"mammoth": "^1.13.0"
 	}
 }

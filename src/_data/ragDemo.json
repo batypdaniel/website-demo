@@ -11,58 +11,234 @@
     },
     "documents": [
         {
-            "id": "returns",
-            "title": "Return Policy",
+            "id": "returns_and_exchanges_policy",
+            "title": "Returns and Exchanges Policy",
             "chunks": [
                 {
                     "id": "returns-1",
-                    "text": "Most items can be returned within 30 days of purchase for a full refund, as long as they are unused and in their original packaging. Please bring your receipt or order number."
+                    "text": "1. General Return Window\nMost new, unused items purchased from Midtown Cycle Co., whether in-store or online, may be returned within 30 days of the purchase or delivery date for a full refund to the original payment method. Items must be in their original packaging with all tags, manuals, and included accessories. Receipts or order confirmation emails are required for all returns; we are unable to process a return without proof of purchase."
                 },
                 {
                     "id": "returns-2",
-                    "text": "Sale and clearance items may be returned within 14 days for store credit only. Bikes that have been ridden outdoors cannot be returned, but can be exchanged within 7 days."
+                    "text": "2. Assembled Bicycles and the Test Ride Guarantee\nBicycles that have been assembled and ridden fall under our Test Ride Guarantee rather than the general 30-day window. Customers have 14 days from the delivery or pickup date to return an assembled bicycle that has been ridden no more than 5 miles, for a full refund minus a $40 assembly and inspection fee. Bicycles ridden more than 5 miles, or returned after 14 days, are not eligible for a refund under this policy and may instead be evaluated for trade-in value at the store manager's discretion."
+                },
+                {
+                    "id": "returns-3",
+                    "text": "3. Final Sale Items\nFor hygiene and safety reasons, the following items are final sale once opened or used and cannot be returned or exchanged: helmets, bike shorts and other apparel worn next to skin, grips, saddles, inner tubes, and nutrition/hydration products. Unopened items in this category in their original sealed packaging may still be returned within the standard 30-day window."
+                },
+                {
+                    "id": "returns-4",
+                    "text": "4. Special-Order and Custom Parts\nParts and accessories that are special-ordered for a customer and are not normally stocked in our store are subject to a 15% restocking fee if returned, and must be returned within 14 days of pickup. Custom builds, including bikes with non-standard paint, sizing, or component swaps, are non-refundable once work has begun, though store credit may be issued at the manager's discretion."
+                },
+                {
+                    "id": "returns-5",
+                    "text": "5. How to Start a Return\nIn-store purchases can be returned at any Midtown Cycle Co. location with proof of purchase; no appointment is necessary. Online orders can be returned by requesting a prepaid return label through the order status page on our website, or by bringing the item and packing slip into any store location. Items shipped back must be packed securely; we recommend the original box when possible."
+                },
+                {
+                    "id": "returns-6",
+                    "text": "6. Refund Timing\nOnce a returned item is received and inspected, refunds are issued to the original payment method within 5 to 10 business days. Refunds for purchases made with store credit or a gift card are issued as store credit. We do not issue cash refunds for purchases made by credit or debit card."
+                },
+                {
+                    "id": "returns-7",
+                    "text": "7. Exchanges\nExchanges for a different size or color follow the same eligibility rules as refunds under this policy. If the replacement item costs more than the original, the difference is charged to the original payment method; if it costs less, the difference is refunded. Exchanges are subject to availability and are not guaranteed if the requested item is out of stock."
+                },
+                {
+                    "id": "returns-8",
+                    "text": "8. Items Damaged in Transit or Upon Pickup\nIf an online order arrives damaged, this is handled under the Shipping and Delivery Policy's damage claim process, not under this general returns policy, since it may qualify for a free replacement rather than a standard return. In-store purchases that are found to be damaged or defective at the time of pickup should be reported to a store associate immediately for an on-the-spot exchange."
+                },
+                {
+                    "id": "returns-9",
+                    "text": "9. Gift Returns\nItems received as a gift can be returned for store credit without the original receipt if the item was purchased from Midtown Cycle Co. within the last 60 days and can be located in our sales system using the gift-giver's name, email, or order number. Gift returns follow the same condition requirements as standard returns."
                 }
             ]
         },
         {
-            "id": "shipping",
-            "title": "Shipping & Delivery",
+            "id": "shipping_and_delivery_policy",
+            "title": "Shipping and Delivery Policy",
             "chunks": [
                 {
                     "id": "shipping-1",
-                    "text": "We offer free local delivery of assembled bikes within 25 miles of our Midtown store, including Germantown, Bartlett, Cordova and Southaven. Deliveries are scheduled Tuesday through Saturday."
+                    "text": "1. Processing Times\nOnline orders for small items such as apparel, parts, and accessories are processed and shipped within 2 business days of being placed. Orders that include a bicycle are processed within 3 to 5 business days to allow time for a full pre-delivery inspection and test ride by our service department before the bike is boxed for shipment."
                 },
                 {
                     "id": "shipping-2",
-                    "text": "Online orders can be returned by mail using the prepaid label included in the box, or dropped off in store. Refunds are issued to the original payment method within 5 business days of receipt."
+                    "text": "2. Shipping Methods and Costs\nSmall parcels are shipped via standard ground carrier, with free shipping on orders over $75 within the continental United States and a flat $7.99 fee on orders below that amount. Bicycles ship via freight carrier due to their size and are subject to a flat $99 shipping fee, which is waived for Spoke Rewards VIP members as described in the Rewards and Membership Policy."
+                },
+                {
+                    "id": "shipping-3",
+                    "text": "3. Delivery Timeframes\nStandard ground shipments typically arrive within 3 to 7 business days after processing, depending on distance from our Memphis, TN warehouse. Freight-shipped bicycles typically arrive within 7 to 10 business days after processing. We do not currently offer expedited or overnight shipping for bicycles due to freight carrier limitations."
+                },
+                {
+                    "id": "shipping-4",
+                    "text": "4. Delivery Areas\nWe currently ship to all addresses within the continental United States. We do not ship bicycles to Alaska, Hawaii, or international addresses at this time, though small parts and accessories can ship to Alaska and Hawaii for an additional freight surcharge calculated at checkout."
+                },
+                {
+                    "id": "shipping-5",
+                    "text": "5. Tracking Your Order\nA tracking link is emailed once your order ships. Freight deliveries for bicycles require someone to be present to sign for the package; the freight carrier will contact you directly to schedule a delivery window once the shipment reaches your local terminal."
+                },
+                {
+                    "id": "shipping-6",
+                    "text": "6. Damaged in Transit\nIf your order arrives visibly damaged, do not assemble or ride the bicycle. Report the damage within 48 hours of delivery through our website's order status page, including photos of the damaged packaging and the item itself. Verified transit damage is handled as a free replacement or repair at no cost to you, which is a separate process from the standard return process described in the Returns and Exchanges Policy."
+                },
+                {
+                    "id": "shipping-7",
+                    "text": "7. Lost or Missing Packages\nIf tracking shows a package as delivered but it has not been received, contact us within 7 days of the delivery date so we can file a claim with the carrier. We are unable to guarantee a resolution for packages reported missing more than 14 days after the delivery date."
+                },
+                {
+                    "id": "shipping-8",
+                    "text": "8. In-Store Pickup\nOnline orders can be set to in-store pickup at checkout at no additional cost. Pickup orders are typically ready within 1 business day for small items and within 3 to 5 business days for bicycles, which still undergo the same pre-delivery inspection as shipped bikes. A photo ID matching the name on the order is required for pickup."
                 }
             ]
         },
         {
-            "id": "warranty",
-            "title": "Warranty & Repairs",
+            "id": "warranty_policy",
+            "title": "Warranty Policy",
             "chunks": [
                 {
                     "id": "warranty-1",
-                    "text": "All new bikes include a lifetime frame warranty from the manufacturer against defects in materials and workmanship. Components such as brakes, chains and tires are covered for one year."
+                    "text": "1. Overview of Warranty Coverage\nThis policy explains the warranty coverage provided by bicycle and component manufacturers on products sold at Midtown Cycle Co., as well as the separate labor warranty provided by our service department. Manufacturer warranties cover defects in materials and workmanship; they do not cover normal wear and tear, improper maintenance, or damage from accidents, crashes, or misuse."
                 },
                 {
                     "id": "warranty-2",
-                    "text": "A basic tune-up is $75 and includes brake and gear adjustment, wheel truing and a safety check. Most tune-ups are completed within 2 business days. New bikes get one free tune-up within 90 days."
+                    "text": "2. Frame Warranty Terms\nBicycle frames sold at Midtown Cycle Co. carry the manufacturer's original frame warranty, which varies by brand: most aluminum frames we carry are covered for 5 years against manufacturing defects, while most carbon and titanium frames are covered by a limited lifetime warranty to the original owner. Frame warranty coverage is not transferable to a second owner unless the manufacturer's policy explicitly allows it."
+                },
+                {
+                    "id": "warranty-3",
+                    "text": "3. Component and Parts Warranty\nComponents such as derailleurs, brakes, wheels, and suspension forks are covered by their respective manufacturer's warranty, typically ranging from 1 to 3 years, separate from the frame warranty. Consumable parts, including tires, brake pads, chains, and cassettes, are not covered under any manufacturer or Midtown Cycle Co. warranty, as they are expected to wear out with normal use."
+                },
+                {
+                    "id": "warranty-4",
+                    "text": "4. E-Bike Battery and Electronics Warranty\nElectric bike batteries sold at Midtown Cycle Co. are covered for 2 years or 300 full charge cycles, whichever comes first, against defects that cause the battery to hold significantly less charge than when new. Motors, displays, and other electronic components on e-bikes carry a separate 2-year warranty from the manufacturer. Battery warranty claims require the battery's serial number, which is recorded at the time of purchase and can be looked up using your order number."
+                },
+                {
+                    "id": "warranty-5",
+                    "text": "5. Midtown Cycle Co. Service Labor Warranty\nLabor performed by our service department, including tune-ups and repairs, is separately warrantied for 90 days: if the same issue recurs within 90 days of a paid repair, we will correct it at no additional labor cost. Parts we install during a repair carry whichever is longer of the part manufacturer's warranty or 90 days. This labor warranty is distinct from the manufacturer warranties described elsewhere in this document and does not extend the underlying part or frame warranty period."
+                },
+                {
+                    "id": "warranty-6",
+                    "text": "6. What Voids Warranty Coverage\nWarranty coverage on any product sold by Midtown Cycle Co. is void if the product has been used for racing or competitive events (unless specifically rated for racing by the manufacturer), modified outside of manufacturer specifications, used for commercial purposes such as delivery services, damaged in a crash or collision, or serviced by a shop other than Midtown Cycle Co. in a way that affects the component in question."
+                },
+                {
+                    "id": "warranty-7",
+                    "text": "7. How to File a Warranty Claim\nTo file a warranty claim, bring the product and your original proof of purchase to any Midtown Cycle Co. location, or contact our service department to arrange a mail-in evaluation for e-bike batteries and electronics. Our staff will inspect the item and submit a claim to the manufacturer on your behalf if the issue appears to be a covered defect. Manufacturer warranty claims typically take 2 to 6 weeks to resolve, depending on the brand."
+                },
+                {
+                    "id": "warranty-8",
+                    "text": "8. Warranty Claims vs. Returns\nA warranty claim is different from a return: returns, as described in the Returns and Exchanges Policy, apply within a limited window after purchase regardless of whether the product is defective, while a warranty claim applies specifically to a manufacturing defect that appears after the return window has closed. If your product is still within its applicable return window, a return or exchange will generally be faster than a warranty claim."
+                },
+                {
+                    "id": "warranty-9",
+                    "text": "9. Loaner Bikes During Warranty Repairs\nIf a warranty repair is expected to take longer than 5 business days, customers may request a loaner bike under the same terms described in the Repair and Service Policy's loaner bike program, subject to availability."
                 }
             ]
         },
         {
-            "id": "store",
-            "title": "Store Information",
+            "id": "repair_and_service_policy",
+            "title": "Repair and Service Policy",
             "chunks": [
                 {
-                    "id": "store-1",
-                    "text": "Midtown Cycle Co. is open Tuesday to Friday 10am-7pm, Saturday 9am-5pm and Sunday 12pm-4pm. We are closed on Mondays and major holidays."
+                    "id": "repair-1",
+                    "text": "1. Service Appointments\nWalk-in service is available for quick adjustments such as brake and derailleur tuning, subject to staff availability. Full tune-ups, overhauls, and e-bike service require an appointment, which can be booked online or by calling the store directly."
                 },
                 {
-                    "id": "store-2",
-                    "text": "We sell road, mountain, hybrid and kids' bikes, plus e-bikes from two brands. We also carry helmets, locks, lights and apparel, and offer professional bike fittings by appointment."
+                    "id": "repair-2",
+                    "text": "2. Standard Tune-Up Pricing and Turnaround\nA standard tune-up, which includes brake and derailleur adjustment, chain lubrication, and a safety inspection, costs $89 and typically takes 3 to 5 business days. A full overhaul, which additionally includes disassembly, deep cleaning, and bearing service, costs $189 and typically takes 5 to 7 business days. Spoke Rewards VIP members receive one complimentary standard tune-up per year, as described in the Rewards and Membership Policy; this benefit does not apply to overhauls or e-bike service."
+                },
+                {
+                    "id": "repair-3",
+                    "text": "3. E-Bike Service\nE-bike service, including motor diagnostics and battery health checks, takes 5 to 7 business days due to the need to special-order certain diagnostic parts, and starts at $129. Battery-related issues that are suspected to be a manufacturing defect are evaluated under the Warranty Policy's e-bike battery warranty before any paid service is performed."
+                },
+                {
+                    "id": "repair-4",
+                    "text": "4. Loaner Bike Program\nIf a repair is expected to take longer than 5 business days, customers may request a loaner bike for the duration of the service at no charge, subject to availability and a signed loaner agreement. Loaner bikes must be returned within 2 business days of your bike being ready, or a $25 per day late fee applies."
+                },
+                {
+                    "id": "repair-5",
+                    "text": "5. Estimates and Approval\nFor any repair beyond a standard tune-up, we provide a written estimate before beginning work. We will contact you for approval if additional issues are discovered once the bike is disassembled, and no work beyond the original estimate will be billed without your approval."
+                },
+                {
+                    "id": "repair-6",
+                    "text": "6. Parts Availability\nCommon parts are kept in stock for most repairs. Special orders for less common parts, including most e-bike components, typically take 5 to 10 additional business days to arrive and will extend the quoted turnaround time accordingly. We will notify you if a part delay is expected to add more than 2 business days to your original estimate."
+                },
+                {
+                    "id": "repair-7",
+                    "text": "7. Unclaimed Repairs\nCompleted repairs not picked up within 60 days of notification may be sold to recover the cost of parts and labor, in accordance with Tennessee's unclaimed property handling for repair shops. We will attempt to contact you by phone and email at least twice before this occurs."
+                },
+                {
+                    "id": "repair-8",
+                    "text": "8. Service Labor Warranty\nAll labor performed by our service department is covered by a 90-day labor warranty as described in the Warranty Policy: if the same issue recurs within 90 days, we will correct it at no additional labor cost."
+                },
+                {
+                    "id": "repair-9",
+                    "text": "9. Seasonal Tune-Up Specials\nEach spring, we offer a discounted seasonal tune-up package priced $20 below the standard tune-up rate for bikes brought in during March and April. This seasonal discount cannot be combined with the Spoke Rewards VIP complimentary tune-up benefit in the same visit; customers should use whichever offer provides the greater value."
+                }
+            ]
+        },
+        {
+            "id": "rewards_and_membership_policy",
+            "title": "Rewards and Membership Policy",
+            "chunks": [
+                {
+                    "id": "rewards-1",
+                    "text": "1. Spoke Rewards Overview\nSpoke Rewards is Midtown Cycle Co.'s free loyalty program. Members earn 2 points per $1 spent on bikes, parts, accessories, and service at any Midtown Cycle Co. location or online. Enrollment is free and can be completed in-store or on our website using an email address and phone number."
+                },
+                {
+                    "id": "rewards-2",
+                    "text": "2. Redeeming Points\nPoints can be redeemed in increments of 500 points for $5 in store credit, applicable toward future purchases or service, or toward a layaway deposit or financed purchase as described in the Financing and Layaway Policy. Points cannot be redeemed for cash and cannot be combined with the seasonal tune-up special described in the Repair and Service Policy."
+                },
+                {
+                    "id": "rewards-3",
+                    "text": "3. Point Expiration\nPoints expire after 18 months of account inactivity, meaning no qualifying purchases or redemptions during that period. An email reminder is sent 30 days before points are scheduled to expire."
+                },
+                {
+                    "id": "rewards-4",
+                    "text": "4. VIP Tier\nMembers who spend $2,000 or more in a calendar year are automatically upgraded to VIP tier for the following 12 months. VIP members receive free shipping on bicycle orders (normally a $99 freight fee under the Shipping and Delivery Policy), one complimentary standard tune-up per year (a $89 value under the Repair and Service Policy), and early access to seasonal sales."
+                },
+                {
+                    "id": "rewards-5",
+                    "text": "5. VIP Tune-Up Benefit Details\nThe complimentary VIP tune-up covers only the standard tune-up service; it does not cover a full overhaul, e-bike service, or parts needed during the tune-up, which are billed separately at standard rates. This benefit resets each membership year and does not carry over if unused."
+                },
+                {
+                    "id": "rewards-6",
+                    "text": "6. Referral Bonus\nMembers can earn a one-time 1,000 point bonus for each new customer they refer who makes a purchase of $100 or more, up to a maximum of 5 referral bonuses per calendar year. Referral bonuses are credited within 7 days of the referred customer's qualifying purchase."
+                },
+                {
+                    "id": "rewards-7",
+                    "text": "7. Account Management and Closure\nMembers can view their point balance and transaction history by logging into their account on our website. Closing a Spoke Rewards account forfeits any unredeemed points immediately and cannot be reversed."
+                }
+            ]
+        },
+        {
+            "id": "financing_and_layaway_policy",
+            "title": "Financing and Layaway Policy",
+            "chunks": [
+                {
+                    "id": "financing-1",
+                    "text": "1. Financing Overview\nMidtown Cycle Co. offers financing through our third-party credit partner, Memphis Retail Credit, for purchases of $500 or more. Approved applicants can choose 0% APR financing paid over 6 months, or a longer 24-month plan with standard interest rates applying. Financing requires a credit check and approval from Memphis Retail Credit, which is separate from any approval by Midtown Cycle Co."
+                },
+                {
+                    "id": "financing-2",
+                    "text": "2. How to Apply for Financing\nFinancing applications can be completed in-store at checkout or online during the checkout process. Approval decisions are typically returned within a few minutes. A down payment is not required for approved 0% APR financing, though a down payment may be required for applicants with limited credit history."
+                },
+                {
+                    "id": "financing-3",
+                    "text": "3. Layaway Program Overview\nFor customers who prefer not to use financing, we offer a 90-day layaway program on in-stock items priced $200 or more. Layaway requires a 20% non-refundable deposit at the time of setup, with the remaining balance due in equal installments or as a lump sum by the end of the 90-day period. No credit check is required for layaway."
+                },
+                {
+                    "id": "financing-4",
+                    "text": "4. Layaway Deposit and Cancellation\nThe 20% layaway deposit is non-refundable if the layaway agreement is canceled by the customer, reflecting the fact that the item is held exclusively for that customer and removed from available inventory for the duration of the agreement. This is different from the refund terms in the Returns and Exchanges Policy, which apply only after an item has been fully purchased and picked up or shipped."
+                },
+                {
+                    "id": "financing-5",
+                    "text": "5. Missed Layaway Payments\nIf a scheduled layaway payment is missed by more than 10 days, we will attempt to contact you by phone and email. If payment is not received within 20 days of the missed due date, the layaway agreement is canceled, the item is returned to available inventory, and the deposit is forfeited as described above."
+                },
+                {
+                    "id": "financing-6",
+                    "text": "6. Price Protection During Layaway\nThe price of an item on layaway is locked in at the time the agreement is signed, even if the item's price changes before the layaway period ends. This price protection does not apply to financing purchases, which are charged at the price in effect at the time of the financed purchase."
+                },
+                {
+                    "id": "financing-7",
+                    "text": "7. Combining Financing and Layaway\nFinancing and layaway cannot be combined on the same purchase. Store credit from a return, as described in the Returns and Exchanges Policy, can be applied toward either a financed purchase or a layaway deposit."
                 }
             ]
         }
@@ -70,69 +246,153 @@
     "questions": [
         {
             "id": "q1",
-            "question": "How long do I have to return something?",
+            "question": "Can I return a bike after I've ridden it?",
             "retrieved": [
-                { "chunk_id": "returns-1", "score": 0.91 },
-                { "chunk_id": "returns-2", "score": 0.78 },
-                { "chunk_id": "shipping-2", "score": 0.62 }
+                {
+                    "chunk_id": "returns-2",
+                    "score": 0.92
+                },
+                {
+                    "chunk_id": "returns-1",
+                    "score": 0.74
+                },
+                {
+                    "chunk_id": "warranty-8",
+                    "score": 0.58
+                }
             ],
-            "answer": "You can return most items within 30 days of purchase for a full refund, as long as they're unused and in the original packaging - just bring your receipt or order number [returns-1]. Sale and clearance items have a shorter 14-day window and are refunded as store credit [returns-2].",
-            "meta": { "latency_ms": 1180, "input_tokens": 612, "output_tokens": 71, "cost_usd": 0.0012 }
+            "answer": "Yes, within limits. Assembled bikes fall under our Test Ride Guarantee: you have 14 days from delivery or pickup to return a bike ridden no more than 5 miles, for a full refund minus a $40 assembly and inspection fee. Bikes ridden further or returned after 14 days can't be refunded, but the store manager may offer a trade-in value instead [returns-2].",
+            "meta": {
+                "latency_ms": 1240,
+                "input_tokens": 688,
+                "output_tokens": 84,
+                "cost_usd": 0.0013
+            }
         },
         {
             "id": "q2",
-            "question": "Can I return a sale item I bought online?",
+            "question": "My new bike arrived damaged. What should I do?",
             "retrieved": [
-                { "chunk_id": "returns-2", "score": 0.88 },
-                { "chunk_id": "shipping-2", "score": 0.84 },
-                { "chunk_id": "returns-1", "score": 0.71 }
+                {
+                    "chunk_id": "shipping-6",
+                    "score": 0.93
+                },
+                {
+                    "chunk_id": "returns-8",
+                    "score": 0.81
+                },
+                {
+                    "chunk_id": "returns-5",
+                    "score": 0.55
+                }
             ],
-            "answer": "Yes. Sale items can be returned within 14 days, but the refund is issued as store credit rather than to your card [returns-2]. Since you ordered online, you can mail it back with the prepaid label from your box or drop it off at the store [shipping-2].",
-            "meta": { "latency_ms": 1320, "input_tokens": 640, "output_tokens": 68, "cost_usd": 0.0013 }
+            "answer": "Please don't assemble or ride it. Report the damage within 48 hours of delivery through the order status page on our website, with photos of the packaging and the bike [shipping-6]. Verified shipping damage is handled as a free replacement or repair, separately from a normal return [returns-8].",
+            "meta": {
+                "latency_ms": 1310,
+                "input_tokens": 702,
+                "output_tokens": 73,
+                "cost_usd": 0.0013
+            }
         },
         {
             "id": "q3",
-            "question": "Is my bike's frame covered under warranty?",
+            "question": "How much is a tune-up, and do rewards members get one free?",
             "retrieved": [
-                { "chunk_id": "warranty-1", "score": 0.93 },
-                { "chunk_id": "warranty-2", "score": 0.66 },
-                { "chunk_id": "returns-2", "score": 0.51 }
+                {
+                    "chunk_id": "repair-2",
+                    "score": 0.9
+                },
+                {
+                    "chunk_id": "rewards-5",
+                    "score": 0.83
+                },
+                {
+                    "chunk_id": "rewards-4",
+                    "score": 0.79
+                }
             ],
-            "answer": "Yes - every new bike comes with a lifetime manufacturer warranty on the frame covering defects in materials and workmanship. Parts like brakes, chains and tires are covered for one year [warranty-1].",
-            "meta": { "latency_ms": 1050, "input_tokens": 598, "output_tokens": 52, "cost_usd": 0.0011 }
+            "answer": "A standard tune-up is $89 and usually takes 3 to 5 business days [repair-2]. Spoke Rewards members who reach VIP tier, by spending $2,000 or more in a calendar year, get one standard tune-up free each year [rewards-4]. It doesn't cover overhauls, e-bike service or parts, and it doesn't carry over if unused [rewards-5].",
+            "meta": {
+                "latency_ms": 1420,
+                "input_tokens": 731,
+                "output_tokens": 88,
+                "cost_usd": 0.0014
+            }
         },
         {
             "id": "q4",
-            "question": "How much is a tune-up and how long does it take?",
+            "question": "Is my e-bike battery covered under warranty?",
             "retrieved": [
-                { "chunk_id": "warranty-2", "score": 0.94 },
-                { "chunk_id": "store-1", "score": 0.58 },
-                { "chunk_id": "warranty-1", "score": 0.55 }
+                {
+                    "chunk_id": "warranty-4",
+                    "score": 0.94
+                },
+                {
+                    "chunk_id": "warranty-7",
+                    "score": 0.71
+                },
+                {
+                    "chunk_id": "repair-3",
+                    "score": 0.66
+                }
             ],
-            "answer": "A basic tune-up is $75 and covers brake and gear adjustment, wheel truing and a safety check. Most are finished within 2 business days. If you bought your bike new from us, your first tune-up within 90 days is free [warranty-2].",
-            "meta": { "latency_ms": 1110, "input_tokens": 605, "output_tokens": 60, "cost_usd": 0.0011 }
+            "answer": "Yes. E-bike batteries are covered for 2 years or 300 full charge cycles, whichever comes first, if they hold significantly less charge than when new. You'll need the battery's serial number, which we can look up from your order number [warranty-4]. You can bring it to any location or arrange a mail-in evaluation with our service department [warranty-7].",
+            "meta": {
+                "latency_ms": 1180,
+                "input_tokens": 694,
+                "output_tokens": 79,
+                "cost_usd": 0.0013
+            }
         },
         {
             "id": "q5",
-            "question": "Do you deliver to Germantown?",
+            "question": "What happens if I miss a layaway payment?",
             "retrieved": [
-                { "chunk_id": "shipping-1", "score": 0.89 },
-                { "chunk_id": "store-1", "score": 0.57 },
-                { "chunk_id": "shipping-2", "score": 0.53 }
+                {
+                    "chunk_id": "financing-5",
+                    "score": 0.95
+                },
+                {
+                    "chunk_id": "financing-4",
+                    "score": 0.77
+                },
+                {
+                    "chunk_id": "financing-3",
+                    "score": 0.6
+                }
             ],
-            "answer": "Yes! Germantown is within our free local delivery area. We deliver assembled bikes within 25 miles of the Midtown store, Tuesday through Saturday [shipping-1].",
-            "meta": { "latency_ms": 980, "input_tokens": 590, "output_tokens": 41, "cost_usd": 0.0009 }
+            "answer": "If a payment is more than 10 days late, we'll reach out by phone and email. If it still isn't paid within 20 days of the due date, the layaway is canceled, the item goes back into inventory, and the 20% deposit is forfeited [financing-5] [financing-4].",
+            "meta": {
+                "latency_ms": 1090,
+                "input_tokens": 655,
+                "output_tokens": 64,
+                "cost_usd": 0.0012
+            }
         },
         {
             "id": "q6",
             "question": "Do you sell electric scooters?",
             "retrieved": [
-                { "chunk_id": "store-2", "score": 0.46 },
-                { "chunk_id": "warranty-1", "score": 0.31 },
-                { "chunk_id": "shipping-1", "score": 0.28 }
+                {
+                    "chunk_id": "warranty-4",
+                    "score": 0.44
+                },
+                {
+                    "chunk_id": "repair-3",
+                    "score": 0.38
+                },
+                {
+                    "chunk_id": "shipping-4",
+                    "score": 0.29
+                }
             ],
             "answer": "I don't have any information about electric scooters in our store documents, so I don't want to guess. I can connect you with a team member who can help - would you like me to do that?",
-            "meta": { "latency_ms": 890, "input_tokens": 402, "output_tokens": 44, "cost_usd": 0.0008 }
+            "meta": {
+                "latency_ms": 890,
+                "input_tokens": 402,
+                "output_tokens": 44,
+                "cost_usd": 0.0008
+            }
         }
     ]
 }
