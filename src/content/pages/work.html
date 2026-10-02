@@ -27,6 +27,11 @@ permalink: "/work/"
     <section id="work-listing">
         <div class="cs-container">
             {% if collections.workItems.length %}
+                <div class="cs-section-header cs-intro">
+                    <span class="cs-topper">Our Work</span>
+                    <h2 class="cs-title">Proven Solutions, Built to Adapt</h2>
+                    <p class="cs-text">The demos below are a selection of working products built around common business problems, and each one can be adapted to many different businesses and industries. They're only a sample of what we can build. If you have a project in mind that you don't see here, we'd be happy to talk it through. <a href="/contact/">Get in touch</a> to start the conversation.</p>
+                </div>
                 <ul class="cs-work-grid">
                     {%- for item in collections.workItems %}
                         {% include "components/work-card.html" %}

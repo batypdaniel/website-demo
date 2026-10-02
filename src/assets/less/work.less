@@ -17,6 +17,26 @@
             margin: auto;
         }
 
+        /* Centered header above the grid; layout comes from the shared .cs-section-header */
+        .cs-intro {
+            .cs-title {
+                max-width: (960/16rem);
+            }
+
+            .cs-text {
+                max-width: (720/16rem);
+            }
+
+            .cs-text + .cs-text {
+                margin-top: (16/16rem);
+            }
+
+            a {
+                font-weight: 700;
+                color: var(--primary);
+            }
+        }
+
         .cs-empty {
             display: flex;
             flex-direction: column;
@@ -426,6 +446,10 @@
         #work-listing .cs-text,
         #work-more .cs-title {
             color: var(--bodyTextColorWhite);
+        }
+
+        #work-listing .cs-intro a {
+            color: var(--primaryLight);
         }
     }
 }
