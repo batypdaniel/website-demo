@@ -56,12 +56,12 @@ permalink: "/about/"
                 <!-- TODO: make this your story. A personal, specific version of this section is one of the most persuasive parts of a local services site. -->
                 <p class="cs-text">
                     Born and raised in {{ client.address.city }}, I have always been an analytical thinker, interested in building, creating, understanding how things work, 
-                    and putting together systems with a lot of moving parts.  As I have grown into my career, those interests led me to developing different kinds of technology, 
-                    mostly applying data science and AI to making business operations more efficient and automating them.
+                    and putting together systems with a lot of moving parts.  As I have grown into my career, those ways of thinking have led me to developing different kinds of technology, 
+                    mostly applying data science and AI to automating business operations and making them more efficient.
                 </p>
                 <p class="cs-text">
-                    Now living in {{ client.address.city }} as an adult, in the Cooper-Young neighborhood, I have been inspired by the culture that has grown around and between the area's small businesses,
-                    and how they can even become pillars of the community.  To whatever extent I can, I want to bring my skills and experience
+                    Now living in the Cooper-Young neighborhood, I have been inspired by the culture that has grown around and between the area's small businesses,
+                    and how they can even become pillars of their community.  To whatever extent I can, I want to bring my skills and experience
                     to contribute to that success, and to help local businesses thrive in a competitive environment.
                 </p>
                 <p class="cs-text">
@@ -77,32 +77,57 @@ permalink: "/about/"
     <!--                  Background                  -->
     <!-- ============================================ -->
 
-    <!-- TODO: fill in with your real experience, education and certifications -->
+    <!-- Credentials on the left, the kinds of work behind them on the right.
+         TODO: adjust the four "What I've built" items to match your own projects. -->
     <section id="background">
         <div class="cs-container">
             <div class="cs-section-header">
                 <span class="cs-topper">Experience</span>
-                <h2 class="cs-title">The Background Behind the Work</h2>
+                <h2 class="cs-title">Background Behind the Work</h2>
+                <p class="cs-text">I've built data and AI systems for companies of every size. Now I bring the same tools and habits to businesses that don't have a data team of their own.</p>
             </div>
-            <ul class="cs-card-group">
-                <li class="cs-item">
-                    <span class="cs-stat">7+ Years</span>
-                    <p class="cs-item-text">Professional experience in data science, analytics, machine learning and software development</p>
-                </li>
-                <li class="cs-item">
-                    <span class="cs-stat">Python &amp; ML</span>
-                    <p class="cs-item-text">Deep hands-on expertise training, evaluating and deploying machine learning models</p>
-                </li>
-                <li class="cs-item">
-                    <span class="cs-stat">End-to-End</span>
-                    <p class="cs-item-text">From raw data and pipelines to models, dashboards and the apps people actually use</p>
-                </li>
-                <li class="cs-item">
-                    <span class="cs-stat">Education</span>
-                    <p class="cs-item-text">M.S. Artificial Intelligence, Johns Hopkins University</p>
-                    <p class="cs-item-text">B.S. Applied Mathematics, UNC-Chapel Hill</p>
-                </li>
-            </ul>
+            <div class="cs-layout">
+                <div class="cs-credentials">
+                    <span class="cs-stat">7+</span>
+                    <span class="cs-stat-label">years of professional experience in data science, machine learning and software</span>
+                    <h3 class="cs-cred-label">Education</h3>
+                    <ul class="cs-degrees">
+                        <li>
+                            <span class="cs-degree">M.S. Artificial Intelligence</span>
+                            <span class="cs-school">Johns Hopkins University</span>
+                        </li>
+                        <li>
+                            <span class="cs-degree">B.S. Applied Mathematics</span>
+                            <span class="cs-school">UNC-Chapel Hill</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cs-built">
+                    <h3 class="cs-built-title">What I've built</h3>
+                    <ul class="cs-built-group">
+                        <li class="cs-built-item">
+                            <span class="cs-icon">{% include "icons/analytics.svg" %}</span>
+                            <h4 class="cs-h4">Data pipelines &amp; reporting</h4>
+                            <p class="cs-item-text">Systems that pull data from many sources into one reliable place. For you, that means numbers you can trust without the copy-paste.</p>
+                        </li>
+                        <li class="cs-built-item">
+                            <span class="cs-icon">{% include "icons/science.svg" %}</span>
+                            <h4 class="cs-h4">Forecasting &amp; machine learning</h4>
+                            <p class="cs-item-text">Models trained, tested and put into production. For you, that means planning stock, staff and cash around what's likely, not guesses.</p>
+                        </li>
+                        <li class="cs-built-item">
+                            <span class="cs-icon">{% include "icons/ai.svg" %}</span>
+                            <h4 class="cs-h4">AI assistants &amp; document tools</h4>
+                            <p class="cs-item-text">AI grounded in a company's own documents. For you, that means fast, accurate answers with a source behind every one.</p>
+                        </li>
+                        <li class="cs-built-item">
+                            <span class="cs-icon">{% include "icons/software.svg" %}</span>
+                            <h4 class="cs-h4">Apps &amp; automations</h4>
+                            <p class="cs-item-text">Internal tools and integrations people use every day. For you, that means fewer manual steps and software that fits how you work.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 

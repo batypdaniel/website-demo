@@ -45,7 +45,7 @@ module.exports = [
             "A service company tracks job profitability by technician and job type",
             "A clinic monitors appointment no-show rates and revenue per provider",
         ],
-        tools: ["Power BI", "Looker Studio", "Tableau", "Excel", "SQL", "Python"],
+        tools: ["Power BI", "Tableau", "Streamlit", "Excel", "SQL", "Python"],
     },
     {
         slug: "data-science",
@@ -84,7 +84,7 @@ module.exports = [
             "A subscription business identifies at-risk customers before they cancel",
             "A distributor predicts reorder points for its top SKUs",
         ],
-        tools: ["Python", "scikit-learn", "PyTorch", "pandas", "SQL", "Jupyter"],
+        tools: ["Python", "scikit-learn", "PyTorch", "SQL"],
     },
     {
         slug: "ai-solutions",
@@ -92,7 +92,7 @@ module.exports = [
         navName: "AI Solutions",
         icon: "ai",
         summary: "Put modern AI to work on real problems - answering questions, processing documents and saving your team time.",
-        headline: "Practical AI, Without the Hype",
+        headline: "Practical AI, With Real Business Outcomes",
         intro: "AI tools have become genuinely useful for small businesses, but it's hard to know where to start or what's safe. We help you find the right use cases, build solutions around your own documents and data, and roll them out responsibly.",
         painPoints: [
             "Your team answers the same customer questions over and over",

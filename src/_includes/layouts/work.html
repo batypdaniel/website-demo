@@ -49,15 +49,15 @@
                 </picture>
                 <div class="cs-demo-overlay">
                     {% if demoUrl and demoEmbed %}
-                        <button class="cs-button-solid cs-demo-launch" type="button">Launch live demo</button>
+                        <button class="cs-button-solid cs-demo-launch" type="button">Launch Live Demo</button>
                         {#- Self-hosted demos (a path on this site) load instantly; only externally hosted apps need the wake-up note #}
                         {% if "://" in demoUrl %}<span class="cs-demo-hint">Hosted apps can take up to 30 seconds to wake up.</span>{% endif %}
                     {% elif demoUrl %}
-                        <a class="cs-button-solid" href="{{ demoUrl }}" target="_blank" rel="noopener">Open live demo</a>
+                        <a class="cs-button-solid" href="{{ demoUrl }}" target="_blank" rel="noopener">Open Live Demo</a>
                         <span class="cs-demo-hint">Opens in a new tab.</span>
                     {% else %}
                         <span class="cs-demo-soon">Live demo coming soon</span>
-                        <a class="cs-button-ghost" href="/contact/">Request a walkthrough</a>
+                        <a class="cs-button-ghost" href="/contact/">Request a Walkthrough</a>
                     {% endif %}
                 </div>
             </div>
@@ -108,7 +108,7 @@
                 <div class="cs-side-block cs-side-cta">
                     <h2 class="cs-side-title">Want something like this?</h2>
                     <p class="cs-side-text">Every business is different. Let's talk about what this would look like with your data and tools.</p>
-                    <a class="cs-button-solid" href="{{ client.bookingLink or '/contact/' }}" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Let's talk</a>
+                    <a class="cs-button-solid" href="{{ client.bookingLink or '/contact/' }}" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Let's Talk</a>
                 </div>
             </aside>
         </div>

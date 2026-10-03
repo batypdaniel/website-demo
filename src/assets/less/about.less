@@ -119,6 +119,7 @@
 <---        Background          -->
 <--- -------------------------- -*/
 
+/* Mobile: credentials card stacked above the "What I've built" list */
 @media only screen and (min-width: 0rem) {
     #background {
         padding: var(--sectionPadding);
@@ -130,51 +131,167 @@
             margin: auto;
         }
 
-        .cs-card-group {
-            list-style: none;
-            margin: 0;
-            padding: 0;
+        .cs-layout {
             display: grid;
             grid-template-columns: 1fr;
             gap: (20/16rem);
         }
 
-        .cs-item {
-            padding: (28/16rem);
-            border-radius: (12/16rem);
-            background-color: #fff;
+        /* Navy card with the headline number and degrees */
+        .cs-credentials {
+            padding: (36/16rem) (28/16rem);
+            border-radius: (16/16rem);
+            color: #fff;
+            background-color: var(--navy);
+            background-image: radial-gradient(ellipse 90% 70% at 100% 0%, rgba(56, 189, 248, 0.28), transparent 70%);
         }
 
         .cs-stat {
             display: block;
-            margin-bottom: (8/16rem);
-            font-size: (26/16rem);
+            font-family: var(--headerFont);
+            /* 56px - 72px */
+            font-size: clamp(3.5rem, 7vw, 4.5rem);
             font-weight: 700;
+            line-height: 1;
+            color: var(--primaryLight);
+        }
+
+        .cs-stat-label {
+            display: block;
+            max-width: (260/16rem);
+            margin-top: (10/16rem);
+            line-height: 1.5em;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* Separates the degrees from the years of experience above */
+        .cs-cred-label {
+            margin: (32/16rem) 0 (12/16rem);
+            font-family: var(--bodyFont);
+            font-size: (13/16rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondaryLight);
+        }
+
+        .cs-degrees {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+
+            li {
+                padding: (16/16rem) 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+                &:last-child {
+                    padding-bottom: 0;
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .cs-degree {
+            display: block;
+            font-weight: 700;
+            line-height: 1.4em;
+            color: #fff;
+        }
+
+        .cs-school {
+            display: block;
+            margin-top: (2/16rem);
+            font-size: (14/16rem);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* White card listing the kinds of work */
+        .cs-built {
+            padding: (32/16rem) (28/16rem);
+            border-radius: (16/16rem);
+            background-color: #fff;
+        }
+
+        .cs-built-title {
+            margin: 0 0 (24/16rem);
+            font-family: var(--bodyFont);
+            font-size: (13/16rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--secondary);
+        }
+
+        .cs-built-group {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (24/16rem);
+        }
+
+        .cs-built-item {
+            display: grid;
+            grid-template-columns: (44/16rem) 1fr;
+            column-gap: (16/16rem);
+            align-items: start;
+        }
+
+        .cs-icon {
+            grid-row: span 2;
+            width: (44/16rem);
+            height: (44/16rem);
+            border-radius: (10/16rem);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             color: var(--primary);
+            background-color: rgba(2, 119, 182, 0.1);
+
+            svg {
+                width: (22/16rem);
+                height: (22/16rem);
+            }
+        }
+
+        .cs-h4 {
+            margin: (2/16rem) 0 (6/16rem);
+            font-size: (17/16rem);
+            font-weight: 700;
+            line-height: 1.35em;
+            color: var(--headerColor);
         }
 
         .cs-item-text {
-            line-height: 1.5em;
             margin: 0;
+            font-size: (15/16rem);
+            line-height: 1.55em;
             color: var(--bodyTextColor);
-
-            /* e.g. two degrees in the Education card */
-            & + .cs-item-text {
-                margin-top: (8/16rem);
-            }
         }
     }
 }
 
+/* Tablet - 768px: the four items in two columns */
 @media only screen and (min-width: 48rem) {
-    #background .cs-card-group {
+    #background .cs-built-group {
         grid-template-columns: repeat(2, 1fr);
+        gap: (28/16rem) (32/16rem);
     }
 }
 
+/* Desktop - 1024px: credentials beside the list */
 @media only screen and (min-width: 64rem) {
-    #background .cs-card-group {
-        grid-template-columns: repeat(4, 1fr);
+    #background {
+        .cs-layout {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+        }
+
+        .cs-credentials,
+        .cs-built {
+            padding: (40/16rem) (36/16rem);
+        }
     }
 }
 
@@ -239,12 +356,22 @@
         #background {
             background-color: var(--medium);
 
-            .cs-item {
+            .cs-credentials {
+                background-color: var(--dark);
+                border: 1px solid var(--accent);
+            }
+
+            .cs-built {
                 background-color: var(--dark);
             }
 
-            .cs-stat {
+            .cs-built-title {
+                color: var(--secondaryLight);
+            }
+
+            .cs-icon {
                 color: var(--primaryLight);
+                background-color: rgba(56, 189, 248, 0.12);
             }
         }
 
@@ -262,6 +389,7 @@
             .cs-subtitle,
             .cs-title,
             .cs-h3,
+            .cs-h4,
             .cs-name {
                 color: var(--bodyTextColorWhite);
             }

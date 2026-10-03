@@ -38,14 +38,14 @@ eleventyComputed:
             <div class="cs-content">
                 <span class="cs-topper">Data &middot; AI &middot; Automation &middot; Software</span>
                 <h1 class="cs-title">
-                    Smarter decisions and less busywork for {{ client.address.city }} businesses
+                    Smarter Decisions, Less Busywork
                 </h1>
                 <p class="cs-text">
                     We help businesses turn their data into clear answers, put AI to work where it actually helps, and automate the repetitive tasks that eat up your team's week.
                 </p>
                 <div class="cs-button-group">
-                    <a href="{{ client.bookingLink or '/contact/' }}" class="cs-button-solid" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Book a free consultation</a>
-                    <a href="/services/" class="cs-button-ghost">See our services</a>
+                    <a href="{{ client.bookingLink or '/contact/' }}" class="cs-button-solid" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Book a Free Consultation</a>
+                    <a href="/services/" class="cs-button-ghost">See Our Services</a>
                 </div>
                 <ul class="cs-trust">
                     <li>{% include "icons/check.svg" %} Locally owned</li>
@@ -116,8 +116,6 @@ eleventyComputed:
         <div class="cs-background" aria-hidden="true"></div>
     </section>
 
-    {% include "sections/services-grid.html" %}
-
     <!-- ============================================ -->
     <!--                  About Me                    -->
     <!-- ============================================ -->
@@ -136,7 +134,7 @@ eleventyComputed:
                     I'm a {{ client.address.city }} native, now living in Cooper-Young, and I've spent my career building data pipelines, machine learning models and software for companies of every size - from small businesses stretched thin by their own growth to large corporations running data at massive scale.
                 </p>
                 <p class="cs-text">
-                    I started {{ client.name }} to bring those same tools to local businesses: clearly scoped, explained in plain English, and built to last. When you work with us, you work with me directly.
+                    I started {{ client.name }} to bring those same tools to local businesses: clearly scoped, explained in plain English, and built to last.
                 </p>
                 <ul class="cs-creds">
                     <li>M.S. Artificial Intelligence, Johns Hopkins</li>
@@ -144,12 +142,14 @@ eleventyComputed:
                     <li>7+ years in data science &amp; ML</li>
                 </ul>
                 <div class="cs-button-row">
-                    <a href="/about/" class="cs-button-solid">More about me</a>
+                    <a href="/about/" class="cs-button-solid">More About Me</a>
                     <a href="{{ client.bookingLink or '/contact/' }}" class="cs-arrow-link" {% if client.bookingLink %}target="_blank" rel="noopener"{% endif %}>Let's talk {% include "icons/arrow.svg" %}</a>
                 </div>
             </div>
         </div>
     </section>
+
+    {% include "sections/services-grid.html" %}
 
     <!-- ============================================ -->
     <!--                Featured Work                 -->
@@ -169,7 +169,7 @@ eleventyComputed:
                     {% include "components/work-card.html" %}
                 {%- endfor %}
             </ul>
-            <a href="/demos/" class="cs-button-solid">View all demos</a>
+            <a href="/demos/" class="cs-button-solid">View All Demos</a>
         </div>
     </section>
     {% endif %}
