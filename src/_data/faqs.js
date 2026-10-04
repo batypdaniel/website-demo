@@ -7,7 +7,7 @@ module.exports = [
     },
     {
         q: "My business is small. Is this worth it for us?",
-        a: "Often, yes.  Small teams are often the most stretched thin and the most likely to benefit from automating repetitive tasks.  We focus on value-driven solutions, and we define the scope of work, pricing, and expected value before you commit to working with us.  Even if you're just curious, we would be happy to talk through your options during an introductory consultation call.",
+        a: "It definitely can be!  Small teams are usually the most stretched thin and the most likely to benefit from automating repetitive tasks.  We focus on value-driven solutions, and we define the scope of work, pricing, and expected value before you commit to working with us.  Even if you're just curious, we would be happy to talk through your options during an introductory consultation call.",
     },
     {
         q: "How do you price projects?",

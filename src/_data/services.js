@@ -43,7 +43,7 @@ module.exports = [
         examples: [
             "A retail shop sees daily sales, margin and inventory by location in a single dashboard",
             "A service company tracks job profitability by technician and job type",
-            "A clinic monitors appointment no-show rates and revenue per provider",
+            "A property manager tracks occupancy, rent collection and maintenance costs by property",
         ],
         tools: ["Power BI", "Tableau", "Streamlit", "Excel", "SQL", "Python"],
     },

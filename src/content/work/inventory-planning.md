@@ -56,6 +56,6 @@ Each tab of the application displays the following:
 
 In the end, this application would keep store managers ahead of inventory issues, prevent waste and over-ordering, and prepare for surges in demand, all without needing to manually count their inventory more frequently.
 
-In an actual client use case, if applicable, this app could be connected to real point of sales and supplier platforms to place purchase orders directly or update all necessary data automatically.  The application also leaves open the ability to provide adjustments for unrecorded inventory changes or add/discontinue specific items.
+In an actual client use case, if applicable, this app could be connected to real point of sales and supplier platforms to place purchase orders directly or update data and forecasts automatically.  The application also leaves open the ability to provide adjustments for unrecorded inventory changes or add/discontinue specific items.
 
 This application brings together disparate pieces of information from multiple sources into one location, giving a store owner/manager full control and knowledge of their business's inventory from one place.
