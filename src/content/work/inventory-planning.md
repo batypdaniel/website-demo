@@ -12,6 +12,7 @@ relatedServices:
 stack:
     - Python
     - FastAPI
+    - SQL
     - scikit-learn
     - React
     - TypeScript
