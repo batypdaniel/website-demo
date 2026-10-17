@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="/assets/css/work.css">
     <script defer src="/assets/js/demo-embed.js"></script>
     {% if interactiveDemo == "rag" %}<script defer src="/assets/js/rag-demo.js"></script>{% endif %}
+    {% if interactiveDemo == "invoice" %}<script defer src="/assets/js/invoice-demo.js"></script>{% endif %}
 {% endblock %}
 
 {% block body %}
@@ -31,6 +32,8 @@
             {% endif %}
             {% if interactiveDemo == "rag" %}
                 {% include "components/rag-demo.html" %}
+            {% elif interactiveDemo == "invoice" %}
+                {% include "components/invoice-demo.html" %}
             {% elif demoUrl and demoEmbed and demoAutoload %}
             {#- demoAutoload: true - the app is live as soon as the page loads, with no launch button #}
             <div class="cs-demo cs-demo-loaded">

@@ -1,0 +1,151 @@
+<!-- ============================================ -->
+<!--     Interactive Invoice Extraction (replay)  -->
+<!-- ============================================ -->
+
+<!--
+    Replays pre-recorded outputs from the invoice extraction pipeline - no API calls, no token spend.
+    All content comes from src/_data/invoiceDemo.json; each invoice page is an image (the PDF converted
+    to PNG/JPG) in src/assets/images/invoice-demo/. Field and line-item boxes are fractions of the page
+    image ([x, y, width, height], 0-1), so they line up at any size.
+    To update it, re-export that file from the Python pipeline (same structure) and set "sample": false.
+    Interaction lives in src/assets/js/invoice-demo.js; styles in work.less.
+-->
+{%- set inv = invoiceDemo %}
+<section id="invoice-demo" aria-labelledby="invoice-demo-title">
+    <div class="cs-inv-header">
+        <div>
+            <span class="cs-topper">Interactive Demo</span>
+            <h2 class="cs-inv-title" id="invoice-demo-title">Try It on {{ inv.business }}'s Invoices</h2>
+            <p class="cs-inv-sub">{{ inv.businessNote }}. Pick an invoice to watch the fields and line items get pulled out with a confidence score for each, then click any value to see where it came from on the page.</p>
+        </div>
+        {% if not inv.sample %}
+            <span class="cs-inv-badge">Recorded Outputs</span>
+        {% endif %}
+    </div>
+
+    <div class="cs-inv-picks" role="group" aria-label="Choose an invoice">
+        {%- for doc in inv.invoices %}
+        <button type="button" class="cs-inv-pick" data-inv="{{ doc.id }}" aria-pressed="false">
+            {{ doc.label }}{% if doc.note %}<span class="cs-inv-pick-note">{{ doc.note }}</span>{% endif %}
+        </button>
+        {%- endfor %}
+    </div>
+
+    <div class="cs-inv-grid">
+        <!-- Pipeline output -->
+        {#- Every row is on the page from the start and only its values fill in, so the panel never changes
+            height (on phones, growing rows would push the invoice image down the page). Long values are
+            cut off with "…" rather than wrapping, for the same reason. #}
+        {%- set lineCounts = [] %}
+        {%- for doc in inv.invoices %}{% set _ = lineCounts.push(doc.line_items.length) %}{% endfor %}
+        {%- set maxLines = lineCounts | sort | last %}
+        <div class="cs-inv-pipeline">
+            <ol class="cs-inv-steps">
+                <li class="cs-inv-step" data-step="read">
+                    <span class="cs-inv-step-label">1 · Read</span>
+                    <p class="cs-inv-read-name">No invoice selected</p>
+                    <p class="cs-inv-read-detail">Pick one above to start</p>
+                </li>
+                <li class="cs-inv-step" data-step="extract">
+                    <span class="cs-inv-step-label">2 · Extract <span class="cs-inv-step-note">confidence below {{ inv.config.review_threshold }} goes to review</span></span>
+                    <ul class="cs-inv-fields">
+                        {%- for f in inv.fields %}
+                        <li class="cs-inv-field" data-field="{{ f.key }}">
+                            <button type="button" class="cs-inv-field-btn" disabled>
+                                <span class="cs-inv-field-label">{{ f.label }}</span>
+                                <span class="cs-inv-field-value"></span>
+                                <span class="cs-inv-bar"><span class="cs-inv-bar-fill"></span></span>
+                                <span class="cs-inv-field-score"></span>
+                            </button>
+                        </li>
+                        {%- endfor %}
+                    </ul>
+                    <span class="cs-inv-sublabel">Line items</span>
+                    <div class="cs-inv-table-wrap">
+                        <table class="cs-inv-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Description</th>
+                                    <th scope="col" class="cs-num">Qty</th>
+                                    <th scope="col" class="cs-num cs-inv-col-unit">Unit price</th>
+                                    <th scope="col" class="cs-num">Amount</th>
+                                    <th scope="col" class="cs-num">Conf.</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%- for i in range(0, maxLines) %}
+                                <tr class="cs-inv-line">
+                                    <td class="cs-inv-line-desc"><button type="button" class="cs-inv-line-btn" disabled></button></td>
+                                    <td class="cs-num"></td>
+                                    <td class="cs-num cs-inv-col-unit"></td>
+                                    <td class="cs-num"></td>
+                                    <td class="cs-num cs-inv-line-score"></td>
+                                </tr>
+                                {%- endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </li>
+                <li class="cs-inv-step" data-step="check">
+                    <span class="cs-inv-step-label">3 · Check</span>
+                    <ul class="cs-inv-checks">
+                        {%- for c in [
+                            ["required", "Required fields found"],
+                            ["lines-sum", "Line items add up to the subtotal"],
+                            ["line-math", "Quantity × unit price = amount"],
+                            ["total-math", "Subtotal + tax + shipping = total"],
+                            ["confidence", "Every value at or above " + inv.config.review_threshold + " confidence"]
+                        ] %}
+                        <li class="cs-inv-check" data-check="{{ c[0] }}">
+                            <span class="cs-inv-check-icon" aria-hidden="true"></span>
+                            <span class="cs-inv-check-label">{{ c[1] }}</span>
+                            <span class="cs-inv-check-detail"></span>
+                        </li>
+                        {%- endfor %}
+                    </ul>
+                    <p class="cs-inv-result" aria-live="polite">The outcome appears here once the checks run.</p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- The invoice itself, with extracted values boxed in place -->
+        <div class="cs-inv-viewer">
+            <div class="cs-inv-viewer-head">
+                <span class="cs-inv-viewer-label">Invoice<span class="cs-inv-viewer-name" hidden></span></span>
+                {%- for doc in inv.invoices %}{% if doc.pdf %}
+                <a class="cs-inv-pdf" href="{{ doc.pdf }}" target="_blank" rel="noopener" data-inv="{{ doc.id }}" hidden>Original PDF</a>
+                {%- endif %}{% endfor %}
+            </div>
+            <div class="cs-inv-scroll" tabindex="0" aria-label="Invoice page image">
+                <!-- Nothing is shown until an invoice is picked -->
+                {#- Same shape as an invoice page, so the panel doesn't resize when one is picked #}
+                {%- set firstPage = inv.invoices[0].pages[0] %}
+                <p class="cs-inv-viewer-empty" style="aspect-ratio: {{ firstPage.width }} / {{ firstPage.height }}">The invoice you pick will appear here.</p>
+                {%- for doc in inv.invoices %}
+                <div class="cs-inv-doc" data-inv="{{ doc.id }}" hidden>
+                    {%- for p in doc.pages %}
+                    <div class="cs-inv-page" data-page="{{ loop.index }}">
+                        {#- Boxes go in their own layer above the image, so adding one doesn't repaint (and flicker) the page image #}
+                        <img src="{{ p.image }}" alt="Page {{ loop.index }} of the {{ doc.label }} invoice" width="{{ p.width }}" height="{{ p.height }}" loading="lazy">
+                        <div class="cs-inv-boxes"></div>
+                    </div>
+                    {%- endfor %}
+                </div>
+                {%- endfor %}
+            </div>
+        </div>
+    </div>
+
+    <details class="cs-inv-config">
+        <summary>Technical details</summary>
+        <ul>
+            <li><strong>Text recognition:</strong> {{ inv.config.ocr }}</li>
+            <li><strong>Language model:</strong> {{ inv.config.llm }}</li>
+            <li><strong>Fields extracted:</strong> {% for f in inv.fields %}{{ f.label }}{% if not loop.last %}, {% endif %}{% endfor %}, plus every line item</li>
+            <li><strong>Review threshold:</strong> {{ inv.config.review_threshold }} - any value below it, a missing required field or a failed check sends the invoice to a person instead of straight into the books</li>
+            <li><strong>Checks:</strong> line items add up to the subtotal, quantity × unit price = amount on every line, and subtotal + tax + shipping = total</li>
+        </ul>
+    </details>
+
+    <script type="application/json" id="invoice-data">{{ inv | dump | safe }}</script>
+</section>

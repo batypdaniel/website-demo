@@ -24,7 +24,6 @@ demoAutoload: true # show the app as soon as the page loads, instead of a "Launc
 repoUrl: ""
 ---
 
-<!-- TODO: replace the placeholder text below with your write-up. -->
 
 ## The Problem
 

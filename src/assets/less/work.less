@@ -1124,3 +1124,869 @@
         }
     }
 }
+
+/*-- -------------------------- -->
+<---  Interactive Invoice Demo   -->
+<--- -------------------------- -*/
+
+/* Mobile - 360px */
+@media only screen and (min-width: 0rem) {
+    #invoice-demo {
+        padding: clamp(1.25rem, 3vw, 2rem);
+        border: 1px solid var(--border);
+        border-radius: (16/16rem);
+        background-color: var(--surface);
+
+        // invoice-demo.js toggles the `hidden` attribute; keep it from being overridden by display rules like flex
+        [hidden] {
+            display: none !important;
+        }
+
+        .cs-inv-header {
+            display: flex;
+            flex-direction: column;
+            gap: (12/16rem);
+            margin-bottom: (20/16rem);
+        }
+
+        .cs-inv-title {
+            font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+            line-height: 1.2em;
+            margin: 0 0 (6/16rem);
+            color: var(--headerColor);
+        }
+
+        .cs-inv-sub {
+            margin: 0;
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-inv-badge {
+            align-self: flex-start;
+            flex: none;
+            padding: (6/16rem) (12/16rem);
+            font-size: (12/16rem);
+            font-weight: 700;
+            white-space: nowrap;
+            border-radius: (20/16rem);
+            color: var(--primary);
+            background-color: rgba(2, 119, 182, 0.1);
+        }
+
+        /* Invoice chips */
+        .cs-inv-picks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: (10/16rem);
+            margin-bottom: (20/16rem);
+        }
+
+        .cs-inv-pick {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: (2/16rem);
+            padding: (8/16rem) (16/16rem);
+            font-family: inherit;
+            font-size: (15/16rem);
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            color: var(--headerColor);
+            background-color: #fff;
+            border: 1px solid #cbd5e1;
+            border-radius: (12/16rem);
+            transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+            &:hover {
+                border-color: var(--primary);
+            }
+
+            &[aria-pressed="true"] {
+                color: #fff;
+                background-color: var(--primary);
+                border-color: var(--primary);
+
+                .cs-inv-pick-note {
+                    color: rgba(255, 255, 255, 0.85);
+                }
+            }
+        }
+
+        .cs-inv-pick-note {
+            font-size: (12/16rem);
+            font-weight: 400;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-inv-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: (16/16rem);
+        }
+
+        /* Pipeline panel */
+        .cs-inv-pipeline {
+            min-width: 0;
+            padding: (20/16rem);
+            border-radius: (12/16rem);
+            background-color: #fff;
+        }
+
+        .cs-inv-steps {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (20/16rem);
+        }
+
+        .cs-inv-step {
+            min-width: 0;
+            padding-left: (16/16rem);
+            border-left: 3px solid var(--border);
+
+            &.is-done {
+                border-color: var(--primary);
+            }
+        }
+
+        .cs-inv-step-label,
+        .cs-inv-sublabel {
+            display: block;
+            margin-bottom: (8/16rem);
+            font-size: (12/16rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--headerColor);
+        }
+
+        .cs-inv-sublabel {
+            margin-top: (16/16rem);
+        }
+
+        .cs-inv-step-note {
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            color: var(--bodyTextColor);
+        }
+
+        // Rows keep one line each (cut off with "…") so the panel never changes height
+        .cs-inv-read-name,
+        .cs-inv-read-detail {
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .cs-inv-read-name {
+            font-size: (16/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-inv-read-detail {
+            font-size: (14/16rem);
+            color: var(--bodyTextColor);
+
+            &.is-busy {
+                font-style: italic;
+
+                &:before {
+                    content: "";
+                    display: inline-block;
+                    width: (10/16rem);
+                    height: (10/16rem);
+                    margin-right: (8/16rem);
+                    border-radius: 50%;
+                    background-color: var(--primary);
+                    animation: rag-pulse 0.9s ease-in-out infinite;
+                }
+            }
+        }
+
+        // Placeholder bar for a value that hasn't been filled in yet; it pulses while that step runs
+        .cs-inv-field-value:empty:before,
+        .cs-inv-line-btn:empty:before,
+        .cs-inv-line td.cs-num:empty:before {
+            content: "";
+            display: inline-block;
+            width: 60%;
+            max-width: (160/16rem);
+            height: 0.7em;
+            vertical-align: middle;
+            border-radius: (4/16rem);
+            background-color: var(--border);
+        }
+
+        .cs-inv-line td.cs-num:empty:before {
+            width: (28/16rem);
+        }
+
+        .is-busy {
+            .cs-inv-field-value:empty:before,
+            .cs-inv-line-btn:empty:before,
+            .cs-inv-line td.cs-num:empty:before,
+            .cs-inv-check-icon:empty {
+                animation: rag-pulse 0.9s ease-in-out infinite;
+            }
+        }
+
+        // Line rows this invoice doesn't use stay blank but keep their height
+        .cs-inv-line.is-unused {
+            .cs-inv-line-btn:empty:before,
+            td.cs-num:empty:before {
+                content: "\00a0";
+                width: auto;
+                background: none;
+                animation: none;
+            }
+        }
+
+        /* Extracted fields */
+        .cs-inv-fields {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (6/16rem);
+        }
+
+        .cs-inv-field-btn {
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            grid-template-areas:
+                "label score"
+                "value value"
+                "bar bar";
+            align-items: center;
+            gap: (4/16rem) (12/16rem);
+            padding: (8/16rem) (12/16rem);
+            font-family: inherit;
+            font-size: inherit;
+            text-align: left;
+            color: inherit;
+            background-color: var(--surface);
+            border: 1px solid transparent;
+            border-radius: (8/16rem);
+        }
+
+        button.cs-inv-field-btn:not(:disabled) {
+            cursor: pointer;
+
+            &:hover,
+            &[aria-current="true"] {
+                border-color: var(--primary);
+            }
+        }
+
+        .cs-inv-field-label {
+            grid-area: label;
+            font-size: (12/16rem);
+            font-weight: 700;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-inv-field-value {
+            grid-area: value;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: (15/16rem);
+            // Fixed line height: a placeholder bar and real text take exactly the same space
+            line-height: (22/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        .cs-inv-field.is-missing .cs-inv-field-value {
+            font-weight: 400;
+            font-style: italic;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-inv-bar {
+            grid-area: bar;
+            height: (5/16rem);
+            border-radius: (3/16rem);
+            background-color: var(--border);
+            overflow: hidden;
+        }
+
+        .cs-inv-bar-fill {
+            display: block;
+            width: 0; // set from the confidence once the value is filled in
+            height: 100%;
+            border-radius: inherit;
+            background-color: var(--primary);
+        }
+
+        .cs-inv-field-score,
+        .cs-inv-line-score {
+            grid-area: score;
+            min-width: (36/16rem);
+            text-align: right;
+
+            // Same height empty or filled
+            &:empty:before {
+                content: "\00a0";
+            }
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: (13/16rem);
+            font-weight: 700;
+            color: var(--headerColor);
+        }
+
+        // Below the review threshold (or a missing required field)
+        .cs-inv-field.is-weak {
+            .cs-inv-field-btn {
+                background-color: #fffbeb;
+            }
+
+            .cs-inv-bar-fill {
+                background-color: #f59e0b;
+            }
+
+            .cs-inv-field-score {
+                color: #b45309;
+            }
+        }
+
+        /* Line items */
+        .cs-inv-table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: (8/16rem);
+        }
+
+        .cs-inv-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: (14/16rem);
+            color: var(--headerColor);
+
+            th,
+            td {
+                padding: (8/16rem) (6/16rem);
+                // Fixed line height: placeholder rows and filled rows are the same height
+                line-height: (20/16rem);
+                text-align: left;
+                vertical-align: top;
+                border-bottom: 1px solid var(--border);
+
+                &:first-child {
+                    padding-left: (10/16rem);
+                }
+
+                &:last-child {
+                    padding-right: (10/16rem);
+                }
+            }
+
+            th {
+                font-size: (12/16rem);
+                font-weight: 700;
+                white-space: nowrap;
+                color: var(--bodyTextColor);
+                background-color: var(--surface);
+            }
+
+            tbody tr:last-child td {
+                border-bottom: none;
+            }
+
+            .cs-num {
+                text-align: right;
+                white-space: nowrap;
+                font-variant-numeric: tabular-nums;
+            }
+
+            tr.is-weak td {
+                background-color: #fffbeb;
+            }
+
+            tr.is-weak .cs-inv-line-score {
+                color: #b45309;
+            }
+
+            // Phones: drop unit price so amount and confidence fit without sideways scrolling
+            .cs-inv-col-unit {
+                display: none;
+            }
+        }
+
+        // Description takes the leftover width and is cut off with "…" instead of wrapping
+        .cs-inv-line-desc {
+            width: 100%;
+            max-width: 0;
+        }
+
+        .cs-inv-line-btn {
+            display: block;
+            width: 100%;
+            padding: 0;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: inherit;
+            background: none;
+            border: none;
+
+            &:not(:disabled) {
+                cursor: pointer;
+                text-decoration: underline dotted rgba(2, 119, 182, 0.6);
+                text-underline-offset: (3/16rem);
+
+                &:hover,
+                &[aria-current="true"] {
+                    color: var(--primary);
+                    text-decoration-style: solid;
+                }
+            }
+        }
+
+        /* Checks */
+        .cs-inv-checks {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: (6/16rem);
+        }
+
+        .cs-inv-check {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            align-items: baseline;
+            gap: (2/16rem) (10/16rem);
+            font-size: (14/16rem);
+            color: var(--headerColor);
+        }
+
+        .cs-inv-check-icon {
+            grid-row: span 2;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: (20/16rem);
+            height: (20/16rem);
+            font-size: (12/16rem);
+            font-weight: 700;
+            border-radius: 50%;
+            color: #fff;
+            // Not run yet
+            background-color: var(--border);
+
+            // An empty icon has no text baseline, which would make the row taller until the check runs
+            &:empty:before {
+                content: "\00a0";
+            }
+        }
+
+        .cs-inv-check-detail {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: (12/16rem);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: var(--bodyTextColor);
+
+            // Holds the line before the check has run
+            &:empty:before {
+                content: "\00a0";
+            }
+        }
+
+        .cs-inv-check.is-pass .cs-inv-check-icon {
+            background-color: #15803d;
+        }
+
+        .cs-inv-check.is-skip .cs-inv-check-icon {
+            background-color: #94a3b8;
+        }
+
+        .cs-inv-check.is-fail {
+            .cs-inv-check-icon {
+                background-color: #d97706;
+            }
+
+            .cs-inv-check-detail {
+                color: #b45309;
+            }
+        }
+
+        // Room for two lines whatever the message, so the panel height stays put
+        .cs-inv-result {
+            display: flex;
+            align-items: center;
+            min-height: calc(3em + 1.5rem);
+            margin: (14/16rem) 0 0;
+            padding: (12/16rem) (14/16rem);
+            font-size: (15/16rem);
+            line-height: 1.5em;
+            border-radius: (8/16rem);
+            border-left: 4px solid var(--border);
+            color: var(--bodyTextColor);
+            background-color: var(--surface);
+
+            &.is-ready {
+                color: var(--headerColor);
+                background-color: #f0fdf4;
+                border-left-color: #15803d;
+            }
+
+            &.is-review {
+                color: var(--headerColor);
+                background-color: #fffbeb;
+                border-left-color: #d97706;
+            }
+        }
+
+        /* Invoice viewer - above the fields while the panels are stacked, so the boxes are in view as values fill in */
+        .cs-inv-viewer {
+            order: -1;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding: (20/16rem);
+            border-radius: (12/16rem);
+            background-color: #fff;
+        }
+
+        .cs-inv-viewer-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: (12/16rem);
+            margin-bottom: (12/16rem);
+        }
+
+        .cs-inv-viewer-label {
+            font-size: (12/16rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-inv-pdf {
+            font-size: (13/16rem);
+            font-weight: 700;
+            white-space: nowrap;
+            color: var(--primary);
+        }
+
+        .cs-inv-scroll {
+            flex: 1;
+            min-height: 0;
+            max-height: clamp(20rem, 65vh, 32rem);
+            overflow-y: auto;
+            // Always reserve the scrollbar's width. Otherwise, when the page image is close to the panel height,
+            // the scrollbar appearing narrows the image so it fits, the scrollbar goes away, the image widens
+            // and overflows again - a loop that makes the invoice visibly pulse.
+            scrollbar-gutter: stable;
+            border: 1px solid var(--border);
+            border-radius: (8/16rem);
+            background-color: #e2e8f0;
+
+            &:focus-visible {
+                outline: 2px solid var(--primary);
+                outline-offset: 2px;
+            }
+        }
+
+        .cs-inv-doc {
+            display: flex;
+            flex-direction: column;
+            gap: (8/16rem);
+        }
+
+        .cs-inv-viewer-empty {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // Page-shaped (aspect-ratio is set inline from the page size), capped like the image area
+            max-height: inherit;
+            margin: 0;
+            padding: (20/16rem);
+            text-align: center;
+            line-height: 1.5em;
+            color: var(--bodyTextColor);
+        }
+
+        .cs-inv-page {
+            position: relative;
+
+            // Own compositing layer: drawing boxes over the page never re-rasterizes the image
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                transform: translateZ(0);
+            }
+        }
+
+        .cs-inv-boxes {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            will-change: transform;
+        }
+
+        // An extracted value boxed on the page
+        .cs-inv-box {
+            position: absolute;
+            border: 2px solid rgba(2, 119, 182, 0.7);
+            border-radius: (3/16rem);
+            background-color: rgba(2, 119, 182, 0.08);
+            pointer-events: none;
+            transition: background-color 0.3s, border-color 0.3s;
+
+            &.is-weak {
+                border-style: dashed;
+                border-color: #d97706;
+                background-color: rgba(245, 158, 11, 0.12);
+            }
+
+            &.is-active {
+                z-index: 1;
+                border-style: solid;
+                border-color: #ca8a04;
+                background-color: rgba(250, 204, 21, 0.3);
+
+                .cs-inv-box-tag {
+                    display: block;
+                }
+            }
+
+            &.is-flash {
+                animation: rag-flash 1.2s ease-out;
+            }
+        }
+
+        .cs-inv-box-tag {
+            display: none;
+            position: absolute;
+            bottom: 100%;
+            left: (-2/16rem);
+            margin-bottom: (3/16rem);
+            padding: 0 (6/16rem);
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: (11/16rem);
+            font-weight: 700;
+            line-height: (18/16rem);
+            white-space: nowrap;
+            border-radius: (4/16rem);
+            color: #fff;
+            background-color: var(--headerColor);
+        }
+
+        /* Technical details */
+        .cs-inv-config {
+            margin-top: (16/16rem);
+            font-size: (14/16rem);
+            color: var(--bodyTextColor);
+
+            summary {
+                cursor: pointer;
+                font-weight: 700;
+                color: var(--headerColor);
+            }
+
+            ul {
+                margin: (12/16rem) 0 0;
+                padding-left: (20/16rem);
+                line-height: 1.6em;
+            }
+        }
+    }
+}
+
+/* Tablet - 640px */
+@media only screen and (min-width: 40rem) {
+    #invoice-demo .cs-inv-table .cs-inv-col-unit {
+        display: table-cell;
+    }
+}
+
+/* Desktop - 1024px: side by side, the invoice stays in view while the fields scroll past */
+@media only screen and (min-width: 64rem) {
+    #invoice-demo {
+        .cs-inv-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .cs-inv-grid {
+            grid-template-columns: 1fr 1fr;
+            align-items: start;
+        }
+
+        .cs-inv-viewer {
+            order: 0;
+            position: sticky;
+            top: (96/16rem);
+        }
+
+        .cs-inv-scroll {
+            max-height: min(44rem, calc(100vh - 12rem));
+        }
+
+        // Label, value, bar and score on one line
+        .cs-inv-field-btn {
+            grid-template-columns: (130/16rem) minmax(0, 1fr) (56/16rem) (36/16rem);
+            grid-template-areas: "label value bar score";
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #invoice-demo {
+        .cs-inv-read-detail.is-busy:before,
+        .is-busy .cs-inv-field-value:empty:before,
+        .is-busy .cs-inv-line-btn:empty:before,
+        .is-busy .cs-inv-line td.cs-num:empty:before,
+        .is-busy .cs-inv-check-icon:empty,
+        .cs-inv-box.is-flash {
+            animation: none;
+        }
+    }
+}
+
+/* Dark Mode */
+@media only screen and (min-width: 0rem) {
+    body.dark-mode #invoice-demo {
+        background-color: var(--medium);
+        border-color: var(--accent);
+
+        .cs-inv-pipeline,
+        .cs-inv-viewer {
+            background-color: var(--dark);
+        }
+
+        .cs-inv-title,
+        .cs-inv-step-label,
+        .cs-inv-sublabel,
+        .cs-inv-read-name,
+        .cs-inv-field-value,
+        .cs-inv-field-score,
+        .cs-inv-line-score,
+        .cs-inv-table,
+        .cs-inv-check,
+        .cs-inv-result.is-ready,
+        .cs-inv-result.is-review,
+        .cs-inv-config summary {
+            color: var(--bodyTextColorWhite);
+        }
+
+        .cs-inv-sub,
+        .cs-inv-step-note,
+        .cs-inv-read-detail,
+        .cs-inv-field-label,
+        .cs-inv-field.is-missing .cs-inv-field-value,
+        .cs-inv-check-detail,
+        .cs-inv-viewer-label,
+        .cs-inv-config,
+        .cs-inv-result,
+        .cs-inv-viewer-empty,
+        .cs-inv-pick-note,
+        .cs-inv-table th {
+            color: #cbd5e1;
+        }
+
+        .cs-inv-result {
+            background-color: var(--medium);
+            border-left-color: var(--accent);
+
+            &.is-ready {
+                border-left-color: #15803d;
+            }
+
+            &.is-review {
+                border-left-color: #d97706;
+            }
+        }
+
+        .cs-inv-field-value:empty:before,
+        .cs-inv-line-btn:empty:before,
+        .cs-inv-line td.cs-num:empty:before,
+        .cs-inv-check-icon {
+            background-color: var(--accent);
+        }
+
+        .cs-inv-line.is-unused {
+            .cs-inv-line-btn:empty:before,
+            td.cs-num:empty:before {
+                background: none;
+            }
+        }
+
+        .cs-inv-pick {
+            color: var(--bodyTextColorWhite);
+            background-color: var(--dark);
+            border-color: var(--accent);
+
+            &[aria-pressed="true"] {
+                background-color: var(--primary);
+                border-color: var(--primary);
+            }
+        }
+
+        .cs-inv-field-btn,
+        .cs-inv-table th {
+            background-color: var(--medium);
+        }
+
+        .cs-inv-bar {
+            background-color: var(--accent);
+        }
+
+        .cs-inv-table-wrap,
+        .cs-inv-table th,
+        .cs-inv-table td,
+        .cs-inv-scroll {
+            border-color: var(--accent);
+        }
+
+        .cs-inv-scroll {
+            background-color: var(--medium);
+        }
+
+        .cs-inv-field.is-weak .cs-inv-field-btn,
+        .cs-inv-table tr.is-weak td,
+        .cs-inv-result.is-review {
+            background-color: rgba(245, 158, 11, 0.12);
+        }
+
+        .cs-inv-field.is-weak .cs-inv-field-score,
+        .cs-inv-table tr.is-weak .cs-inv-line-score,
+        .cs-inv-check.is-fail .cs-inv-check-detail {
+            color: #fbbf24;
+        }
+
+        .cs-inv-result.is-ready {
+            background-color: rgba(34, 197, 94, 0.12);
+        }
+
+        .cs-inv-line-btn:hover,
+        .cs-inv-line-btn[aria-current="true"],
+        .cs-inv-pdf,
+        .cs-inv-badge {
+            color: var(--primaryLight);
+        }
+    }
+}
